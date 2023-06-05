@@ -1,10 +1,7 @@
-import { useState } from "react";
-import reactLogo from "../assets/react.svg";
-import viteLogo from "/vite.svg";
-import "../App.css";
-import { TopCard } from "./TopCard/TopCard";
-import { BottomCard } from "./BottomCard/BottomCard";
-import { CardsDiv } from "./CardsDiv/CardsDiv.styled";
+// import { useState } from 'react';
+// import reactLogo from '../assets/react.svg';
+// import viteLogo from '/vite.svg';
+import { WeatherDay, WeatherWeek } from './entities/weather';
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -13,10 +10,8 @@ function App() {
     <>
       <h1>Name city, Country </h1>
       <p> Day time, Weather</p>
-      <CardsDiv>
-        <TopCard></TopCard>
-        <BottomCard></BottomCard>
-      </CardsDiv>
+      <WeatherDay />
+      <WeatherWeek />
 
       {/* <div>
         <a href="https://vitejs.dev" target="_blank">
