@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import './styles.scss';
-import { weatherApi } from '../../api/weather-api';
 import { useWeatherStore } from '../../hooks/weather-store';
+import { SeeMoreBtn } from '../../../../shared/components/UI/atoms';
 
 export const WeatherDay = () => {
   const weatherStore = useWeatherStore();
@@ -10,5 +10,9 @@ export const WeatherDay = () => {
     weatherStore.fetchWeather();
   }, []);
 
-  return <div className="weather-day">123</div>;
+  return (
+    <div className="weather-day">
+      <SeeMoreBtn />
+    </div>
+  );
 };

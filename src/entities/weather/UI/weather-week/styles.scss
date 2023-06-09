@@ -1,5 +1,36 @@
 .weather-week {
-  background-color: skyblue;
-  height: 250px;
+  background-color: #e6edf5;
   border-radius: 20px;
+  padding: 15px;
+}
+
+.weather-week-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+.weather-week-el-btn {
+  background-color: #e8eff7;
+}
+.weather-week-list {
+  margin-bottom: 15px;
+}
+
+.weather-week-humidity {
+  font-size: 14px;
+  position: absolute;
+  left: 162px;
+  color: #9ba1ab;
+}
+.weather-week-humidity-icon {
+  position: absolute;
+  left: 145px;
+  top: 12px;
+}
+.weather-week-icon {
+  position: absolute;
+  left: 110px;
+  top: 6px;
 }
