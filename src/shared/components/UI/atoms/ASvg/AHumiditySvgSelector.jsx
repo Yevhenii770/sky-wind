@@ -6,7 +6,7 @@ export const WeatherHumiditySvgSelector = ({ id }) => {
       return (
         <svg
           viewBox="0 0 1024 1024"
-          class="icon"
+          className="icon"
           xmlns="http://www.w3.org/2000/svg"
           width={16}
         >
@@ -30,6 +30,7 @@ export const WeatherHumiditySvgSelector = ({ id }) => {
       );
 
     default:
+      return <svg></svg>;
       break;
   }
 };

@@ -6,7 +6,7 @@ import {
 } from '../../../../shared/components/UI/atoms';
 
 export const WeatherWeek = () => {
-  //temp
+  //temp data
   const day = [
     {
       day: 'Today',
@@ -42,7 +42,7 @@ export const WeatherWeek = () => {
             <p>{el.day}</p>
 
             <div className="weather-week-icon">
-              <WeatherSvgSelector id="wheather" />
+              <WeatherSvgSelector id="wheather" size="24" />
             </div>
 
             <div className="weather-week-humidity-icon">

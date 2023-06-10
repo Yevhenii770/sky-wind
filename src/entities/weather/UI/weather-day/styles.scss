@@ -1,7 +1,17 @@
 .weather-day {
   background-color: #e6edf5;
-  height: 250px;
   border-radius: 20px;
   margin-bottom: 8px;
   padding: 15px;
+}
+
+.weather-day-card-container {
+  display: flex;
+  align-items: center;
+}
+.weather-day-temperature-now {
+  font-weight: 300;
+  font-size: 60px;
+}
+.weather-day-icon-now {
 }
