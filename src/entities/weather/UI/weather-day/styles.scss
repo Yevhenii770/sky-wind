@@ -18,8 +18,12 @@
 .weather-day-list {
   display: flex;
   margin-bottom: 25px;
-  overflow: scroll;
+  overflow-y: scroll;
   gap: 23px;
+}
+
+.weather-day-list::-webkit-scrollbar {
+  width: 0;
 }
 
 .weather-day-element-title {
