@@ -31,6 +31,5 @@ export const WeatherHumiditySvgSelector = ({ id }) => {
 
     default:
       return <svg></svg>;
-      break;
   }
 };

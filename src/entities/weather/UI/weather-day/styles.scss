@@ -8,10 +8,38 @@
 .weather-day-card-container {
   display: flex;
   align-items: center;
+  gap: 5px;
+  margin-bottom: 25px;
 }
 .weather-day-temperature-now {
   font-weight: 300;
   font-size: 60px;
 }
-.weather-day-icon-now {
+.weather-day-list {
+  display: flex;
+  margin-bottom: 25px;
+  overflow: scroll;
+  gap: 23px;
+}
+
+.weather-day-element-title {
+  color: #9ba1ab;
+}
+
+.weather-day-element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.temperature-now-options {
+  color: #9ba1ab;
+}
+.temperature-now-options-title {
+  font-size: 14px;
+}
+
+.day-temperature-options-list {
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
 }

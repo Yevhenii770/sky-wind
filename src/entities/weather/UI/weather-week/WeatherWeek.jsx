@@ -7,7 +7,7 @@ import {
 
 export const WeatherWeek = () => {
   //temp data
-  const day = [
+  const week = [
     {
       day: 'Today',
       id: 0,
@@ -37,7 +37,7 @@ export const WeatherWeek = () => {
   return (
     <div className="weather-week">
       <ul className="weather-week-list">
-        {day.map((el) => (
+        {week.map((el) => (
           <li key={el.id} className="weather-week-item">
             <p>{el.day}</p>
 

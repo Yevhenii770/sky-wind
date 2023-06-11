@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const WeatherSvgSelector = ({ id, size = 24 }) => {
+export const WeatherSvgSelector = ({ id = 'wheather', size = 24 }) => {
   switch (id) {
     case 'wheather':
       return (
@@ -33,6 +33,6 @@ export const WeatherSvgSelector = ({ id, size = 24 }) => {
         </svg>
       );
     default:
-      break;
+      return <svg></svg>;
   }
 };
