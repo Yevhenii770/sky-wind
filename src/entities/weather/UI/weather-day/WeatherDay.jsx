@@ -1,19 +1,8 @@
-import { useEffect } from 'react';
+import React from 'react';
+import { AButton, AIcon } from '../../../../shared/components/UI/atoms';
 import './styles.scss';
-import { useWeatherStore } from '../../hooks/weather-store';
-import {
-  SeeMoreBtn,
-  WeatherSvgSelector,
-  WeatherHumiditySvgSelector,
-} from '../../../../shared/components/UI/atoms';
 
 export const WeatherDay = () => {
-  const weatherStore = useWeatherStore();
-
-  useEffect(() => {
-    weatherStore.fetchWeather();
-  }, []);
-
   // temp day
   const day = [
     {
@@ -68,40 +57,40 @@ export const WeatherDay = () => {
 
   return (
     <div className="weather-day">
-      <div className="weather-day-card-container">
+      <div className="weather-day__container">
         <div className="weather-day-icon-now">
-          <WeatherSvgSelector id="wheather" size="60" />
+          <AIcon name="cloud" />
         </div>
-        <h2 className="weather-day-temperature-now">12&#176;</h2>
-        <ul className="day-temperature-options-list">
-          <li className="temperature-now-options-title">
-            Rain <span className="temperature-now-options">4%</span>
-          </li>
-          <li className="temperature-now-options-title">
-            Humididti <span className="temperature-now-options">64%</span>
-          </li>
-          <li className="temperature-now-options-title">
-            Wind <span className="temperature-now-options">4km/h</span>
-          </li>
-        </ul>
+        <div className="weather-day__temperature-now">12&#176;</div>
+        <div className="weather-day__info">
+          <div className="weather-day__info-title">
+            Rain <span className="weather-day__info-subtitle">4%</span>
+          </div>
+          <div className="weather-day__info-title">
+            Humididti <span className="weather-day__info-subtitle">64%</span>
+          </div>
+          <div className="weather-day__info-title">
+            Wind <span className="weather-day__info-subtitle">4km/h</span>
+          </div>
+        </div>
       </div>
 
-      <ul className="weather-day-list">
+      <div className="weather-day__list">
         {day.map((el) => (
-          <li key={el.id} className="weather-day-element">
-            <p className="weather-day-element-title">{el.time}</p>
-            <WeatherSvgSelector id="wheather" size="30" />
-            <p>{el.temp}&#176;</p>
-            <p>
-              <WeatherHumiditySvgSelector id="humidity" />
+          <div key={el.id} className="weather-day__element">
+            <div className="weather-day__element-title">{el.time}</div>
+            <AIcon name="cloud" />
+            <div>{el.temp}&#176;</div>
+            <div>
+              <AIcon name="drop" />
               <br></br>
               {el.humidity}
-            </p>
-          </li>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
 
-      <SeeMoreBtn />
+      <AButton>See More</AButton>
     </div>
   );
 };

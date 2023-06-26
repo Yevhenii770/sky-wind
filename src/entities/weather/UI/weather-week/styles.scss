@@ -4,32 +4,32 @@
   padding: 15px;
 }
 
-.weather-week-item {
+.weather-week__item {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px;
 }
-.weather-week-el-btn {
-  background-color: #e8eff7;
-}
-.weather-week-list {
+
+.weather-week__list {
   margin-bottom: 15px;
 }
 
-.weather-week-humidity {
+.weather-week__humidity {
   font-size: 14px;
   position: absolute;
   left: 162px;
   color: #9ba1ab;
 }
-.weather-week-humidity-icon {
+
+.weather-week__humidity-icon {
   position: absolute;
   left: 145px;
   top: 12px;
 }
-.weather-week-icon {
+
+.weather-week__icon {
   position: absolute;
   left: 110px;
   top: 6px;

@@ -1,3 +1,2 @@
-export * from './AButton/AButton';
-export * from './ASvg';
-export * from './ASvg/AWheatherSvgSelector';
+export * from './AButton';
+export * from './AIcon';

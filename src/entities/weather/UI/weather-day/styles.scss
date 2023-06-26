@@ -5,45 +5,44 @@
   padding: 15px;
 }
 
-.weather-day-card-container {
+.weather-day__container {
   display: flex;
   align-items: center;
-  gap: 5px;
   margin-bottom: 25px;
 }
-.weather-day-temperature-now {
+
+.weather-day__temperature-now {
   font-weight: 300;
   font-size: 60px;
 }
-.weather-day-list {
+
+.weather-day__list {
   display: flex;
   margin-bottom: 25px;
   overflow-y: scroll;
   gap: 23px;
 }
 
-.weather-day-list::-webkit-scrollbar {
-  width: 0;
-}
-
-.weather-day-element-title {
+.weather-day__element-title {
   color: #9ba1ab;
 }
 
-.weather-day-element {
+.weather-day__element {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.temperature-now-options {
-  color: #9ba1ab;
-}
-.temperature-now-options-title {
-  font-size: 14px;
-}
 
-.day-temperature-options-list {
+.weather-day__info {
   display: flex;
   gap: 4px;
   flex-direction: column;
+}
+
+.weather-day__info-subtitle {
+  color: #9ba1ab;
+}
+
+.weather-day__info-title {
+  font-size: 14px;
 }

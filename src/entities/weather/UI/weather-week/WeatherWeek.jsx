@@ -1,9 +1,5 @@
 import './styles.scss';
-import {
-  SeeMoreBtn,
-  WeatherSvgSelector,
-  WeatherHumiditySvgSelector,
-} from '../../../../shared/components/UI/atoms';
+import { AButton, AIcon } from '../../../../shared/components/UI/atoms';
 
 export const WeatherWeek = () => {
   //temp data
@@ -36,26 +32,26 @@ export const WeatherWeek = () => {
 
   return (
     <div className="weather-week">
-      <ul className="weather-week-list">
+      <div className="weather-week__list">
         {week.map((el) => (
-          <li key={el.id} className="weather-week-item">
-            <p>{el.day}</p>
+          <div key={el.id} className="weather-week__item">
+            <div>{el.day}</div>
 
-            <div className="weather-week-icon">
-              <WeatherSvgSelector id="wheather" size="24" />
+            <div className="weather-week__icon">
+              <AIcon name="cloud" />
             </div>
 
-            <div className="weather-week-humidity-icon">
-              <WeatherHumiditySvgSelector id="humidity" />
+            <div className="weather-week__humidity-icon">
+              <AIcon name="drop" />
             </div>
 
-            <p className="weather-week-humidity">{el.humidity}</p>
-            <p>{el.temp} &#176;</p>
-          </li>
+            <div className="weather-week__humidity">{el.humidity}</div>
+            <div>{el.temp} &#176;</div>
+          </div>
         ))}
-      </ul>
+      </div>
 
-      <SeeMoreBtn />
+      <AButton>See More</AButton>
     </div>
   );
 };
