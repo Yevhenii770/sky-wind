@@ -12,8 +12,9 @@
 }
 
 .weather-day__temperature-now {
-  font-weight: 300;
-  font-size: 60px;
+  font-weight: 400;
+  font-size: 50px;
+  margin-right: 10px;
 }
 
 .weather-day__list {
@@ -45,4 +46,13 @@
 
 .weather-day__info-title {
   font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-day__table {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
