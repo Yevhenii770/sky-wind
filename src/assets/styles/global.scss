@@ -1,13 +1,29 @@
 @import 'normalize.css';
+@import './variables';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background-color: #dbe5f1;
-  // filter: blur(1px);
+  color: $text-color;
+
+  > * {
+    min-height: 100vh;
+  }
 }
 
 .container {
   padding: 0 10px;
+}
+
+.title {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+.sub-title {
+  font-weight: 400;
+  color: $light-text-color;
 }

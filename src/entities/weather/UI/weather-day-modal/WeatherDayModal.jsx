@@ -3,18 +3,16 @@ import { WeatherLocation } from '../weather-location';
 import { AIcon } from '../../../../shared/components/UI/atoms';
 import './styles.scss';
 
-const moodalRoot = document.querySelector('#moodal-root');
-
 export const WeatherDayModal = ({ setActive }) => {
   return createPortal(
-    <div className="weather-day-modal__container">
+    <div className="weather-day-modal">
       <div className="weather-day-modal__content">
         <div className="weather-day-modal__container-title">
           <button
             className="weather-day-modal__close-btn"
             onClick={() => setActive(false)}
           >
-            <AIcon name="leftArrow" />
+            <AIcon name="leftArrow" fill="#fff" />
           </button>
           <WeatherLocation />
           <div>...</div>
@@ -36,6 +34,6 @@ export const WeatherDayModal = ({ setActive }) => {
         <div>123</div>
       </div>
     </div>,
-    moodalRoot
+    document.querySelector('body')
   );
 };

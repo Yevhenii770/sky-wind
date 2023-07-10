@@ -3,6 +3,9 @@
   height: 40px;
   border-radius: 10px;
   border: none;
-  background-color: #f5f9fc;
   cursor: pointer;
+}
+
+.a-button--primary {
+  background-color: $primary-color;
 }

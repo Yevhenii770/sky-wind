@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { WeatherDayModal } from '../weather-day-modal/WeatherDayModal';
 import { AButton, AIcon } from '../../../../shared/components/UI/atoms';
 import './styles.scss';
@@ -100,7 +100,9 @@ export const WeatherDay = () => {
           </div>
         ))}
       </div>
-      <AButton setActive={setModalActive}>See More</AButton>
+      <AButton setActive={setModalActive} color="primary">
+        See More
+      </AButton>
       {modalActive && (
         <WeatherDayModal active={modalActive} setActive={setModalActive} />
       )}
