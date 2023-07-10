@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { WeatherDayModal } from '../weather-day-modal/WeatherDayModal';
 import { AButton, AIcon } from '../../../../shared/components/UI/atoms';
 import './styles.scss';
 
 export const WeatherDay = () => {
+  const [modalActive, setModalActive] = useState(false);
   // temp day
   const day = [
     {
@@ -10,7 +12,7 @@ export const WeatherDay = () => {
       id: 0,
       humidity: '4%',
       temp: '16',
-      weatherSvg: 'sun',
+      weatherSvg: 'cloud',
     },
     {
       time: '12:00',
@@ -98,8 +100,10 @@ export const WeatherDay = () => {
           </div>
         ))}
       </div>
-
-      <AButton>See More</AButton>
+      <AButton setActive={setModalActive}>See More</AButton>
+      {modalActive && (
+        <WeatherDayModal active={modalActive} setActive={setModalActive} />
+      )}
     </div>
   );
 };
