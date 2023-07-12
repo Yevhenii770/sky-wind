@@ -1,25 +1,13 @@
-import { useEffect } from 'react';
+import { Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
 
-import {
-  WeatherDay,
-  WeatherWeek,
-  WeatherLocation,
-  useWeatherStore,
-} from './entities/weather';
+const HomePage = lazy(() => import('./pages/Home/Home'));
 
 function App() {
-  const weatherStore = useWeatherStore();
-
-  useEffect(() => {
-    weatherStore.fetchWeather();
-  }, []);
-
   return (
-    <div className="container" style={{ height: '100%' }}>
-      <WeatherLocation />
-      <WeatherDay />
-      <WeatherWeek />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />}></Route>
+    </Routes>
   );
 }
 
