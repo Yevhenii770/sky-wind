@@ -1,4 +1,4 @@
-.weather-day-modal {
+.weather-day {
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -9,46 +9,51 @@
   color: #fff;
 }
 
-.weather-day-modal__content {
+.weather-day__content {
   background: rgba(21, 105, 207, 0.5);
   padding: 40px 5px 5px 5px;
   height: 100%;
 }
 
-.weather-day-modal__container-title {
+.weather-day__container-title {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 30px;
 }
 
-.weather-day-modal__container-weather-now {
+.weather-now {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 60px;
 }
 
-.weather-day-modal__detail-info {
+.detail-info {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.weather-day-modal__detail-info-box {
-  width: calc(100vw / 2 - 30px);
-  height: 120px;
+.detail-info__box {
+  width: calc(100vw / 2 - 60px);
+  height: 80px;
   background: rgba(127, 163, 207, 0.5);
   border-radius: 35px;
-  padding: 10px;
+  padding: 25px;
   backdrop-filter: blur(3px);
 }
 
-.weather-day-modal__close-btn {
+.weather-day__btn-back {
   background-color: rgba(0, 0, 0, 0);
   border: none;
   width: 40px;
   height: 40px;
 }
 
-.weather-day-modal__weather-now {
+.weather-now__big-celsius {
   font-size: 70px;
   font-weight: 400;
+}
+.weather-now__container-icon {
+  margin-right: 10px;
 }

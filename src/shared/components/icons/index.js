@@ -7,3 +7,4 @@ export * from './storm';
 export * from './sun';
 export * from './wind';
 export * from './leftArrow';
+export * from './rainSmal';

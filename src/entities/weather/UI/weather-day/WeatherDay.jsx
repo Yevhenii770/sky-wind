@@ -1,10 +1,8 @@
-import { useState } from 'react';
-import { WeatherDayModal } from '../weather-day-modal/WeatherDayModal';
+import { NavLink } from 'react-router-dom';
 import { AButton, AIcon } from '../../../../shared/components/UI/atoms';
 import './styles.scss';
 
 export const WeatherDay = () => {
-  const [modalActive, setModalActive] = useState(false);
   // temp day
   const day = [
     {
@@ -100,12 +98,10 @@ export const WeatherDay = () => {
           </div>
         ))}
       </div>
-      <AButton setActive={setModalActive} color="primary">
-        See More
+
+      <AButton color="primary">
+        <NavLink to="/day">See More</NavLink>
       </AButton>
-      {modalActive && (
-        <WeatherDayModal active={modalActive} setActive={setModalActive} />
-      )}
     </div>
   );
 };

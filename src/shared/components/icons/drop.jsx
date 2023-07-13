@@ -7,8 +7,8 @@ export const drop = () => (
     xmlnsXlink="http://www.w3.org/1999/xlink"
   >
     <linearGradient id="a">
-      <stop offset="0" stop-color="#349eff" />
-      <stop offset="1" stop-color="#45d2ff" />
+      <stop offset="0" stopColor="#349eff" />
+      <stop offset="1" stopColor="#45d2ff" />
     </linearGradient>
     <linearGradient
       id="b"
@@ -45,8 +45,8 @@ export const drop = () => (
       y1="16.55"
       y2="24.621"
     >
-      <stop offset="0" stop-color="#e1f6ff" />
-      <stop offset="1" stop-color="#ceeaff" />
+      <stop offset="0" stopColor="#e1f6ff" />
+      <stop offset="1" stopColor="#ceeaff" />
     </linearGradient>
     <path
       d="M28 15.667C28 18.06 25.985 20 23.5 20S19 18.06 19 15.667C19 13.273 23.5 7 23.5 7s4.5 6.273 4.5 8.667z"
