@@ -1,5 +1,10 @@
-export const sun = ({ size = 25 }) => (
-  <svg viewBox="0 0 512 512" width={size} xmlns="http://www.w3.org/2000/svg">
+export const sun = ({ size = 25, fill }) => (
+  <svg
+    viewBox="0 0 512 512"
+    width={size}
+    fill={fill}
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <g fill="#fed402">
       <circle cx="176.39" cy="63.836" r="16" />
       <circle cx="335.61" cy="448.228" r="16" />

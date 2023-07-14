@@ -99,9 +99,9 @@ export const WeatherDay = () => {
         ))}
       </div>
 
-      <AButton color="primary">
-        <NavLink to="/day">See More</NavLink>
-      </AButton>
+      <NavLink to="/day" className="link-day">
+        See More
+      </NavLink>
     </div>
   );
 };

@@ -1,8 +1,9 @@
-export const snowflake = ({ size = 25 }) => (
+export const snowflake = ({ size = 25, fill }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512.003 512.003"
     width={size}
+    fill={fill}
     style="enable-background:new 0 0 512.003 512.003"
     xmlSpace="preserve"
   >

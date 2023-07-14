@@ -5,6 +5,7 @@ import {
   WeatherLocation,
   useWeatherStore,
 } from '../../entities/weather';
+import './styles.scss';
 
 export default function Home() {
   const weatherStore = useWeatherStore();
@@ -14,7 +15,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="container" style={{ height: '100%' }}>
+    <div className="container">
       <WeatherLocation />
       <WeatherDay />
       <WeatherWeek />

@@ -7,9 +7,7 @@ const DayPage = lazy(() => import('./pages/Day/Day'));
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />}>
-        <Route index element={<HomePage />} />
-      </Route>
+      <Route path="/" element={<HomePage />} />
       <Route path="/day" element={<DayPage />} />
     </Routes>
   );

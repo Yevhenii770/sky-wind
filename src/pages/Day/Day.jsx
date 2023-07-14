@@ -28,31 +28,44 @@ export default function Day() {
 
         <div className="detail-info">
           <div className="detail-info__box">
-            {/* <AIcon
-              // name="rainSmal"
-              size="25"
-              className="detail-info__box-icon"
-            /> */}
+            <div className="detail-info__icon-box">
+              <AIcon
+                name="rainSmal"
+                size="20"
+                className="detail-info__box-icon"
+              />
+            </div>
             <div className="detail-info__title">Rain</div>
             <div className="detail-info__options">4%</div>
           </div>
           <div className="detail-info__box">
-            <AIcon className="detail-info__box-icon">svg</AIcon>
+            <div className="detail-info__icon-box">
+              <AIcon
+                className="detail-info__box-icon"
+                name="dropHumidity"
+                size="20"
+              />
+            </div>
             <div className="detail-info__title">Humidity</div>
             <div className="detail-info__options">64%</div>
           </div>
           <div className="detail-info__box">
-            <div className="detail-info__box-icon">svg</div>
+            <div className="detail-info__icon-box">
+              <AIcon className="detail-info__box-icon" name="windy" size="20" />
+            </div>
+
             <div className="detail-info__title">Wind</div>
             <div className="detail-info__options">4 km/h</div>
           </div>
           <div className="detail-info__box">
-            <div className="detail-info__box-icon">svg</div>
+            <div className="detail-info__icon-box">
+              <AIcon className="detail-info__box-icon" name="uv" size="20" />
+            </div>
             <div className="detail-info__title">UV index</div>
             <div className="detail-info__options">Low</div>
           </div>
         </div>
-        <div>123</div>
+        <div className="hour-degrees">123</div>
       </div>
     </div>
   );

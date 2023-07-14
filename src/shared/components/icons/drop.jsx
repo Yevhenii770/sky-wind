@@ -1,8 +1,8 @@
-export const drop = () => (
+export const drop = ({ size = 20, fill }) => (
   <svg
-    fill="none"
     viewBox="0 0 32 32"
-    width="20"
+    width={size}
+    fill={fill}
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
   >
