@@ -7,7 +7,7 @@ import {
 } from '../../entities/weather';
 import './styles.scss';
 
-export default function Home() {
+function Home() {
   const weatherStore = useWeatherStore();
 
   useEffect(() => {
@@ -22,3 +22,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
