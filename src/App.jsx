@@ -1,15 +1,16 @@
 import { useEffect } from 'react';
-// import { useWeatherStore } from './entities/weather';
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-import { weatherApi } from './redux/weather/weather-operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchWeather } from './redux/weather/weather-operations';
 
 const HomePage = lazy(() => import('./pages/Home/Home'));
 const DayPage = lazy(() => import('./pages/Day/Day'));
 
 function App() {
+  const dispatch = useDispatch();
   useEffect(() => {
-    // weatherApi();
+    dispatch(fetchWeather());
   }, []);
 
   return (

@@ -2,7 +2,6 @@ import {
   WeatherDay,
   WeatherWeek,
   WeatherLocation,
-  useWeatherStore,
 } from '../../entities/weather';
 import './styles.scss';
 
