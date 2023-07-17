@@ -7,6 +7,7 @@ import './styles.scss';
 
 export const WeatherDay = () => {
   const weatherArr = useSelector(selectAllWeather);
+  console.log('sdfsf', weatherArr);
   // temp day
   const day = [
     {

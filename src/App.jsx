@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { fetchWeather } from './redux/weather/weather-operations';
 
 const HomePage = lazy(() => import('./pages/Home/Home'));
