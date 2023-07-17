@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import {
   WeatherDay,
   WeatherWeek,
@@ -8,12 +7,6 @@ import {
 import './styles.scss';
 
 function Home() {
-  const weatherStore = useWeatherStore();
-
-  useEffect(() => {
-    weatherStore.fetchWeather();
-  }, []);
-
   return (
     <div className="container">
       <WeatherLocation />

@@ -1,8 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import { AButton, AIcon } from '../../../../shared/components/UI/atoms';
+import { useSelector } from 'react-redux';
+import { selectAllWeather } from '../../../../redux/weather/weather-selectors.js';
+
 import './styles.scss';
 
 export const WeatherDay = () => {
+  const weatherArr = useSelector(selectAllWeather);
   // temp day
   const day = [
     {
