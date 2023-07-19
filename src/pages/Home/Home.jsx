@@ -7,8 +7,8 @@ import './styles.scss';
 
 function Home() {
   return (
-    <div className="container">
-      <div className="weather-location__container">
+    <div className="container home">
+      <div className="home__header">
         <WeatherLocation />
       </div>
       <WeatherDay />

@@ -1,13 +1,8 @@
-.container {
-  height: 100%;
-  background-image: url();
-  background-size: 368px 521px;
-  background-repeat: no-repeat;
-  background-position: right 65px bottom 40%;
-}
+.home {
+  padding-top: 60px;
 
-.weather-location__container {
-  display: flex;
-  padding-left: 20px;
-  padding-right: 20px;
+  &__header {
+    padding: 0 20px;
+    margin-bottom: 35px;
+  }
 }

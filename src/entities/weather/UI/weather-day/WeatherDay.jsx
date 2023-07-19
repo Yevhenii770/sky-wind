@@ -1,14 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import { AButton, AIcon } from '../../../../shared/components/UI/atoms';
 import { useSelector } from 'react-redux';
+import { AButton, AIcon } from '../../../../shared/components/UI/atoms';
 import { selectAllWeather } from '../../../../redux/weather/weather-selectors.js';
 
 import './styles.scss';
 
 export const WeatherDay = () => {
   const weatherArray = useSelector(selectAllWeather);
-  const arr = weatherArray?.current?.temperature;
-  const arr1 = weatherArray?.current?.icon;
+  const temperature = weatherArray?.current?.temperature;
 
   // temp day
   const day = [
@@ -73,10 +72,8 @@ export const WeatherDay = () => {
   return (
     <div className="weather-day">
       <div className="weather-day__container">
-        <div className="weather-day-icon-now">
-          <AIcon name="cloud" size="50" />
-        </div>
-        <div className="weather-day__temperature-now">{arr}&#176;</div>
+        <AIcon name="cloud" size="50" />
+        <div className="weather-day__temperature-now">{temperature}&#176;</div>
         <div className="weather-day__table">
           <div className="weather-day__info">
             <div className="weather-day__info-title">Rain</div>
@@ -106,9 +103,10 @@ export const WeatherDay = () => {
         ))}
       </div>
 
-      <NavLink to="/day" className="link-day">
-        See More
-      </NavLink>
+      <AButton to="/day">See More</AButton>
+
+      {/* <NavLink  className="weather-day__link-day">
+      </NavLink> */}
     </div>
   );
 };

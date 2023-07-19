@@ -4,75 +4,76 @@
   margin-bottom: 8px;
   padding: 25px;
   backdrop-filter: blur(3px);
-}
 
-.weather-day__container {
-  display: flex;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.weather-day__temperature-now {
-  font-weight: 400;
-  font-size: 50px;
-  margin-right: 10px;
-}
-
-.weather-day__list {
-  display: flex;
-  margin-bottom: 25px;
-  overflow-y: scroll;
-  gap: 23px;
-}
-
-.weather-day__element-title {
-  color: $light-text-color;
-}
-
-.weather-day__element {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 6px 10px 6px 10px;
-  &:first-child {
-    background-color: #f3f6fa;
-    border-radius: 15px;
+  &__container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
   }
-}
 
-.weather-day__info {
-  display: flex;
-  gap: 4px;
-  flex-direction: column;
-}
+  &__temperature-now {
+    font-weight: 400;
+    font-size: 50px;
+    margin-right: 10px;
+  }
 
-.weather-day__info-subtitle {
-  color: $light-text-color;
-}
+  &__list {
+    display: flex;
+    margin-bottom: 25px;
+    overflow-y: scroll;
+    gap: 23px;
+  }
 
-.weather-day__info-title {
-  font-size: 14px;
-  font-weight: 500;
-  display: flex;
-  justify-content: space-between;
-}
+  &__element-title {
+    color: $light-text-color;
+  }
 
-.weather-day__table {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-.link-day {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 40px;
-  border-radius: 10px;
-  border: none;
-  cursor: pointer;
+  &__element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 10px 6px 10px;
+    &:first-child {
+      background-color: #f3f6fa;
+      border-radius: 15px;
+    }
+  }
 
-  background-color: $primary-color;
-  color: #000000;
-  text-decoration: none;
+  &__info {
+    display: flex;
+    gap: 4px;
+    flex-direction: column;
+  }
+
+  &__info-subtitle {
+    color: $light-text-color;
+  }
+
+  &__info-title {
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__table {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link-day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+
+    background-color: $primary-color;
+    color: #000000;
+    text-decoration: none;
+  }
 }

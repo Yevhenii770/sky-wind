@@ -1,13 +1,23 @@
+import { NavLink } from 'react-router-dom';
 import './styles.scss';
 
-export const AButton = ({ children, setActive, color = 'primary' }) => {
+export const AButton = ({ children, onClick, color = 'primary', to, href }) => {
+  let Component = 'button';
+
+  if (to) {
+    Component = NavLink;
+  } else if (href) {
+    Component = 'a';
+  }
+
   return (
-    <button
+    <Component
       className={`a-button ${color ? `a-button--${color}` : ''}`}
       type="button"
-      onClick={setActive}
+      to={to}
+      onClick={onClick}
     >
       {children}
-    </button>
+    </Component>
   );
 };

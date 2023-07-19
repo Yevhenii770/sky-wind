@@ -4,7 +4,7 @@ import './styles.scss';
 
 export const WeatherLocation = () => {
   const weatherArray = useSelector(selectAllWeather);
-  const arr = weatherArray;
+  // const arr = weatherArray;
 
   return (
     <div className="weather-location">

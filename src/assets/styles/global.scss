@@ -5,7 +5,7 @@
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: $bacground-color;
+  background-color: $background-color;
   color: $text-color;
 
   > * {
@@ -14,7 +14,9 @@ body {
 }
 
 .container {
-  padding: 60px 10px 0 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0 auto;
 }
 
 .title {

@@ -11,19 +11,17 @@ export default function Day() {
           <NavLink className="weather-day__btn-back" to="/">
             <AIcon name="leftArrow" fill="#fff" />
           </NavLink>
-          <div className="weather-location__container">
+          <div className="container">
             <WeatherLocation />
           </div>
         </div>
-        <div className="weather-now">
-          <div className="weather-now__container-icon">
-            <AIcon className="weather-now__icon" name="cloud" size="120" />
+        <div className="weather-day__now">
+          <div className="weather-day__container-icon">
+            <AIcon name="cloud" size="120" />
           </div>
           <div>
-            <div className="weather-now__big-celsius">12&#176;</div>
-            <div className="weather-now__temperature-range">
-              Cloudy, 16&#176; / 5&#176;
-            </div>
+            <div className="weather-day__big-celsius">12&#176;</div>
+            <div>Cloudy, 16&#176; / 5&#176;</div>
           </div>
         </div>
 
