@@ -11,3 +11,4 @@ export * from './rainSmal';
 export * from './dropHumidity';
 export * from './uv.jsx';
 export * from './windy.jsx';
+export * from './dots.jsx';

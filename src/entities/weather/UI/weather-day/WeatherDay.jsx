@@ -72,8 +72,12 @@ export const WeatherDay = () => {
   return (
     <div className="weather-day">
       <div className="weather-day__container">
-        <AIcon name="cloud" size="50" />
-        <div className="weather-day__temperature-now">{temperature}&#176;</div>
+        <div className="weather-day__icon">
+          <AIcon name="cloud" size="60" />
+        </div>
+        <div className="weather-day__temperature-now">
+          {Math.round(temperature)}&#xb0;
+        </div>
         <div className="weather-day__table">
           <div className="weather-day__info">
             <div className="weather-day__info-title">Rain</div>
@@ -92,11 +96,11 @@ export const WeatherDay = () => {
         {day.map((el) => (
           <div key={el.id} className="weather-day__element">
             <div className="weather-day__element-title">{el.time}</div>
-            <AIcon name={el.weatherSvg} size="30" />
-            <div>{el.temp}&#176;</div>
-            <div>
+            <AIcon name={el.weatherSvg} size="40" />
+            <div className="weather-day__element-temp">{el.temp}&#176;</div>
+            <div className="weather-day__icon-container">
               <AIcon name="drop" />
-              <br></br>
+
               {el.humidity}
             </div>
           </div>
