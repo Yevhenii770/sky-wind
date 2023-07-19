@@ -4,7 +4,7 @@ import axios from 'axios';
 const baseUrl = 'https://www.meteosource.com/api/v1';
 
 export const fetchWeather = createAsyncThunk(
-  'wether/weatherApi',
+  'wether/fetchWeather',
   async (_, thunkAPI) => {
     try {
       const res = await axios.get(

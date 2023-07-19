@@ -6,8 +6,10 @@ import { selectAllWeather } from '../../../../redux/weather/weather-selectors.js
 import './styles.scss';
 
 export const WeatherDay = () => {
-  const weatherArr = useSelector(selectAllWeather);
-  console.log('sdfsf', weatherArr);
+  const weatherArray = useSelector(selectAllWeather);
+  const arr = weatherArray?.current?.temperature;
+  const arr1 = weatherArray?.current?.icon;
+
   // temp day
   const day = [
     {
@@ -74,7 +76,7 @@ export const WeatherDay = () => {
         <div className="weather-day-icon-now">
           <AIcon name="cloud" size="50" />
         </div>
-        <div className="weather-day__temperature-now">12&#176;</div>
+        <div className="weather-day__temperature-now">{arr}&#176;</div>
         <div className="weather-day__table">
           <div className="weather-day__info">
             <div className="weather-day__info-title">Rain</div>

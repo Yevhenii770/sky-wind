@@ -11,8 +11,9 @@ export default function Day() {
           <NavLink className="weather-day__btn-back" to="/">
             <AIcon name="leftArrow" fill="#fff" />
           </NavLink>
-          <WeatherLocation />
-          <div>...</div>
+          <div className="weather-location__container">
+            <WeatherLocation />
+          </div>
         </div>
         <div className="weather-now">
           <div className="weather-now__container-icon">

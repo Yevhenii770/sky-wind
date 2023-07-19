@@ -8,7 +8,9 @@ import './styles.scss';
 function Home() {
   return (
     <div className="container">
-      <WeatherLocation />
+      <div className="weather-location__container">
+        <WeatherLocation />
+      </div>
       <WeatherDay />
       <WeatherWeek />
     </div>
