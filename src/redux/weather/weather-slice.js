@@ -22,6 +22,7 @@ const weatherSlice = createSlice({
       .addCase(fetchWeather.rejected, handleRejected)
       .addCase(fetchWeather.fulfilled, (state, action) => {
         state.items = action.payload;
+        state.isLoading = false;
       }),
 });
 export const weatherReducer = weatherSlice.reducer;

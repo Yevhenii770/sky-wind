@@ -7,12 +7,14 @@ import './styles.scss';
 
 function Home() {
   return (
-    <div className="container home">
-      <div className="home__header">
-        <WeatherLocation />
-      </div>
-      <WeatherDay />
-      <WeatherWeek />
+    <div className="home">
+      <>
+        <div className="home__header">
+          <WeatherLocation />
+        </div>
+        <WeatherDay />
+        <WeatherWeek />
+      </>
     </div>
   );
 }
