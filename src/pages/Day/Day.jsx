@@ -17,7 +17,7 @@ export default function Day() {
         </div>
         <div className="weather-day__now">
           <div className="weather-day__container-icon">
-            <AIcon name="cloud" size="120" />
+            <AIcon name="cloudy" size="120" />
           </div>
           <div>
             <div className="weather-day__big-celsius">12&#176;</div>

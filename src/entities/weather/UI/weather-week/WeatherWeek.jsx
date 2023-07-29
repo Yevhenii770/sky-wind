@@ -38,11 +38,11 @@ export const WeatherWeek = () => {
             <div>{el.day}</div>
 
             <div className="weather-week__icon">
-              <AIcon name="cloud" size="25" />
+              <AIcon name="Light rain" size="25" />
             </div>
 
             <div className="weather-week__humidity-icon">
-              <AIcon name="drop" />
+              {/* <AIcon name="drop" /> */}
             </div>
 
             <div className="weather-week__humidity">{el.humidity}</div>
