@@ -20,11 +20,12 @@ function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectWeatherLoading);
   const city = useSelector(currentCity);
-
+  if (city !== null) {
+    console.log(city);
+  }
   function success({ coords }) {
     dispatch(addCoords([coords.latitude, coords.longitude]));
-    console.log(coords.latitude, coords.longitude);
-    dispatch(fetchCityByCoordinates(coords.latitude, coords.longitude));
+    dispatch(fetchCityByCoordinates([coords.latitude, coords.longitude]));
   }
   function errors(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -49,7 +50,8 @@ function App() {
     } else {
       console.log('Geolocation is not supported by this browser.');
     }
-    dispatch(fetchWeather());
+
+    dispatch(fetchWeather('kyiv'));
   }, []);
 
   return (
