@@ -13,12 +13,12 @@ import {
 } from './redux/weather/weather-selectors';
 import { addCoords } from './redux/weather/weather-slice';
 
-import HomePage from './pages/Home/Home';
-import Layout from './pages/Layout/Layout';
-import DayPage from './pages/Day/Day';
-// const Layout = lazy(() => import('./pages/Layout/Layout'));
-// const HomePage = lazy(() => import('./pages/Home/Home'));
-// const DayPage = lazy(() => import('./pages/Day/Day'));
+// import HomePage from './pages/Home/Home';
+// import Layout from './pages/Layout/Layout';
+// import DayPage from './pages/Day/Day';
+const Layout = lazy(() => import('./pages/Layout/Layout'));
+const HomePage = lazy(() => import('./pages/Home/Home'));
+const DayPage = lazy(() => import('./pages/Day/Day'));
 
 function App() {
   const dispatch = useDispatch();
@@ -39,20 +39,27 @@ function App() {
   };
 
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.permissions
-        .query({ name: 'geolocation' })
-        .then(function (result) {
-          if (result.state === 'granted') {
-            navigator.geolocation.getCurrentPosition(success, errors, options);
-          } else if (result.state === 'prompt') {
-          } else if (result.state === 'denied') {
-          }
-        });
-    } else {
-      console.log('Geolocation is not supported by this browser.');
+    if (location.length !== 2) {
+      if (navigator.geolocation) {
+        navigator.permissions
+          .query({ name: 'geolocation' })
+          .then(function (result) {
+            if (result.state === 'granted') {
+              navigator.geolocation.getCurrentPosition(
+                success,
+                errors,
+                options
+              );
+            } else if (result.state === 'prompt') {
+            } else if (result.state === 'denied') {
+            }
+          });
+      } else {
+        console.log('Geolocation is not supported by this browser.');
+      }
     }
-    dispatch(fetchWeather([0, 0]));
+
+    dispatch(fetchWeather([51.8113, 4.66782]));
   }, []);
 
   return (

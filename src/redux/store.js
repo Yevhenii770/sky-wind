@@ -23,7 +23,6 @@ const middleware = [
 const authPersistConfig = {
   key: 'user',
   storage,
-  whitelist: ['location'],
 };
 
 export const store = configureStore({

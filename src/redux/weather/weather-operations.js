@@ -26,6 +26,13 @@ export const fetchCityByCoordinates = createAsyncThunk(
 export const fetchWeather = createAsyncThunk(
   'wether/fetchWeather',
   async (coordArr, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const persistedLocation = state.user.location;
+
+    // if (persistedLocation.length !== 0) {
+    //   return thunkAPI.rejectWithValue();
+    // }
+
     try {
       const res = await axios.get(
         `${baseUrl}/free/point?lat=${coordArr[0]}&lon=${
