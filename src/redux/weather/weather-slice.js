@@ -28,6 +28,7 @@ const weatherSlice = createSlice({
       .addCase(fetchCityByCoordinates.rejected, handleRejected)
       .addCase(fetchCityByCoordinates.fulfilled, (state, action) => {
         state.city = action.payload;
+        state.isLoading = false;
       }),
 });
 
@@ -44,5 +45,6 @@ export const userLocation = createSlice({
 });
 
 export const weatherReducer = weatherSlice.reducer;
+export const userReducer = userLocation.reducer;
 //create actions
 export const { addCoords } = userLocation.actions;

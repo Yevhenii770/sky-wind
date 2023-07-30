@@ -9,23 +9,25 @@ import {
 import {
   selectWeatherLoading,
   currentCity,
+  userLocation,
 } from './redux/weather/weather-selectors';
 import { addCoords } from './redux/weather/weather-slice';
 
-const Layout = lazy(() => import('./pages/Layout/Layout'));
-const HomePage = lazy(() => import('./pages/Home/Home'));
-const DayPage = lazy(() => import('./pages/Day/Day'));
+import HomePage from './pages/Home/Home';
+import Layout from './pages/Layout/Layout';
+import DayPage from './pages/Day/Day';
+// const Layout = lazy(() => import('./pages/Layout/Layout'));
+// const HomePage = lazy(() => import('./pages/Home/Home'));
+// const DayPage = lazy(() => import('./pages/Day/Day'));
 
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectWeatherLoading);
-  const city = useSelector(currentCity);
-  if (city !== null) {
-    console.log(city);
-  }
+  const location = useSelector(userLocation);
+
+  // const city = useSelector(currentCity);
   function success({ coords }) {
     dispatch(addCoords([coords.latitude, coords.longitude]));
-    dispatch(fetchCityByCoordinates([coords.latitude, coords.longitude]));
   }
   function errors(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
@@ -50,8 +52,7 @@ function App() {
     } else {
       console.log('Geolocation is not supported by this browser.');
     }
-
-    dispatch(fetchWeather('kyiv'));
+    dispatch(fetchWeather([0, 0]));
   }, []);
 
   return (

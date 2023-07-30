@@ -9,10 +9,14 @@ export const fetchCityByCoordinates = createAsyncThunk(
   async (coordArr, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `https://api.opencagedata.com/geocode/v1/json?q=${coordArr[0]}+${coordArr[1]}&language=en&key=af7a1994362e4288a0f96129d7ff48b6`
+        `${baseUrl}/free/point?lat=${coordArr[0]}&lon=${
+          coordArr[1]
+        }&sections=current%2Chourly&language=en&units=auto&key=${
+          import.meta.env.VITE_WEATHER_API_KEY
+        }`
       );
 
-      return data.results[0].components.city;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -21,10 +25,12 @@ export const fetchCityByCoordinates = createAsyncThunk(
 
 export const fetchWeather = createAsyncThunk(
   'wether/fetchWeather',
-  async (city, thunkAPI) => {
+  async (coordArr, thunkAPI) => {
     try {
       const res = await axios.get(
-        `${baseUrl}/free/point?place_id=${city}&sections=all&timezone=UTC&language=en&units=metric&key=${
+        `${baseUrl}/free/point?lat=${coordArr[0]}&lon=${
+          coordArr[1]
+        }&sections=current%2Chourly&language=en&units=auto&key=${
           import.meta.env.VITE_WEATHER_API_KEY
         }`
       );

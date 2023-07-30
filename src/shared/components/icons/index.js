@@ -20,3 +20,4 @@ export * from './partlyClear';
 export * from './rainShower';
 export * from './mostlySunny';
 export * from './clear';
+export * from './mostlyClear';
