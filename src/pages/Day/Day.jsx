@@ -9,7 +9,7 @@ export default function Day() {
       <div className="weather-day__content">
         <div className="weather-day__container-title">
           <NavLink className="weather-day__btn-back" to="/">
-            <AIcon name="leftArrow" fill="#fff" />
+            <AIcon name="left" fill="#fff" />
           </NavLink>
           <div className="">
             <WeatherLocation />
@@ -28,11 +28,7 @@ export default function Day() {
         <div className="detail-info">
           <div className="detail-info__box">
             <div className="detail-info__icon-box">
-              <AIcon
-                name="rainSmal"
-                size="20"
-                className="detail-info__box-icon"
-              />
+              <AIcon name="rain" size="20" className="detail-info__box-icon" />
             </div>
             <div className="detail-info__title">Rain</div>
             <div className="detail-info__options">4%</div>
@@ -41,7 +37,7 @@ export default function Day() {
             <div className="detail-info__icon-box">
               <AIcon
                 className="detail-info__box-icon"
-                name="dropHumidity"
+                name="drop Humidity"
                 size="20"
               />
             </div>

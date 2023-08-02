@@ -31,7 +31,9 @@ export const WeatherLocation = () => {
           {days[data.getDay()]} {timeNow}, {weatherArray.current.summary}
         </div>
       </div>
-      <div>{/* <AIcon name="dots" size="35" /> */}</div>
+      <div>
+        <AIcon name="dots" size="35" />
+      </div>
     </div>
   );
 };

@@ -1,4 +1,8 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import {
+  combineReducers,
+  configureStore,
+  getDefaultMiddleware,
+} from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -23,6 +27,7 @@ const middleware = [
 const authPersistConfig = {
   key: 'user',
   storage,
+  whitelist: ['location'],
 };
 
 export const store = configureStore({

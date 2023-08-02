@@ -1,4 +1,4 @@
-export const leftArrow = ({ size = 25, fill }) => (
+export const left = ({ size = 25, fill }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 447.243 447.243"

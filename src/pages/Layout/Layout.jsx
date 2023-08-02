@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import './styles.scss';
 
-export default function Layout() {
+export const Layout = () => {
   return (
     <div className="container">
       <Suspense fallback={<div>Loader...</div>}>
@@ -10,4 +10,4 @@ export default function Layout() {
       </Suspense>
     </div>
   );
-}
+};
