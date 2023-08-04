@@ -20,7 +20,6 @@ function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectWeatherLoading);
   const Location = useSelector(userLocation);
-  console.log(Location);
 
   function success({ coords }) {
     dispatch(addCoords([coords.latitude, coords.longitude]));
@@ -54,7 +53,7 @@ function App() {
     if (location.length === 0) {
       dispatch(fetchWeather([0, 0]));
     }
-  }, [location]);
+  }, [dispatch]);
 
   return (
     !isLoading && (

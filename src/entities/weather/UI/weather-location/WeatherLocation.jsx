@@ -31,10 +31,12 @@ export const WeatherLocation = () => {
     <div className="weather-location">
       <div>
         <div className="title">
-          {dataLocations.name}, {dataLocations.country}
+          {dataLocations ? dataLocations.name : 'LOADING...'},{' '}
+          {dataLocations ? dataLocations.country : 'LOADING...'}
         </div>
         <div className="sub-title">
-          {days[data.getDay()]} {timeNow}, {weatherArray.current.summary}
+          {days[data.getDay()]} {timeNow},{' '}
+          {/* {weatherArray ? weatherArray.current.summary : 'LOADING...'} */}
         </div>
       </div>
       <div>
