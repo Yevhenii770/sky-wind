@@ -2,8 +2,14 @@ import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchWeather } from './redux/weather/weather-operations';
-import { selectWeatherLoading } from './redux/weather/weather-selectors';
+import {
+  fetchWeather,
+  fetchCityByCoordinates,
+} from './redux/weather/weather-operations';
+import {
+  selectWeatherLoading,
+  userLocation,
+} from './redux/weather/weather-selectors';
 import { addCoords } from './redux/weather/weather-slice';
 
 import { Layout } from './pages/Layout/Layout';
@@ -13,6 +19,8 @@ const DayPage = lazy(() => import('./pages/Day/Day'));
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectWeatherLoading);
+  const Location = useSelector(userLocation);
+  console.log(Location);
 
   function success({ coords }) {
     dispatch(addCoords([coords.latitude, coords.longitude]));
@@ -41,8 +49,12 @@ function App() {
       console.log('Geolocation is not supported by this browser.');
     }
 
-    dispatch(fetchWeather([51.8113, 4.66782]));
-  }, [dispatch]);
+    dispatch(fetchWeather([Location[0], Location[1]]));
+    dispatch(fetchCityByCoordinates([Location[0], Location[1]]));
+    if (location.length === 0) {
+      dispatch(fetchWeather([0, 0]));
+    }
+  }, [location]);
 
   return (
     !isLoading && (

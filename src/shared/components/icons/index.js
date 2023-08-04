@@ -23,3 +23,4 @@ export * from './clear';
 export * from './mostlyClear';
 export * from './localThunderstorms';
 export * from './thunderstorm';
+export * from './fog';

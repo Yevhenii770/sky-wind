@@ -1,10 +1,13 @@
 import { useSelector } from 'react-redux';
 import { selectAllWeather } from '../../../../redux/weather/weather-selectors';
 import { AIcon } from '../../../../shared/components/UI/atoms';
+import { currentCity } from '../../../../redux/weather/weather-selectors';
+
 import './styles.scss';
 
 export const WeatherLocation = () => {
   const weatherArray = useSelector(selectAllWeather);
+  const dataLocations = useSelector(currentCity);
   const days = [
     'Sunday',
     'Monday',
@@ -16,6 +19,7 @@ export const WeatherLocation = () => {
   ];
 
   const data = new Date();
+
   const hour = String(data.getHours());
   const minutes =
     String(data.getMinutes()) >= 10
@@ -26,7 +30,9 @@ export const WeatherLocation = () => {
   return (
     <div className="weather-location">
       <div>
-        <div className="title">Florence, Italy </div>
+        <div className="title">
+          {dataLocations.name}, {dataLocations.country}
+        </div>
         <div className="sub-title">
           {days[data.getDay()]} {timeNow}, {weatherArray.current.summary}
         </div>

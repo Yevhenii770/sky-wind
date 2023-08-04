@@ -9,11 +9,9 @@ export const fetchCityByCoordinates = createAsyncThunk(
   async (coordArr, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `${baseUrl}/free/point?lat=${coordArr[0]}&lon=${
+        `${baseUrl}/free/nearest_place?lat=${coordArr[0]}&lon=${
           coordArr[1]
-        }&sections=current%2Chourly&language=en&units=auto&key=${
-          import.meta.env.VITE_WEATHER_API_KEY
-        }`
+        }&key=${import.meta.env.VITE_WEATHER_API_KEY}`
       );
 
       return data;
@@ -26,13 +24,6 @@ export const fetchCityByCoordinates = createAsyncThunk(
 export const fetchWeather = createAsyncThunk(
   'wether/fetchWeather',
   async (coordArr, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const persistedLocation = state.user.location;
-
-    // if (persistedLocation.length !== 0) {
-    //   return thunkAPI.rejectWithValue();
-    // }
-
     try {
       const res = await axios.get(
         `${baseUrl}/free/point?lat=${coordArr[0]}&lon=${

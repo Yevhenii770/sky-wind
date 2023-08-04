@@ -1,8 +1,4 @@
-import {
-  combineReducers,
-  configureStore,
-  getDefaultMiddleware,
-} from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -17,13 +13,6 @@ import storage from 'redux-persist/lib/storage';
 
 import { weatherReducer, userReducer } from './weather/weather-slice';
 
-const middleware = [
-  ...getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }),
-];
 const authPersistConfig = {
   key: 'user',
   storage,
@@ -35,7 +24,13 @@ export const store = configureStore({
     data: weatherReducer,
     user: persistReducer(authPersistConfig, userReducer),
   },
-  middleware,
+  middleware(getDefaultMiddleware) {
+    return getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    });
+  },
 });
 
 export const persistor = persistStore(store);
