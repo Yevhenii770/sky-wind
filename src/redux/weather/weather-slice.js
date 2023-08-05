@@ -28,7 +28,6 @@ const weatherSlice = createSlice({
       .addCase(fetchCityByCoordinates.rejected, handleRejected)
       .addCase(fetchCityByCoordinates.fulfilled, (state, action) => {
         state.city = action.payload;
-        state.isLoading = false;
       }),
 });
 

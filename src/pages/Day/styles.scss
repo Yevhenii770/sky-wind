@@ -1,4 +1,4 @@
-.weather-day {
+.page-day {
   height: 100vh;
   width: 100vw;
   position: absolute;
@@ -20,38 +20,6 @@
     justify-content: space-around;
     margin-bottom: 30px;
   }
-
-  &__now {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 80px;
-  }
-
-  &__big-celsius {
-    font-size: 70px;
-    font-weight: 400;
-  }
-
-  &__container-icon {
-    margin-right: 10px;
-  }
-}
-
-.detail-info {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.detail-info__box {
-  width: calc(100vw / 2 - 60px);
-  height: 80px;
-  background: rgba(127, 163, 207, 0.5);
-  border-radius: 35px;
-  padding: 25px;
-  backdrop-filter: blur(3px);
 }
 
 .weather-day__btn-back {
@@ -59,22 +27,4 @@
   border: none;
   width: 40px;
   height: 40px;
-}
-
-.detail-info__title {
-  font-family: inherit;
-  margin-bottom: 5px;
-}
-.detail-info__options {
-  font-family: inherit;
-}
-.detail-info__icon-box {
-  margin-bottom: 15px;
-}
-.hour-degrees {
-  background: rgba(127, 163, 207, 0.5);
-  border-radius: 35px;
-  padding: 25px;
-  backdrop-filter: blur(3px);
-  height: 120px;
 }

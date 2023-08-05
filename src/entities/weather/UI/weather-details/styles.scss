@@ -1,0 +1,54 @@
+.weather-day {
+  &__now {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 80px;
+  }
+
+  &__big-celsius {
+    font-size: 70px;
+    font-weight: 400;
+  }
+
+  &__container-icon {
+    margin-right: 10px;
+  }
+}
+
+.detail-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+
+  &__box {
+    width: calc(100vw / 2 - 60px);
+    height: 80px;
+    background: rgba(127, 163, 207, 0.5);
+    border-radius: 35px;
+    padding: 25px;
+    backdrop-filter: blur(3px);
+  }
+
+  &__title {
+    font-family: inherit;
+    margin-bottom: 5px;
+  }
+
+  &__options {
+    font-family: inherit;
+  }
+
+  &__icon-box {
+    margin-bottom: 15px;
+  }
+}
+
+.hour-degrees {
+  background: rgba(127, 163, 207, 0.5);
+  border-radius: 35px;
+  padding: 25px;
+  backdrop-filter: blur(3px);
+  height: 120px;
+}
