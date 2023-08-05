@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { AButton, AIcon } from '../../../../shared/components/UI/atoms';
 import { selectAllWeather } from '../../../../redux/weather/weather-selectors.js';
+import { nanoid } from 'nanoid';
 
 import './styles.scss';
 
@@ -21,14 +22,16 @@ export const WeatherDay = () => {
         <div className="weather-day__table">
           <div className="weather-day__info">
             <div className="weather-day__info-title">Wind</div>
-            <div className="weather-day__info-title">Humidity</div>
+            <div className="weather-day__info-title">Cloud cover</div>
             <div className="weather-day__info-title">Precipitation</div>
           </div>
           <div>
             <div className="weather-day__info-subtitle">
               {Math.round((currentWeather.wind.speed * 3600) / 1000)} km/h
             </div>
-            <div className="weather-day__info-subtitle">??%</div>
+            <div className="weather-day__info-subtitle">
+              {currentWeather.cloud_cover} %
+            </div>
             <div className="weather-day__info-subtitle">
               {currentWeather.precipitation.total} mm
             </div>
@@ -38,7 +41,7 @@ export const WeatherDay = () => {
 
       <div className="weather-day__list">
         {hourlyWeather.map((el) => (
-          <div key={el} className="weather-day__element">
+          <div key={nanoid()} className="weather-day__element">
             <div className="weather-day__element-title">
               {el.date.slice(11, 16)}
             </div>

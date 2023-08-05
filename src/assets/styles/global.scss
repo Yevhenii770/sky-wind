@@ -9,11 +9,15 @@ body {
   color: $text-color;
 
   > * {
-    min-height: 100dvh;
+    // min-height: 100dvh;
   }
 }
 
 .container {
+  // background-image: url(@/shared/components/photos/the-duomo-in-florence-800x800.jpg);
+  // background-repeat: no-repeat;
+  // background-position: 0% 0%;
+
   padding-left: 10px;
   padding-right: 10px;
   margin: 0 auto;

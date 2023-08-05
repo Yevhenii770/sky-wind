@@ -36,7 +36,7 @@ export const WeatherLocation = () => {
         </div>
         <div className="sub-title">
           {days[data.getDay()]} {timeNow},{' '}
-          {/* {weatherArray ? weatherArray.current.summary : 'LOADING...'} */}
+          {weatherArray ? weatherArray.current.summary : 'LOADING...'}
         </div>
       </div>
       <div>
