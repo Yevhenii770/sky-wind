@@ -11,6 +11,7 @@ import {
   userLocation,
 } from './redux/weather/weather-selectors';
 import { addCoords } from './redux/weather/weather-slice';
+import { ALoader } from './shared/components/UI/atoms/ALoader';
 
 import { Layout } from './pages/Layout/Layout';
 const HomePage = lazy(() => import('./pages/Home/Home'));
@@ -55,15 +56,15 @@ function App() {
     }
   }, [dispatch]);
 
-  return (
-    !isLoading && (
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
-          <Route path="day" element={<DayPage />} />
-        </Route>
-      </Routes>
-    )
+  return isLoading ? (
+    <ALoader />
+  ) : (
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<HomePage />} />
+        <Route path="day" element={<DayPage />} />
+      </Route>
+    </Routes>
   );
 }
 
