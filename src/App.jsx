@@ -20,7 +20,7 @@ const DayPage = lazy(() => import('./pages/Day/Day'));
 function App() {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectWeatherLoading);
-  const Location = useSelector(userLocation);
+  const location = useSelector(userLocation);
 
   function success({ coords }) {
     dispatch(addCoords([coords.latitude, coords.longitude]));
@@ -49,9 +49,14 @@ function App() {
       console.log('Geolocation is not supported by this browser.');
     }
 
-    dispatch(fetchWeather([Location[0], Location[1]]));
-    dispatch(fetchCityByCoordinates([Location[0], Location[1]]));
+    if (location) {
+      dispatch(fetchWeather([Location[0], Location[1]]));
+      dispatch(fetchCityByCoordinates([Location[0], Location[1]]));
+    }
+
     if (location.length === 0) {
+      dispatch(addCoords([0, 0]));
+      dispatch(fetchCityByCoordinates([0, 0]));
       dispatch(fetchWeather([0, 0]));
     }
   }, [dispatch]);
