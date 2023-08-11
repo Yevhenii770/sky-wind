@@ -10,8 +10,9 @@ import {
   selectWeatherLoading,
   userLocation,
 } from './redux/weather/weather-selectors';
-import { addCoords } from './redux/weather/weather-slice';
 import { ALoader } from './shared/components/UI/atoms/ALoader';
+import { useGeolocated } from 'react-geolocated';
+import { addCoords } from './redux/weather/weather-slice';
 
 import { Layout } from './pages/Layout/Layout';
 const HomePage = lazy(() => import('./pages/Home/Home'));
@@ -22,42 +23,27 @@ function App() {
   const isLoading = useSelector(selectWeatherLoading);
   const location = useSelector(userLocation);
 
-  function success({ coords }) {
+  const { coords, isGeolocationAvailable, isGeolocationEnabled } =
+    useGeolocated({
+      positionOptions: {
+        enableHighAccuracy: false,
+      },
+      userDecisionTimeout: 5000,
+    });
+
+  if (coords && location.length === 0) {
     dispatch(addCoords([coords.latitude, coords.longitude]));
   }
-  function errors(err) {
-    console.warn(`ERROR(${err.code}): ${err.message}`);
-  }
-  const options = {
-    enableHighAccuracy: true,
-    timeout: 5000,
-    maximumAge: 0,
-  };
+
+  console.log(coords, isGeolocationAvailable, isGeolocationEnabled);
 
   useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.permissions
-        .query({ name: 'geolocation' })
-        .then(function (result) {
-          if (result.state === 'granted') {
-            navigator.geolocation.getCurrentPosition(success, errors, options);
-          } else if (result.state === 'prompt') {
-          } else if (result.state === 'denied') {
-          }
-        });
+    if (location.length !== 0) {
+      dispatch(fetchWeather([location[0], location[1]]));
+      dispatch(fetchCityByCoordinates([location[0], location[1]]));
     } else {
-      console.log('Geolocation is not supported by this browser.');
-    }
-
-    if (location) {
-      dispatch(fetchWeather([Location[0], Location[1]]));
-      dispatch(fetchCityByCoordinates([Location[0], Location[1]]));
-    }
-
-    if (location.length === 0) {
-      dispatch(addCoords([0, 0]));
-      dispatch(fetchCityByCoordinates([0, 0]));
       dispatch(fetchWeather([0, 0]));
+      dispatch(fetchCityByCoordinates([0, 0]));
     }
   }, [dispatch]);
 
