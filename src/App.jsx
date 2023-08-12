@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchWeather,
@@ -30,12 +29,9 @@ function App() {
       },
       userDecisionTimeout: 5000,
     });
-
-  if (coords && location.length === 0) {
+  if (coords && location.length === 0 && coords.latitude) {
     dispatch(addCoords([coords.latitude, coords.longitude]));
   }
-
-  console.log(coords, isGeolocationAvailable, isGeolocationEnabled);
 
   useEffect(() => {
     if (location.length !== 0) {
@@ -45,10 +41,12 @@ function App() {
       dispatch(fetchWeather([0, 0]));
       dispatch(fetchCityByCoordinates([0, 0]));
     }
-  }, [dispatch]);
+  }, [location]);
 
   return isLoading ? (
-    <ALoader />
+    <div>
+      <ALoader />
+    </div>
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>

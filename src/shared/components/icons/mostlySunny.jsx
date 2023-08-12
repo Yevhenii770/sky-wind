@@ -2,7 +2,7 @@ export const mostlySunny = ({ size = 25, fill }) => (
   <svg
     viewBox="1 0 471 472"
     width={size}
-    fill={fill}
+    fill={'black'}
     xmlns="http://www.w3.org/2000/svg"
   >
     <path

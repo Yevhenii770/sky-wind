@@ -13,7 +13,7 @@
 
   &__temperature-now {
     font-weight: 400;
-    font-size: 55px;
+    font-size: 45px;
     margin-right: 10px;
   }
 
@@ -53,6 +53,8 @@
   }
 
   &__info-subtitle {
+    font-size: 14px;
+    font-weight: 500;
     color: $light-text-color;
   }
 

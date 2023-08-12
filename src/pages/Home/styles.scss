@@ -4,5 +4,9 @@
   &__header {
     padding: 0 20px;
     margin-bottom: 35px;
+
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
   }
 }

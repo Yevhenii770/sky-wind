@@ -3,6 +3,7 @@ import {
   WeatherWeek,
   WeatherLocation,
 } from '../../entities/weather';
+import { AIcon } from '../../shared/components/UI/atoms';
 import './styles.scss';
 
 function Home() {
@@ -11,8 +12,10 @@ function Home() {
       <>
         <div className="home__header">
           <WeatherLocation />
+          <AIcon name="dots" size="35" />
         </div>
         <WeatherDay />
+
         <WeatherWeek />
       </>
     </div>

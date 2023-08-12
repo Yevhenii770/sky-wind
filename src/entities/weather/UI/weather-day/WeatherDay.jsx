@@ -14,7 +14,7 @@ export const WeatherDay = () => {
     <div className="weather-day">
       <div className="weather-day__container">
         <div className="weather-day__icon">
-          <AIcon name={currentWeather.summary} size="60" />
+          <AIcon name={currentWeather.summary} size="55" />
         </div>
         <div className="weather-day__temperature-now">
           {Math.round(currentWeather.temperature)}&#xb0;
@@ -25,7 +25,7 @@ export const WeatherDay = () => {
             <div className="weather-day__info-title">Cloud cover</div>
             <div className="weather-day__info-title">Precipitation</div>
           </div>
-          <div>
+          <div className="weather-day__info">
             <div className="weather-day__info-subtitle">
               {Math.round((currentWeather.wind.speed * 3600) / 1000)} km/h
             </div>

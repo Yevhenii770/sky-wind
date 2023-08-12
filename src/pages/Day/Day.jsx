@@ -12,9 +12,10 @@ export default function Day() {
           <NavLink className="page-day__btn-back" to="/">
             <AIcon name="left" fill="#fff" />
           </NavLink>
-          <div>
-            <WeatherLocation />
-          </div>
+
+          <WeatherLocation />
+
+          <AIcon name="dots" size="35" />
         </div>
         <WeatherDetails />
       </div>

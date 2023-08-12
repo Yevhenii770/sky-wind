@@ -39,9 +39,6 @@ export const WeatherLocation = () => {
           {weatherArray ? weatherArray.current.summary : <ALoader />}
         </div>
       </div>
-      <div>
-        <AIcon name="dots" size="35" />
-      </div>
     </div>
   );
 };
