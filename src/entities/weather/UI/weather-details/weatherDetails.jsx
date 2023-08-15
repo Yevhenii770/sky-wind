@@ -1,4 +1,5 @@
 import { AIcon } from '../../../../shared/components/UI/atoms';
+import { MSliderDay } from '../../../../shared/components/UI/molecules/MSliderDay';
 import './styles.scss';
 
 export const WeatherDetails = () => {
@@ -48,7 +49,9 @@ export const WeatherDetails = () => {
           <div className="detail-info__options">Low</div>
         </div>
       </div>
-      <div className="hour-degrees">123</div>
+      <div className="hour-degrees">
+        <MSliderDay />
+      </div>
     </>
   );
 };

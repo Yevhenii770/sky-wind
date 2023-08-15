@@ -17,35 +17,6 @@
     margin-right: 10px;
   }
 
-  &__list {
-    display: flex;
-    margin-bottom: 25px;
-    overflow-y: scroll;
-    gap: 5px;
-  }
-
-  &__element-title {
-    color: $light-text-color;
-  }
-
-  &__element {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    padding: 10px 7px 10px 7px;
-    &:first-child {
-      background-color: #f3f6fa;
-      border-radius: 15px;
-    }
-  }
-
-  &__element-temp {
-    font-family: inherit;
-    font-size: 18px;
-    font-weight: 600;
-  }
-
   &__info {
     display: flex;
     gap: 4px;
@@ -85,10 +56,7 @@
     color: #000000;
     text-decoration: none;
   }
-  &__icon-container {
-    display: flex;
-    gap: 5px;
-  }
+
   &__icon {
     margin-right: 10px;
   }

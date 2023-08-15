@@ -5,7 +5,7 @@ import './styles.scss';
 export const Layout = () => {
   return (
     <div className="container">
-      <Suspense fallback={<div>Loader...</div>}>
+      <Suspense>
         <Outlet />
       </Suspense>
     </div>

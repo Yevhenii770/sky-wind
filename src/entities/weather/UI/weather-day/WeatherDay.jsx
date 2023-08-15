@@ -1,14 +1,13 @@
 import { useSelector } from 'react-redux';
 import { AButton, AIcon } from '../../../../shared/components/UI/atoms';
 import { selectAllWeather } from '../../../../redux/weather/weather-selectors.js';
-import { nanoid } from 'nanoid';
+import { MSliderDay } from '../../../../shared/components/UI/molecules/MSliderDay';
 
 import './styles.scss';
 
 export const WeatherDay = () => {
   const weatherArray = useSelector(selectAllWeather);
   const currentWeather = weatherArray.current;
-  const hourlyWeather = Object.values(weatherArray.hourly.data);
 
   return (
     <div className="weather-day">
@@ -38,28 +37,7 @@ export const WeatherDay = () => {
           </div>
         </div>
       </div>
-
-      <div className="weather-day__list">
-        {hourlyWeather.map((el) => (
-          <div key={nanoid()} className="weather-day__element">
-            <div className="weather-day__element-title">
-              {el.date.slice(11, 16)}
-            </div>
-            <AIcon name={el.summary} size="40" />
-            <div className="weather-day__element-temp">
-              {Math.round(el.temperature)}&#176;
-            </div>
-            <div className="weather-day__icon-container">
-              <AIcon
-                name={el.cloud_cover.total <= 50 ? 'drop' : 'middle drop'}
-                size="15"
-              />
-              {el.cloud_cover.total + '%'}
-            </div>
-          </div>
-        ))}
-      </div>
-
+      <MSliderDay />
       <AButton to="/day">See More</AButton>
     </div>
   );

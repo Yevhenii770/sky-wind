@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import { selectAllWeather } from '../../../../redux/weather/weather-selectors';
-import { AIcon } from '../../../../shared/components/UI/atoms';
 import { currentCity } from '../../../../redux/weather/weather-selectors';
 import { ALoader } from '../../../../shared/components/UI/atoms/ALoader';
 import './styles.scss';
