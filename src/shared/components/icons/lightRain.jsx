@@ -1,4 +1,4 @@
-export const lightRain = ({ size = 25, fill = '#ffffff' }) => (
+export const lightRain = ({ size = 25, fill = '#fff' }) => (
   <svg
     viewBox="0 0 48 48"
     width={size}

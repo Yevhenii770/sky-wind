@@ -1,4 +1,4 @@
-export const dots = ({ size = 20, fill = '#000000' }) => (
+export const dots = ({ size = 20, fill = '#000' }) => (
   <svg
     viewBox="0 0 24 24"
     width={size}

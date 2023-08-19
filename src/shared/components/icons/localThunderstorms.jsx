@@ -1,4 +1,4 @@
-export const localThunderstorms = ({ size = 25, fill = '#ffffff' }) => (
+export const localThunderstorms = ({ size = 25, fill = '#fff' }) => (
   <svg
     viewBox="0 0 48 48"
     width={size}
@@ -20,7 +20,7 @@ export const localThunderstorms = ({ size = 25, fill = '#ffffff' }) => (
       />
       <path
         d="M15 7a8.993 8.993 0 0 1 7.488 4.014A9 9 0 1 0 6.5 18.964 9.005 9.005 0 0 1 15 7z"
-        fill="#fff566"
+        fill="$primary-color566"
       />
       <path
         d="M8.3 20.96a9.19 9.19 0 0 1 3.66-3.23 7.5 7.5 0 0 1 7.42-5.4 8.316 8.316 0 0 1 3.18.64 6.2 6.2 0 0 1 .51-.75l-.29-.22a8.878 8.878 0 0 0-.65-1.852c-.018.025-.041.047-.06.072a6.2 6.2 0 0 0-.51.75 8.316 8.316 0 0 0-3.18-.64 7.5 7.5 0 0 0-7.42 5.4 9.19 9.19 0 0 0-3.66 3.23c-.132.2-.238.421-.351.634A8.859 8.859 0 0 0 8.3 20.96z"

@@ -41,12 +41,12 @@
   }
 
   &__icon-box {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
   }
 }
 
 .hour-degrees {
-  color: #fff;
+  color: $primary-color;
   background: rgba(127, 163, 207, 0.5);
   border-radius: 35px;
   padding: 25px;
@@ -54,7 +54,7 @@
   height: 120px;
 
   & * .slider-weather-day__element-title {
-    color: #fff;
+    color: $primary-color;
   }
 
   & * .slider-weather-day__element:first-child {

@@ -1,7 +1,8 @@
 .page-day {
-  color: #fff;
+  color: $primary-color;
   background-image: url('@/shared/components/photos/the-duomo-in-florence-800x800.jpg');
   background-size: cover;
+
   &__content {
     background: rgba(21, 105, 207, 0.5);
   }
@@ -12,6 +13,9 @@
     margin-bottom: 30px;
     align-items: baseline;
   }
+}
+.page-day * .sub-title {
+  color: $primary-color;
 }
 
 .weather-day__btn-back {

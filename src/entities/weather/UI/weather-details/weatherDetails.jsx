@@ -8,9 +8,9 @@ export const WeatherDetails = () => {
   const weatherArray = useSelector(selectAllWeather);
   const currentWeather = weatherArray.current;
 
-  let temperatureArr = [];
+  let temperatureToday = [];
   weatherArray.hourly.data.map((el) =>
-    temperatureArr.push(Math.round(el.temperature))
+    temperatureToday.push(Math.round(el.temperature))
   );
 
   return (
@@ -24,8 +24,8 @@ export const WeatherDetails = () => {
             {Math.round(currentWeather.temperature)}&#xb0;
           </div>
           <div>
-            {weatherArray.current.summary}, {Math.max(...temperatureArr)}&#176;
-            / {Math.min(...temperatureArr)}&#176;
+            {weatherArray.current.summary}, {Math.max(...temperatureToday)}
+            &#176; / {Math.min(...temperatureToday)}&#176;
           </div>
         </div>
       </div>
@@ -33,8 +33,8 @@ export const WeatherDetails = () => {
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
             <AIcon
-              name={currentWeather.summary}
-              size="20"
+              name="precipitation"
+              size="25"
               className="detail-info__box-icon"
             />
           </div>
@@ -47,8 +47,8 @@ export const WeatherDetails = () => {
           <div className="detail-info__icon-box">
             <AIcon
               className="detail-info__box-icon"
-              name="drop Humidity"
-              size="20"
+              name="cloud Cover"
+              size="25"
             />
           </div>
           <div className="detail-info__title">Cloud cover</div>
@@ -58,7 +58,7 @@ export const WeatherDetails = () => {
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
-            <AIcon className="detail-info__box-icon" name="windy" size="20" />
+            <AIcon className="detail-info__box-icon" name="windy" size="25" />
           </div>
 
           <div className="detail-info__title">Wind</div>

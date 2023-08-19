@@ -1,4 +1,4 @@
-export const uv = ({ size = 25, fill = '#ffffff' }) => (
+export const uv = ({ size = 25, fill = '#fff' }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}

@@ -15,7 +15,7 @@ export default function Day() {
 
           <WeatherLocation />
 
-          <AIcon name="dots" size="35" />
+          <AIcon name="dots" size="35" fill="#fff" />
         </div>
         <WeatherDetails />
       </div>

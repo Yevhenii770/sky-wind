@@ -1,4 +1,4 @@
-export const dropHumidity = ({ size = 25, fill = '#ffffff' }) => (
+export const precipitation = ({ size = 25, fill = '#fff' }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
