@@ -2,7 +2,6 @@ import { createElement } from 'react';
 import * as icons from '../../../icons';
 
 export const AIcon = ({ name, size, fill }) => {
-  // console.log(name);
   if (/ /.test(name)) {
     const wordArray = name.split(' ');
     const splittedSecondWord = wordArray[1].split('');

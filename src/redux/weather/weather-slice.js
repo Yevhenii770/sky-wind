@@ -35,15 +35,20 @@ export const userLocation = createSlice({
   name: 'location',
   initialState: {
     location: [],
+    city: '',
   },
   reducers: {
     addCoords(state, action) {
       state.location = action.payload;
+    },
+    addUserCity(state, action) {
+      state.city = action.payload;
     },
   },
 });
 
 export const weatherReducer = weatherSlice.reducer;
 export const userReducer = userLocation.reducer;
-//create actions
+
 export const { addCoords } = userLocation.actions;
+export const { addUserCity } = userLocation.actions;

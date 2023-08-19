@@ -14,3 +14,9 @@
 .a-button--primary {
   background-color: $primary-color;
 }
+.a-button--svg {
+  background: none;
+  width: 35px;
+  height: 35px;
+  padding: 0px;
+}
