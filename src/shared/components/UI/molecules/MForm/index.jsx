@@ -2,6 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import { addUserCity } from '../../../../../redux/weather/weather-slice';
 import { useDispatch } from 'react-redux';
+import { AButton } from '../../atoms';
 
 import './styles.scss';
 
@@ -9,7 +10,7 @@ export const SearchForm = () => {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div className='form-city'>
       <Formik
         initialValues={{ name: '' }}
         onSubmit={(values, actions) => {
@@ -22,8 +23,9 @@ export const SearchForm = () => {
         }}
       >
         {(props) => (
-          <form onSubmit={props.handleSubmit}>
+          <form className='form-city__container' onSubmit={props.handleSubmit}>
             <input
+              className='form-city__input'
               type="text"
               onChange={props.handleChange}
               onBlur={props.handleBlur}
@@ -31,7 +33,7 @@ export const SearchForm = () => {
               name="name"
             />
             {props.errors.name && <div id="feedback">{props.errors.name}</div>}
-            <button type="submit">Submit</button>
+            <AButton className='form-city__button' type="submit">Submit</AButton>
           </form>
         )}
       </Formik>

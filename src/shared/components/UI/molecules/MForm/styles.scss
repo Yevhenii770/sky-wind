@@ -1,0 +1,19 @@
+.form-city {
+    
+    &__container {
+    
+    }
+
+    &__input {
+    min-width: -webkit-fill-available;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 20px;
+    height: 35px;
+    padding-left: 15px;
+    }
+
+    &__button {
+    align-self: center;
+    }
+}

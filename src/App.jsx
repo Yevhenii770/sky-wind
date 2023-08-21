@@ -8,7 +8,10 @@ import {
 } from './redux/weather/weather-operations';
 import {
   selectWeatherLoading,
-  userLocation
+  userLocation, 
+  userElectCity,
+  selectAllWeather,
+  currentCity
 } from './redux/weather/weather-selectors';
 import { ALoader } from './shared/components/UI/atoms/ALoader';
 import { useGeolocated } from 'react-geolocated';
@@ -21,9 +24,13 @@ const DayPage = lazy(() => import('./pages/Day/Day'));
 function App() {
   const dispatch = useDispatch();
 
+  const weatherArray = useSelector(selectAllWeather);
+  const cityNow = useSelector(currentCity);
   const isLoading = useSelector(selectWeatherLoading);
   const location = useSelector(userLocation);
- 
+  const selectedCity = useSelector(userElectCity);
+
+
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
     useGeolocated({
       positionOptions: {
@@ -31,20 +38,33 @@ function App() {
       },
       userDecisionTimeout: 5000,
     });
+  
   if (coords && location.length === 0 && coords.latitude) {
     dispatch(addCoords([coords.latitude, coords.longitude]));
   }
 
   useEffect(() => {
-    if (location.length !== 0) {
+    if (selectedCity !== null) {
+      dispatch(fetchWeatherByCity(selectedCity))
+      dispatch(fetchCityByCoordinates([weatherArray.lat, weatherArray.lon]));
+      console.log('1')
+  
+     
+    } if (location.length !== 0) {
       dispatch(fetchWeather([location[0], location[1]]));
       dispatch(fetchCityByCoordinates([location[0], location[1]]));
+     console.log('2')
+ 
+
     } else {
       dispatch(fetchWeather([0, 0]));
       dispatch(fetchCityByCoordinates([0, 0]));
+    console.log('3')
     }
-  }, [location]);
 
+  }, [location, selectedCity]);
+  
+  
   return isLoading ? (
     <div>
       <ALoader />

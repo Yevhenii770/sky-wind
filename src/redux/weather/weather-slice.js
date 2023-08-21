@@ -29,6 +29,7 @@ const weatherSlice = createSlice({
       .addCase(fetchCityByCoordinates.rejected, handleRejected)
       .addCase(fetchCityByCoordinates.fulfilled, (state, action) => {
         state.city = action.payload;
+        state.isLoading = false;
       })
       .addCase(fetchWeatherByCity.pending, handlePending)
       .addCase(fetchWeatherByCity.rejected, handleRejected)
@@ -42,14 +43,14 @@ export const userLocation = createSlice({
   name: 'location',
   initialState: {
     location: [],
-    city: null,
+    selectedCity: null,
   },
   reducers: {
     addCoords(state, action) {
       state.location = action.payload;
     },
     addUserCity(state, action) {
-      state.city = action.payload;
+      state.selectedCity = action.payload;
     },
   },
 });

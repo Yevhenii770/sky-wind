@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 import { selectAllWeather } from '../../../../redux/weather/weather-selectors';
 import { currentCity } from '../../../../redux/weather/weather-selectors';
 import { ALoader } from '../../../../shared/components/UI/atoms/ALoader';
@@ -18,13 +19,16 @@ export const WeatherLocation = () => {
   ];
 
   const data = new Date();
-
   const hour = String(data.getHours());
   const minutes =
     String(data.getMinutes()) >= 10
       ? String(data.getMinutes())
       : '0' + String(data.getMinutes());
   const timeNow = hour + ':' + minutes;
+
+  useEffect(() => {
+  
+},[dataLocations])
 
   return (
     <div className="weather-location">
