@@ -8,8 +8,7 @@ import {
 } from './redux/weather/weather-operations';
 import {
   selectWeatherLoading,
-  userLocation,
-  userElectCity
+  userLocation
 } from './redux/weather/weather-selectors';
 import { ALoader } from './shared/components/UI/atoms/ALoader';
 import { useGeolocated } from 'react-geolocated';
@@ -24,9 +23,7 @@ function App() {
 
   const isLoading = useSelector(selectWeatherLoading);
   const location = useSelector(userLocation);
-  const electCity = useSelector(userElectCity);
-
-
+ 
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
     useGeolocated({
       positionOptions: {
@@ -46,9 +43,7 @@ function App() {
       dispatch(fetchWeather([0, 0]));
       dispatch(fetchCityByCoordinates([0, 0]));
     }
-    (location, electCity)
-    ('done')
-  }, [location, electCity]);
+  }, [location]);
 
   return isLoading ? (
     <div>
