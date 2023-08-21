@@ -10,4 +10,4 @@ https://feature-sliced.design/
 
 ## API
 
-https://www.weatherapi.com/
+https://www.meteosource.com/api/
