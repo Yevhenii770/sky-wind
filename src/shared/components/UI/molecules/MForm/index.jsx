@@ -33,7 +33,7 @@ export const SearchForm = () => {
               name="name"
             />
             {props.errors.name && <div id="feedback">{props.errors.name}</div>}
-            <AButton className='form-city__button' type="submit">Submit</AButton>
+            <AButton className='form-city__button' type="submit">Search</AButton>
           </form>
         )}
       </Formik>

@@ -8,6 +8,7 @@ export const AButton = ({
   to,
   href,
   svg,
+  type="button",
 }) => {
   let Component = 'button';
 
@@ -23,7 +24,7 @@ export const AButton = ({
       className={`a-button ${color ? `a-button--${color}` : ''} ${
         svg ? `a-button--svg` : ''
       }`}
-      type="button"
+      type={type}
       to={to}
       onClick={onClick}
     >

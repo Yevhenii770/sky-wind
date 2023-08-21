@@ -11,6 +11,13 @@
     border-radius: 20px;
     height: 35px;
     padding-left: 15px;
+    background-color: #ffffff;
+    }
+
+    &__input:hover, 
+    &__input:focus {
+    background-color: #ffffff;
+    border: none;
     }
 
     &__button {

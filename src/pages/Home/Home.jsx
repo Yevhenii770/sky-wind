@@ -37,7 +37,7 @@ function Home() {
 
       <div>
         {isModalActive && (
-          <Modal title="Choose your city" onClose={handleModalClose}>
+          <Modal title="Enter your city" onClose={handleModalClose}>
             <SearchForm />
           </Modal>
         )}
