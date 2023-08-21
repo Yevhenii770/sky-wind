@@ -4,10 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchWeather,
   fetchCityByCoordinates,
+  fetchWeatherByCity,
 } from './redux/weather/weather-operations';
 import {
   selectWeatherLoading,
   userLocation,
+  userElectCity
 } from './redux/weather/weather-selectors';
 import { ALoader } from './shared/components/UI/atoms/ALoader';
 import { useGeolocated } from 'react-geolocated';
@@ -19,8 +21,11 @@ const DayPage = lazy(() => import('./pages/Day/Day'));
 
 function App() {
   const dispatch = useDispatch();
+
   const isLoading = useSelector(selectWeatherLoading);
   const location = useSelector(userLocation);
+  const electCity = useSelector(userElectCity);
+
 
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
     useGeolocated({
@@ -41,7 +46,9 @@ function App() {
       dispatch(fetchWeather([0, 0]));
       dispatch(fetchCityByCoordinates([0, 0]));
     }
-  }, [location]);
+    (location, electCity)
+    ('done')
+  }, [location, electCity]);
 
   return isLoading ? (
     <div>
