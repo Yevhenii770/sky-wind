@@ -4,14 +4,17 @@ import { useLocation } from 'react-router-dom';
 import './styles.scss';
 
 export const Layout = () => {
-  const location = useLocation();
-  const dynamicStyleDay = location.pathname === '/day' ? 'day-special' : '';
+  const { pathname } = useLocation();
+  const daySpecial = pathname === '/day' ? 'day-special' : '';
+  const dayWrapper = pathname === '/day' ? 'day-wrapper' : '';
 
   return (
-    <div className={`container ${dynamicStyleDay}`}>
-      <Suspense>
-        <Outlet />
-      </Suspense>
+    <div className={`${daySpecial}`}>
+      <div className={`container ${dayWrapper}`}>
+        <Suspense>
+          <Outlet />
+        </Suspense>
+      </div>
     </div>
   );
 };
