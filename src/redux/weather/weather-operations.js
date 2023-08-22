@@ -43,7 +43,8 @@ export const fetchWeatherByCity = createAsyncThunk('weather/fetchWeatherByCity',
   try {
     const res = await axios.get(`${baseUrl}/free/point?place_id=${city}&sections=all&timezone=UTC&language=en&units=metric&key=${
       import.meta.env.VITE_WEATHER_API_KEY
-    }`); 
+      }`); 
+    console.log(res.data)
     return res.data; 
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

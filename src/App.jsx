@@ -45,18 +45,20 @@ function App() {
 
   useEffect(() => {
     if (selectedCity !== null) {
+      
       dispatch(fetchWeatherByCity(selectedCity))
       dispatch(fetchCityByCoordinates([weatherArray.lat, weatherArray.lon]));
+
       console.log('1')
   
      
-    } if (location.length !== 0) {
+    } if (location.length !== 0 && selectedCity === null) {
       dispatch(fetchWeather([location[0], location[1]]));
       dispatch(fetchCityByCoordinates([location[0], location[1]]));
      console.log('2')
  
 
-    } else {
+    } if (!location.length && !selectedCity) {
       dispatch(fetchWeather([0, 0]));
       dispatch(fetchCityByCoordinates([0, 0]));
     console.log('3')

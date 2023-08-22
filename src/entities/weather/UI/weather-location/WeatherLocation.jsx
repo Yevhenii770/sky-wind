@@ -26,9 +26,9 @@ export const WeatherLocation = () => {
       : '0' + String(data.getMinutes());
   const timeNow = hour + ':' + minutes;
 
-  useEffect(() => {
+//   useEffect(() => {
   
-},[dataLocations])
+// },[dataLocations])
 
   return (
     <div className="weather-location">

@@ -1,42 +1,51 @@
 import React from 'react';
-import { Formik } from 'formik';
+import { useFormik } from 'formik';
 import { addUserCity } from '../../../../../redux/weather/weather-slice';
 import { useDispatch } from 'react-redux';
 import { AButton } from '../../atoms';
+import { citySchema } from '../../../../../entities/weather/schemas';
 
 import './styles.scss';
 
 export const SearchForm = () => {
   const dispatch = useDispatch();
 
+  const { handleChange, handleSubmit, values, errors, touched } = useFormik({
+    initialValues: {
+      city: '',
+    },
+    validationSchema: citySchema,
+    onSubmit: (values) => {
+      dispatch(addUserCity(values.city));
+    },
+  });
+
+  console.log(errors);
   return (
-    <div className='form-city'>
-      <Formik
-        initialValues={{ name: '' }}
-        onSubmit={(values, actions) => {
-          dispatch(addUserCity(values.name));
-          actions.resetForm({
-            values: {
-              name: '',
-            },
-          });
-        }}
+    <div className="form-city">
+      <form
+        className="form-city__container"
+        autoComplete="off"
+        onSubmit={handleSubmit}
       >
-        {(props) => (
-          <form className='form-city__container' onSubmit={props.handleSubmit}>
-            <input
-              className='form-city__input'
-              type="text"
-              onChange={props.handleChange}
-              onBlur={props.handleBlur}
-              value={props.values.name}
-              name="name"
-            />
-            {props.errors.name && <div id="feedback">{props.errors.name}</div>}
-            <AButton className='form-city__button' type="submit">Search</AButton>
-          </form>
+        <input
+          className={`form-city__input ${
+            errors.city && touched.city ? `form-city__input-error` : ''
+          }`}
+          id="text"
+          name="city"
+          type="text"
+          onChange={handleChange}
+          value={values.email}
+        />
+        {errors.city && touched.city && (
+          <p className="input-error-message">{errors.city}</p>
         )}
-      </Formik>
+
+        <AButton className="form-city__button" type="submit">
+          Search
+        </AButton>
+      </form>
     </div>
   );
 };
