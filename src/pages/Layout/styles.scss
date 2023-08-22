@@ -1,3 +1,18 @@
 .container {
   padding-top: 60px;
 }
+
+.day-special {
+  background-image: url('@/shared/components/photos/the-duomo-in-florence-800x800.jpg');
+  background-color: rgba(21, 105, 207, 0.5);
+
+  // background: url(/test-tweets/static/media/picture.b186e54….png) 50% 10%
+  //     no-repeat,
+  //   linear-gradient(
+  //     114.99deg,
+  //     rgb(71, 28, 169) -0.99%,
+  //     rgb(87, 54, 163) 54.28%,
+  //     rgb(75, 42, 153) 78.99%
+  //   );
+  // background-size: cover;
+}

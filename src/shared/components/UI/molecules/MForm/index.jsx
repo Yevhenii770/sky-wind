@@ -10,13 +10,22 @@ import './styles.scss';
 export const SearchForm = () => {
   const dispatch = useDispatch();
 
-  const { handleChange, handleSubmit, values, errors, touched } = useFormik({
+  const {
+    handleChange,
+    handleSubmit,
+    isSubmitting,
+    values,
+    errors,
+    touched,
+    actions,
+  } = useFormik({
     initialValues: {
       city: '',
     },
     validationSchema: citySchema,
-    onSubmit: (values) => {
+    onSubmit: (values, actions) => {
       dispatch(addUserCity(values.city));
+      actions.resetForm();
     },
   });
 
@@ -36,7 +45,7 @@ export const SearchForm = () => {
           name="city"
           type="text"
           onChange={handleChange}
-          value={values.email}
+          value={values.city}
         />
         {errors.city && touched.city && (
           <p className="input-error-message">{errors.city}</p>
