@@ -16,10 +16,14 @@ export const AIcon = ({ name, size, fill }) => {
       ...rest,
     ].join('');
 
-    return createElement(icons[correctedName], { size, fill });
+    return createElement(icons[correctedName], { size, fill })
+      ? createElement(icons[correctedName], { size, fill })
+      : createElement(icons['unknown'], { size, fill });
   } else {
     const correctedName = name.toLowerCase();
 
-    return createElement(icons[correctedName], { size, fill });
+    return createElement(icons[correctedName], { size, fill })
+      ? createElement(icons[correctedName], { size, fill })
+      : createElement(icons['unknown'], { size, fill });
   }
 };

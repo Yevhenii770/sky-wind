@@ -26,3 +26,4 @@ export * from './thunderstorm';
 export * from './fog';
 export * from './precipitation.jsx';
 export * from './cross';
+export * from './possibleRain';

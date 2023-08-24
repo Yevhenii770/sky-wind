@@ -29,7 +29,6 @@ export const SearchForm = () => {
     },
   });
 
-  console.log(errors);
   return (
     <div className="form-city">
       <form
