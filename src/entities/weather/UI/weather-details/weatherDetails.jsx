@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux';
 import { selectAllWeather } from '../../../../redux/weather/weather-selectors';
 import { AIcon } from '../../../../shared/components/UI/atoms';
 import { MSliderDay } from '../../../../shared/components/UI/molecules/MSliderDay';
+import { ALoader } from '../../../../shared/components/UI/atoms/ALoader';
+
 import './styles.scss';
 
 export const WeatherDetails = () => {
@@ -24,7 +26,8 @@ export const WeatherDetails = () => {
             {Math.round(currentWeather.temperature)}&#xb0;
           </div>
           <div>
-            {weatherArray.current.summary}, {Math.max(...temperatureToday)}
+            {weatherArray ? weatherArray.current.summary : <ALoader />},{' '}
+            {Math.max(...temperatureToday)}
             &#176; / {Math.min(...temperatureToday)}&#176;
           </div>
         </div>

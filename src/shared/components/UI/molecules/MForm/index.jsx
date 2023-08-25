@@ -28,7 +28,6 @@ export const SearchForm = () => {
       actions.resetForm();
     },
   });
-
   return (
     <div className="form-city">
       <form

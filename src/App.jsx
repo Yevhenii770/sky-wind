@@ -16,6 +16,7 @@ import {
 import { ALoader } from './shared/components/UI/atoms/ALoader';
 import { useGeolocated } from 'react-geolocated';
 import { addCoords } from './redux/weather/weather-slice';
+import './styles.scss';
 
 import { Layout } from './pages/Layout/Layout';
 const HomePage = lazy(() => import('./pages/Home/Home'));
@@ -26,7 +27,6 @@ function App() {
   const notInitialRender = useRef(false);
 
   const weatherArray = useSelector(selectAllWeather);
-  const cityNow = useSelector(currentCity);
   const isLoading = useSelector(selectWeatherLoading);
   const location = useSelector(userLocation);
   const selectedCity = useSelector(userElectCity);
@@ -43,22 +43,31 @@ function App() {
     dispatch(addCoords([coords.latitude, coords.longitude]));
   }
 
+  // if we dont have any data
+  useEffect(() => {
+    if (!location.length && !selectedCity) {
+      dispatch(fetchWeather([49.8383, 24.0232]));
+      dispatch(fetchCityByCoordinates([49.8383, 24.0232]));
+    }
+  }, []);
+
+  // if user selected city
   useEffect(() => {
     if (selectedCity !== null) {
       dispatch(fetchWeatherByCity(selectedCity));
     }
+  }, [selectedCity]);
+
+  // if user give a geolocation
+  useEffect(() => {
     if (location.length !== 0 && selectedCity === null) {
       dispatch(fetchWeather([location[0], location[1]]));
       dispatch(fetchCityByCoordinates([location[0], location[1]]));
     }
-    if (!location.length && !selectedCity) {
-      dispatch(fetchWeather([0, 0]));
-      dispatch(fetchCityByCoordinates([0, 0]));
-    }
-  }, [location, selectedCity]);
+  }, [location]);
 
   useEffect(() => {
-    if (notInitialRender.current) {
+    if (notInitialRender.current && selectedCity) {
       dispatch(fetchCityByCoordinates([weatherArray.lat, weatherArray.lon]));
     } else {
       notInitialRender.current = true;
@@ -66,7 +75,7 @@ function App() {
   }, [weatherArray]);
 
   return isLoading ? (
-    <div>
+    <div className="app-loader-container">
       <ALoader />
     </div>
   ) : (
