@@ -6,8 +6,8 @@ import {
 } from '../../entities/weather';
 import { AIcon } from '../../shared/components/UI/atoms';
 import { AButton } from '../../shared/components/UI/atoms';
-import Modal from '../../shared/components/UI/molecules/MModal';
 import { SearchForm } from '../../shared/components/UI/molecules/MForm';
+import Modal from '../../shared/components/UI/molecules/MModal';
 
 import './styles.scss';
 

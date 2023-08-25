@@ -1,9 +1,13 @@
+import { useSelector } from 'react-redux';
+import { AButton, AIcon } from '@/shared/components/UI/atoms';
+import { selectAllWeather } from '@/redux/weather/weather-selectors';
+
 import './styles.scss';
-import { AButton, AIcon } from '../../../../shared/components/UI/atoms';
 
 export const WeatherWeek = () => {
-  //temp data
-  const week = [
+  const weatherArray = useSelector(selectAllWeather);
+
+  const fakeData = [
     {
       day: 'Today',
       id: 0,
@@ -33,7 +37,7 @@ export const WeatherWeek = () => {
   return (
     <div className="weather-week">
       <div className="weather-week__list">
-        {week.map((el) => (
+        {fakeData.map((el) => (
           <div key={el.id} className="weather-week__item">
             <div>{el.day}</div>
 
@@ -49,6 +53,9 @@ export const WeatherWeek = () => {
             <div>{el.temp} &#176;</div>
           </div>
         ))}
+        {!weatherArray.daily
+          ? 'Sorry, I dont have money to buy the full version of weather-API :( So in weather week you see random data. '
+          : ''}
       </div>
 
       <AButton>See More</AButton>
