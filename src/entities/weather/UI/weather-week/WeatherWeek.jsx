@@ -42,7 +42,7 @@ export const WeatherWeek = () => {
             </div>
 
             <div className="weather-week__humidity-icon">
-              {/* <AIcon name="drop" /> */}
+              <AIcon name="drop" size={15} />
             </div>
 
             <div className="weather-week__humidity">{el.humidity}</div>
