@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { AIcon } from '../../atoms';
-import { selectAllWeather } from '../../../../../redux/weather/weather-selectors';
+import { selectAllWeather } from '@/redux/weather/weather-selectors';
 import { nanoid } from 'nanoid';
 import './styles.scss';
 
@@ -21,7 +21,7 @@ export const MSliderDay = () => {
           </div>
           <div className="slider-weather-day__icon-container">
             <AIcon
-              name={el.cloud_cover.total <= 50 ? 'drop' : 'middle drop'}
+              name={el.cloud_cover.total < 50 ? 'drop' : 'middle drop'}
               size="15"
             />
             {el.cloud_cover.total + '%'}

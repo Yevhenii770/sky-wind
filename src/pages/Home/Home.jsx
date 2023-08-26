@@ -1,13 +1,9 @@
 import { useState } from 'react';
-import {
-  WeatherDay,
-  WeatherWeek,
-  WeatherLocation,
-} from '../../entities/weather';
-import { AIcon } from '../../shared/components/UI/atoms';
-import { AButton } from '../../shared/components/UI/atoms';
-import { SearchForm } from '../../shared/components/UI/molecules/MForm';
-import Modal from '../../shared/components/UI/molecules/MModal';
+import { WeatherDay, WeatherWeek, WeatherLocation } from '@/entities/weather';
+import { AIcon } from '@/shared/components/UI/atoms';
+import { AButton } from '@/shared/components/UI/atoms';
+import { SearchForm } from '@/shared/components/UI/molecules';
+import Modal from '@/shared/components/UI/molecules/MModal';
 
 import './styles.scss';
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import { addUserCity } from '../../../../../redux/weather/weather-slice';
+import { addUserCity } from '@/redux/weather/weather-slice';
 import { useDispatch } from 'react-redux';
 import { AButton } from '../../atoms';
-import { citySchema } from '../../../../../entities/weather/schemas';
+import { CitySchema } from '@/entities/weather/schemas';
 
 import './styles.scss';
 
@@ -22,11 +22,12 @@ export const SearchForm = () => {
     initialValues: {
       city: '',
     },
-    validationSchema: citySchema,
+
     onSubmit: (values, actions) => {
       dispatch(addUserCity(values.city));
       actions.resetForm();
     },
+    validationSchema: CitySchema,
   });
   return (
     <div className="form-city">
