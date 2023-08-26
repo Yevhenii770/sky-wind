@@ -2,35 +2,41 @@
   background-color: #e6edf5;
   border-radius: 20px;
   padding: 25px;
-}
-
-.weather-week__item {
   position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-}
 
-.weather-week__list {
-  margin-bottom: 15px;
-}
+  &__item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
 
-.weather-week__humidity {
-  font-size: 14px;
-  position: absolute;
-  left: 162px;
-  color: $light-text-color;
-}
+  &__list {
+    margin-bottom: 15px;
+  }
 
-.weather-week__humidity-icon {
-  position: absolute;
-  left: 140px;
-  top: 9px;
-}
+  &__humidity {
+    font-size: 14px;
+    position: absolute;
+    left: 162px;
+    color: $light-text-color;
+  }
 
-.weather-week__icon {
-  position: absolute;
-  left: 110px;
-  top: 6px;
+  &__humidity-icon {
+    position: absolute;
+    left: 140px;
+    top: 9px;
+  }
+
+  &__icon {
+    position: absolute;
+    left: 110px;
+    top: 6px;
+  }
+
+  &__question-mark {
+    position: absolute;
+    right: 12px;
+  }
 }

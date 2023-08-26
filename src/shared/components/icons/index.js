@@ -27,3 +27,5 @@ export * from './fog';
 export * from './precipitation.jsx';
 export * from './cross';
 export * from './possibleRain';
+export * from './questionMark';
+export * from './unknown';

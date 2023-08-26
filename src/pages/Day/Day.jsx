@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { WeatherLocation } from '../../entities/weather/UI/weather-location';
-import { WeatherDetails } from '../../entities/weather/UI/weather-details/weatherDetails';
-import { AIcon, AButton } from '../../shared/components/UI/atoms';
-import Modal from '../../shared/components/UI/molecules/MModal';
+import { WeatherLocation } from '@/entities/weather/UI/weather-location';
+import { WeatherDetails } from '@/entities/weather/UI/weather-details/weatherDetails';
+import { AIcon, AButton } from '@/shared/components/UI/atoms';
+import Modal from '@/shared/components/UI/molecules/MModal';
 
 import './styles.scss';
 

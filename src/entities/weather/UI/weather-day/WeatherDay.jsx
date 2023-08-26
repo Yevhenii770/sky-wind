@@ -13,7 +13,10 @@ export const WeatherDay = () => {
     <div className="weather-day">
       <div className="weather-day__container">
         <div className="weather-day__icon">
-          <AIcon name={currentWeather.summary} size="55" />
+          <AIcon
+            name={currentWeather ? currentWeather.summary : 'unknown'}
+            size="55"
+          />
         </div>
         <div className="weather-day__temperature-now">
           {Math.round(currentWeather.temperature)}&#xb0;

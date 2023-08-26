@@ -19,7 +19,10 @@ export const WeatherDetails = () => {
     <>
       <div className="weather-day__now">
         <div className="weather-day__container-icon">
-          <AIcon name={currentWeather.summary} size="120" />
+          <AIcon
+            name={currentWeather ? currentWeather.summary : 'unknown'}
+            size="120"
+          />
         </div>
         <div>
           <div className="weather-day__big-celsius">
