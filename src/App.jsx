@@ -36,7 +36,7 @@ function App() {
       positionOptions: {
         enableHighAccuracy: false,
       },
-      userDecisionTimeout: 5000,
+      userDecisionTimeout: 1000,
     });
 
   if (coords && location.length === 0 && coords.latitude) {
