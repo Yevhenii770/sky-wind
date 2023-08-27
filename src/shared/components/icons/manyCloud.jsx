@@ -1,4 +1,4 @@
-export const middleDrop = ({ size = 20, fill = '#00c0ff' }) => (
+export const manyCloud = ({ size = 20, fill = '#009aff7d' }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}

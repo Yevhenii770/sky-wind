@@ -21,7 +21,7 @@ export const MSliderDay = () => {
           </div>
           <div className="slider-weather-day__icon-container">
             <AIcon
-              name={el.cloud_cover.total < 50 ? 'drop' : 'middle drop'}
+              name={el.cloud_cover.total < 50 ? 'cloud' : 'Many cloud'}
               size="15"
             />
             {el.cloud_cover.total + '%'}

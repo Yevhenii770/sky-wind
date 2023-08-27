@@ -23,10 +23,11 @@
     color: $light-text-color;
   }
 
-  &__humidity-icon {
+  &__cloud-cover-icon {
     position: absolute;
-    left: 140px;
-    top: 9px;
+    left: 144px;
+    height: 15px;
+    top: 11px;
   }
 
   &__icon {
