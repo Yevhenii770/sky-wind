@@ -9,8 +9,6 @@ export const CitySchema = Yup.object().shape({
     .max(15)
     .test('validate city-input', myFailureMessage, function (value) {
       const { path, createError } = this;
-
-      console.log(!Number(value) && !pattern.test(value));
       if (!Number(value) && !pattern.test(value)) {
         return true;
       }
