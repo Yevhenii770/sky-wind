@@ -11,14 +11,14 @@ import {
   userLocation,
   userElectCity,
   selectAllWeather,
-  currentCity,
 } from './redux/weather/weather-selectors';
 import { ALoader } from './shared/components/UI/atoms/ALoader';
 import { useGeolocated } from 'react-geolocated';
 import { addCoords } from './redux/weather/weather-slice';
 import './styles.scss';
 
-import { Layout } from './pages/Layout/Layout';
+import Layout from './pages/Layout/Layout';
+
 const HomePage = lazy(() => import('./pages/Home/Home'));
 const DayPage = lazy(() => import('./pages/Day/Day'));
 
@@ -36,12 +36,21 @@ function App() {
       positionOptions: {
         enableHighAccuracy: false,
       },
-      userDecisionTimeout: 1000,
+      userDecisionTimeout: 3000,
     });
 
   if (coords && location.length === 0 && coords.latitude) {
     dispatch(addCoords([coords.latitude, coords.longitude]));
   }
+
+  // only first render
+  useEffect(() => {
+    if (notInitialRender.current && selectedCity) {
+      dispatch(fetchCityByCoordinates([weatherArray.lat, weatherArray.lon]));
+    } else {
+      notInitialRender.current = true;
+    }
+  }, [weatherArray]);
 
   // if we dont have any data
   useEffect(() => {
@@ -65,14 +74,6 @@ function App() {
       dispatch(fetchCityByCoordinates([location[0], location[1]]));
     }
   }, [location]);
-
-  useEffect(() => {
-    if (notInitialRender.current && selectedCity) {
-      dispatch(fetchCityByCoordinates([weatherArray.lat, weatherArray.lon]));
-    } else {
-      notInitialRender.current = true;
-    }
-  }, [weatherArray]);
 
   return isLoading ? (
     <div className="app-loader-container">

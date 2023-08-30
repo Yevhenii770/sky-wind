@@ -1,12 +1,9 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import { AButton, AIcon } from '@/shared/components/UI/atoms';
-import { selectAllWeather } from '@/redux/weather/weather-selectors';
 import Modal from '@/shared/components/UI/molecules/MModal';
 import './styles.scss';
 
 export const WeatherWeek = () => {
-  const weatherArray = useSelector(selectAllWeather);
   const [isModalActive, setModalActive] = useState(false);
 
   const handleModalOpen = () => {
@@ -70,14 +67,14 @@ export const WeatherWeek = () => {
         </div>
         {isModalActive && (
           <Modal title="" onClose={handleModalClose}>
-            {!weatherArray.daily ? (
-              <p>
-                Sorry, I dont have money to buy the full version of weather-API
-                So in weather week you see random data.
-              </p>
-            ) : (
-              ''
-            )}
+            {
+              <div className="sorry-modal">
+                <p className="sorry-modal__content">
+                  Sorry, I dont have money to buy the full version of
+                  weather-API So in weather week you see random data.
+                </p>
+              </div>
+            }
           </Modal>
         )}
       </div>

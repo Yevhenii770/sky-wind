@@ -1,9 +1,19 @@
 .form-city {
-  &__container {
-  }
+  padding: 20px;
 
+  &__content {
+  }
+  &__title {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 10px;
+
+    display: flex;
+    justify-content: center;
+  }
   &__input {
-    min-width: -webkit-fill-available;
+    // min-width: -webkit-fill-available;
+    width: calc(100% - 18px);
     margin-bottom: 10px;
     border: none;
     border-radius: 20px;

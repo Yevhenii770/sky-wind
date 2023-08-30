@@ -31,29 +31,32 @@ export const SearchForm = () => {
   });
   return (
     <div className="form-city">
-      <form
-        className="form-city__container"
-        autoComplete="off"
-        onSubmit={handleSubmit}
-      >
-        <input
-          className={`form-city__input ${
-            errors.city && touched.city ? `form-city__input-error` : ''
-          }`}
-          id="text"
-          name="city"
-          type="text"
-          onChange={handleChange}
-          value={values.city}
-        />
-        {errors.city && touched.city && (
-          <p className="input-error-message">{errors.city}</p>
-        )}
+      <div className="form-city__content">
+        <div className="form-city__title">Enter your city</div>
+        <form
+          className="form-city__container"
+          autoComplete="off"
+          onSubmit={handleSubmit}
+        >
+          <input
+            className={`form-city__input ${
+              errors.city && touched.city ? `form-city__input-error` : ''
+            }`}
+            id="text"
+            name="city"
+            type="text"
+            onChange={handleChange}
+            value={values.city}
+          />
+          {errors.city && touched.city && (
+            <p className="input-error-message">{errors.city}</p>
+          )}
 
-        <AButton className="form-city__button" type="submit">
-          Search
-        </AButton>
-      </form>
+          <AButton className="form-city__button" type="submit">
+            Search
+          </AButton>
+        </form>
+      </div>
     </div>
   );
 };

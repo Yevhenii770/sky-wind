@@ -7,7 +7,7 @@ import Modal from '@/shared/components/UI/molecules/MModal';
 
 import './styles.scss';
 
-function Home() {
+const Home = () => {
   const [isModalActive, setModalActive] = useState(false);
 
   const handleModalOpen = () => {
@@ -33,13 +33,13 @@ function Home() {
 
       <div>
         {isModalActive && (
-          <Modal title="Enter your city" onClose={handleModalClose}>
+          <Modal onClose={handleModalClose}>
             <SearchForm />
           </Modal>
         )}
       </div>
     </div>
   );
-}
+};
 
 export default Home;

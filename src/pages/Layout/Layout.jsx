@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import './styles.scss';
 
-export const Layout = () => {
+const Layout = () => {
   const { pathname } = useLocation();
   const daySpecial = pathname === '/day' ? 'day-special' : '';
   const dayWrapper = pathname === '/day' ? 'day-wrapper' : '';
@@ -18,3 +18,4 @@ export const Layout = () => {
     </div>
   );
 };
+export default Layout;
