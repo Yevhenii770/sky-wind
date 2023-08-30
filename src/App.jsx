@@ -25,7 +25,6 @@ const DayPage = lazy(() => import('./pages/Day/Day'));
 function App() {
   const dispatch = useDispatch();
   const notInitialRender = useRef(false);
-
   const weatherArray = useSelector(selectAllWeather);
   const isLoading = useSelector(selectWeatherLoading);
   const location = useSelector(userLocation);

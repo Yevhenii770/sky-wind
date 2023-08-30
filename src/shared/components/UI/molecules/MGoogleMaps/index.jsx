@@ -1,18 +1,22 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo } from 'react';
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
-import { userLocation } from '../../../../../redux/weather/weather-selectors';
+import {
+  userLocation,
+  currentCity,
+} from '../../../../../redux/weather/weather-selectors';
 import { ALoader } from '../../atoms/ALoader';
 import { useSelector } from 'react-redux';
 import './styled.scss';
 
 export const GoogleMaps = () => {
   const location = useSelector(userLocation);
+  const city = useSelector(currentCity);
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
   });
 
-  const position = location
-    ? { lat: location[0], lng: location[1] }
+  const position = city
+    ? { lat: Number(city.lat), lng: Number(city.lon) }
     : { lat: 49.8383, lng: 24.0232 };
 
   const center = useMemo(
