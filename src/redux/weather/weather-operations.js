@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
+import Notification from '../../entities/weather/notification';
 import axios from 'axios';
 
 const baseUrl = 'https://www.meteosource.com/api/v1';
@@ -50,6 +50,7 @@ export const fetchWeatherByCity = createAsyncThunk(
       );
       return res.data;
     } catch (error) {
+      Notification(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

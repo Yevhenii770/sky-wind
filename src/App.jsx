@@ -16,6 +16,7 @@ import {
 import { ALoader } from './shared/components/UI/atoms/ALoader';
 import { useGeolocated } from 'react-geolocated';
 import { addCoords } from './redux/weather/weather-slice';
+
 import './styles.scss';
 
 import Layout from './pages/Layout/Layout';
@@ -76,13 +77,6 @@ function App() {
       dispatch(fetchCityByCoordinates([location[0], location[1]]));
     }
   }, [location]);
-
-  // error useEffect
-  useEffect(() => {
-    if (error) {
-      alert(error);
-    }
-  }, [error]);
 
   return isLoading ? (
     <div className="app-loader-container">
