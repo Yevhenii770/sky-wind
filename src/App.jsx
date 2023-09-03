@@ -11,6 +11,7 @@ import {
   userLocation,
   userElectCity,
   selectAllWeather,
+  currentError,
 } from './redux/weather/weather-selectors';
 import { ALoader } from './shared/components/UI/atoms/ALoader';
 import { useGeolocated } from 'react-geolocated';
@@ -25,6 +26,8 @@ const DayPage = lazy(() => import('./pages/Day/Day'));
 function App() {
   const dispatch = useDispatch();
   const notInitialRender = useRef(false);
+
+  const error = useSelector(currentError);
   const weatherArray = useSelector(selectAllWeather);
   const isLoading = useSelector(selectWeatherLoading);
   const location = useSelector(userLocation);
@@ -73,6 +76,13 @@ function App() {
       dispatch(fetchCityByCoordinates([location[0], location[1]]));
     }
   }, [location]);
+
+  // error useEffect
+  useEffect(() => {
+    if (error) {
+      alert(error);
+    }
+  }, [error]);
 
   return isLoading ? (
     <div className="app-loader-container">
