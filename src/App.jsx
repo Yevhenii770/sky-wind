@@ -11,16 +11,13 @@ import {
   userLocation,
   userElectCity,
   selectAllWeather,
-  currentError,
 } from './redux/weather/weather-selectors';
 import { ALoader } from './shared/components/UI/atoms/ALoader';
 import { useGeolocated } from 'react-geolocated';
 import { addCoords } from './redux/weather/weather-slice';
-
 import './styles.scss';
 
 import Layout from './pages/Layout/Layout';
-
 const HomePage = lazy(() => import('./pages/Home/Home'));
 const DayPage = lazy(() => import('./pages/Day/Day'));
 
@@ -28,7 +25,6 @@ function App() {
   const dispatch = useDispatch();
   const notInitialRender = useRef(false);
 
-  const error = useSelector(currentError);
   const weatherArray = useSelector(selectAllWeather);
   const isLoading = useSelector(selectWeatherLoading);
   const location = useSelector(userLocation);
