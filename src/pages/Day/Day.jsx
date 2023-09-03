@@ -36,7 +36,7 @@ export default function Day() {
       </div>
       <div>
         {isModalActive && (
-          <Modal title="" onClose={handleModalClose}>
+          <Modal bigSize={'true'} title="" onClose={handleModalClose}>
             <GoogleMaps />
           </Modal>
         )}

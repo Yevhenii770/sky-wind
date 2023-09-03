@@ -6,7 +6,7 @@ import './styles.scss';
 
 const MODAL_CONTAINER_ID = 'modal-container-id';
 
-const Modal = ({ title, onClose, children }) => {
+const Modal = ({ title, onClose, children, bigSize = false }) => {
   const rootRef = useRef(null);
   const [isMounted, setMounted] = useState(false);
 
@@ -45,7 +45,7 @@ const Modal = ({ title, onClose, children }) => {
   return isMounted ? (
     <Portal id={MODAL_CONTAINER_ID}>
       <div className="modal" ref={rootRef} data-testid="wrap">
-        <div className="modal__content">
+        <div className={`modal__content ${bigSize && `content-map`}`}>
           <button
             className="modal__closeButton"
             type="button"
