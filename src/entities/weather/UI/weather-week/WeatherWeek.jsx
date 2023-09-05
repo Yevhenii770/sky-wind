@@ -48,11 +48,11 @@ export const WeatherWeek = () => {
             <div>{el.day}</div>
 
             <div className="weather-week__icon">
-              <AIcon name="Light rain" size="25" />
+              {/* <AIcon name="Light rain" size="25" /> */}
             </div>
 
             <div className="weather-week__cloud-cover-icon">
-              <AIcon name="cloud" size={15} />
+              {/* <AIcon name="cloud" size={15} /> */}
             </div>
 
             <div className="weather-week__humidity">{el.humidity}</div>
@@ -62,7 +62,7 @@ export const WeatherWeek = () => {
 
         <div className="weather-week__question-mark">
           <AButton svg="true" onClick={handleModalOpen}>
-            <AIcon size={35} name="Question mark" />
+            {/* <AIcon size={35} name="Question mark" /> */}
           </AButton>
         </div>
         {isModalActive && (

@@ -5,6 +5,7 @@ import {
   fetchWeather,
   fetchCityByCoordinates,
   fetchWeatherByCity,
+  fetchWeatherNew,
 } from './redux/weather/weather-operations';
 import {
   selectWeatherLoading,
@@ -70,6 +71,7 @@ function App() {
   useEffect(() => {
     if (location.length !== 0 && selectedCity === null) {
       dispatch(fetchWeather([location[0], location[1]]));
+      dispatch(fetchWeatherNew([location[0], location[1]]));
       dispatch(fetchCityByCoordinates([location[0], location[1]]));
     }
   }, [location]);

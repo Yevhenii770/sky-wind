@@ -2,29 +2,24 @@ import { createElement } from 'react';
 import * as icons from '../../../icons';
 
 export const AIcon = ({ name, size, fill }) => {
-  // console.log(name);
+  console.log(name);
+
   if (/ /.test(name)) {
-    const wordArray = name.split(' ');
-    const splittedSecondWord = wordArray[1].split('');
-    const toLowerCaseFirstdWord = wordArray[0].toLowerCase();
-    const firstUpperCaseletter = splittedSecondWord[0].toUpperCase();
-    const rest = [...splittedSecondWord];
-    rest.splice(0, 1);
-
-    const correctedName = [
-      toLowerCaseFirstdWord,
-      firstUpperCaseletter,
-      ...rest,
-    ].join('');
-
-    return createElement(icons[correctedName], { size, fill })
-      ? createElement(icons[correctedName], { size, fill })
-      : createElement(icons['unknown'], { size, fill });
+    const resoltName = name
+      .split(' ')
+      .map(function (word, index) {
+        return index === 0
+          ? word
+          : word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join('');
+    console.log('!!! two');
+    return createElement(icons[resoltName], { size, fill });
+  } else if (!/ /.test(name)) {
+    console.log(' !!! one');
+    createElement(icons[name.toLowerCase()], { size, fill });
   } else {
-    const correctedName = name.toLowerCase();
-
-    return createElement(icons[correctedName], { size, fill })
-      ? createElement(icons[correctedName], { size, fill })
-      : createElement(icons['unknown'], { size, fill });
+    console.log('!!! else');
+    return createElement(icons['unknown'], { size, fill });
   }
 };

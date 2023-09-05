@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux';
-import { selectAllWeather } from '@/redux/weather/weather-selectors';
+import { selectWeather } from '@/redux/weather/weather-selectors';
 import { currentCity } from '@/redux/weather/weather-selectors';
 import { ALoader } from '@/shared/components/UI/atoms/ALoader';
 import './styles.scss';
 
 export const WeatherLocation = () => {
-  const weatherArray = useSelector(selectAllWeather);
+  const allWeather = useSelector(selectWeather);
+
   const dataLocations = useSelector(currentCity);
   const days = [
     'Sunday',
@@ -34,7 +35,7 @@ export const WeatherLocation = () => {
         </div>
         <div className="sub-title">
           {days[data.getDay()]} {timeNow},{' '}
-          {weatherArray ? weatherArray.current.summary : <ALoader />}
+          {allWeather ? allWeather.current.weather[0].main : <ALoader />}
         </div>
       </div>
     </div>

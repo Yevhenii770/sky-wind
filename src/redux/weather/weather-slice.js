@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchWeather, fetchCityByCoordinates, fetchWeatherByCity } from './weather-operations';
+import {
+  fetchWeather,
+  fetchCityByCoordinates,
+  fetchWeatherByCity,
+  fetchWeatherNew,
+} from './weather-operations';
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -13,6 +18,7 @@ const weatherSlice = createSlice({
   name: 'wether',
   initialState: {
     items: [],
+    itemsNew: [],
     isLoading: false,
     error: null,
     city: null,
@@ -25,6 +31,12 @@ const weatherSlice = createSlice({
         state.items = action.payload;
         state.isLoading = false;
       })
+      .addCase(fetchWeatherNew.pending, handlePending)
+      .addCase(fetchWeatherNew.rejected, handleRejected)
+      .addCase(fetchWeatherNew.fulfilled, (state, action) => {
+        state.itemsNew = action.payload;
+        state.isLoading = false;
+      })
       .addCase(fetchCityByCoordinates.pending, handlePending)
       .addCase(fetchCityByCoordinates.rejected, handleRejected)
       .addCase(fetchCityByCoordinates.fulfilled, (state, action) => {
@@ -33,9 +45,8 @@ const weatherSlice = createSlice({
       })
       .addCase(fetchWeatherByCity.pending, handlePending)
       .addCase(fetchWeatherByCity.rejected, handleRejected)
-      .addCase(fetchWeatherByCity.fulfilled,(state, action) => {
+      .addCase(fetchWeatherByCity.fulfilled, (state, action) => {
         state.items = action.payload;
-        
       }),
 });
 

@@ -4,7 +4,7 @@ export * from './bigRain';
 export * from './rain';
 export * from './snowflake';
 export * from './storm';
-export * from './sunny';
+export * from './clearSky';
 export * from './wind';
 export * from './left';
 export * from './lightRain';

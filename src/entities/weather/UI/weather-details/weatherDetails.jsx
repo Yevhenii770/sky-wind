@@ -19,10 +19,10 @@ export const WeatherDetails = () => {
     <>
       <div className="weather-day__now">
         <div className="weather-day__container-icon">
-          <AIcon
+          {/* <AIcon
             name={currentWeather ? currentWeather.summary : 'unknown'}
             size="120"
-          />
+          /> */}
         </div>
         <div>
           <div className="weather-day__big-celsius">
@@ -38,11 +38,11 @@ export const WeatherDetails = () => {
       <div className="detail-info">
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
-            <AIcon
+            {/* <AIcon
               name="precipitation"
               size="25"
               className="detail-info__box-icon"
-            />
+            /> */}
           </div>
           <div className="detail-info__title">Precipitation</div>
           <div className="detail-info__options">
@@ -51,11 +51,11 @@ export const WeatherDetails = () => {
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
-            <AIcon
+            {/* <AIcon
               className="detail-info__box-icon"
               name="cloud Cover"
               size="25"
-            />
+            /> */}
           </div>
           <div className="detail-info__title">Cloud cover</div>
           <div className="detail-info__options">
@@ -64,7 +64,7 @@ export const WeatherDetails = () => {
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
-            <AIcon className="detail-info__box-icon" name="windy" size="25" />
+            {/* <AIcon className="detail-info__box-icon" name="windy" size="25" /> */}
           </div>
 
           <div className="detail-info__title">Wind</div>
@@ -74,7 +74,7 @@ export const WeatherDetails = () => {
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
-            <AIcon className="detail-info__box-icon" name="uv" size="20" />
+            {/* <AIcon className="detail-info__box-icon" name="uv" size="20" /> */}
           </div>
           <div className="detail-info__title">UV index</div>
           <div className="detail-info__options">Low</div>

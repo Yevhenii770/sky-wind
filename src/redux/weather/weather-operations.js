@@ -3,6 +3,7 @@ import Notification from '../../entities/weather/notification';
 import axios from 'axios';
 
 const baseUrl = 'https://www.meteosource.com/api/v1';
+const openweathermap = 'https://api.openweathermap.org/data/3.0/';
 
 export const fetchCityByCoordinates = createAsyncThunk(
   'wether/fetchCityByCoordinates',
@@ -51,6 +52,24 @@ export const fetchWeatherByCity = createAsyncThunk(
       return res.data;
     } catch (error) {
       Notification(error);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+// new
+
+export const fetchWeatherNew = createAsyncThunk(
+  'wether/fetchWeatherNew',
+  async (coordArr, thunkAPI) => {
+    try {
+      const res = await axios.get(
+        `${openweathermap}onecall?lat=${coordArr[0]}&lon=${coordArr[1]}&appid=${
+          import.meta.env.VITE_OPENWEATHERMAP_API_KEY
+        }`
+      );
+      return res.data;
+    } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
