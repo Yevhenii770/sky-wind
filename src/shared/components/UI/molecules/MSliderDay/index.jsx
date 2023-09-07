@@ -12,8 +12,8 @@ export const MSliderDay = () => {
     const date = new Date(number * 1000);
     return `${date.getHours()}:${date.getMinutes()}0`;
   };
-  console.log(hourlyWeather[0].weather);
 
+  console.log(hourlyWeather[0].weather[0].description);
   return (
     <div className="slider-weather-day__list">
       {hourlyWeather.map((el) => (
@@ -21,15 +21,12 @@ export const MSliderDay = () => {
           <div className="slider-weather-day__element-title">
             {convertTime(el.dt)}
           </div>
-          {/* <AIcon name={el.summary} size="40" /> */}
+          <AIcon name={el.weather[0].description} size="40" />
           <div className="slider-weather-day__element-temp">
             {Math.round(String(el.temp).slice(0, 2))}&#176;
           </div>
           <div className="slider-weather-day__icon-container">
-            {/* <AIcon
-              name={el.cloud_cover.total < 50 ? 'cloud' : 'Many cloud'}
-              size="15"
-            /> */}
+            <AIcon name="humiditi" size="15" />
             {el.humidity + '%'}
           </div>
         </div>

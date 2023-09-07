@@ -1,4 +1,4 @@
-export const partlySunny = ({ size = 25, fill }) => (
+export const fewClouds = ({ size = 25, fill }) => (
   <svg
     viewBox="0 0 68 68"
     width={size}

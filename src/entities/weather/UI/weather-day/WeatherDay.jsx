@@ -12,7 +12,7 @@ export const WeatherDay = () => {
   const weatherArray = useSelector(selectAllWeather);
   const allWeather = useSelector(selectWeather);
 
-  const tempNow = allWeather.current.temp;
+  const tempNow = allWeather?.current?.temp;
 
   const currentWeather = weatherArray.current;
 
@@ -20,7 +20,10 @@ export const WeatherDay = () => {
     <div className="weather-day">
       <div className="weather-day__container">
         <div className="weather-day__icon">
-          <AIcon name={allWeather.current.weather[0].description} size="55" />
+          <AIcon
+            name={allWeather?.current?.weather[0]?.description}
+            size="55"
+          />
         </div>
         <div className="weather-day__temperature-now">
           {String(tempNow).slice(0, 2)}&#xb0;
@@ -36,10 +39,10 @@ export const WeatherDay = () => {
               {Math.round((currentWeather.wind.speed * 3600) / 1000)} %
             </div>
             <div className="weather-day__info-subtitle">
-              {allWeather.current.humidity} %
+              {allWeather?.current?.humidity} %
             </div>
             <div className="weather-day__info-subtitle">
-              {Math.round(allWeather.current.wind_speed)} km/h
+              {Math.round(allWeather?.current?.wind_speed)} km/h
             </div>
           </div>
         </div>

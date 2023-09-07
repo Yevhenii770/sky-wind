@@ -7,7 +7,7 @@ import './styles.scss';
 
 export const WeatherLocation = () => {
   const allWeather = useSelector(selectWeather);
-  const weatherNow = allWeather.current.weather[0].main;
+  const weatherNow = allWeather?.current?.weather[0]?.main;
   const dataLocations = useSelector(currentCity);
 
   const days = [
@@ -21,8 +21,8 @@ export const WeatherLocation = () => {
   ];
 
   const data = new Date();
-  const currentTime = moment().tz(allWeather.timezone);
-  const timeStr = currentTime.format('HH:mm');
+  const currentTime = moment().tz(allWeather?.timezone);
+  const timeStr = currentTime?.format('HH:mm');
 
   return (
     <div className="weather-location">

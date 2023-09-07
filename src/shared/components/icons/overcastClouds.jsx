@@ -1,4 +1,4 @@
-export const overcast = ({ size = 25, fill }) => (
+export const overcastClouds = ({ size = 25, fill }) => (
   <svg
     viewBox="0 0 497 497"
     width={size}
