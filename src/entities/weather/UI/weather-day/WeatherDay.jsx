@@ -36,7 +36,7 @@ export const WeatherDay = () => {
           </div>
           <div className="weather-day__info">
             <div className="weather-day__info-subtitle">
-              {Math.round((currentWeather.wind.speed * 3600) / 1000)} %
+              {Math.round((currentWeather?.wind?.speed * 3600) / 1000)} %
             </div>
             <div className="weather-day__info-subtitle">
               {allWeather?.current?.humidity} %
