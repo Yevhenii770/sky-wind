@@ -13,7 +13,7 @@ export * from './uv.jsx';
 export * from './windy.jsx';
 export * from './dots.jsx';
 export * from './overcast.jsx';
-export * from './cloud';
+export * from './scatteredClouds';
 export * from './manyCloud';
 export * from './partlySunny';
 export * from './partlyClear';

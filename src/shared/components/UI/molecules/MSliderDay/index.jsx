@@ -12,6 +12,7 @@ export const MSliderDay = () => {
     const date = new Date(number * 1000);
     return `${date.getHours()}:${date.getMinutes()}0`;
   };
+  console.log(hourlyWeather[0].weather);
 
   return (
     <div className="slider-weather-day__list">

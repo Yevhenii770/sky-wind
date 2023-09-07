@@ -1,4 +1,4 @@
-export const cloud = ({ size = 20, fill = '#009aff7d' }) => (
+export const scatteredClouds = ({ size = 20, fill = '#009aff7d' }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
