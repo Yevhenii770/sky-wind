@@ -13,7 +13,6 @@ export const MSliderDay = () => {
     return `${date.getHours()}:${date.getMinutes()}0`;
   };
 
-  console.log(hourlyWeather[0].weather[0].description);
   return (
     <div className="slider-weather-day__list">
       {hourlyWeather.map((el) => (

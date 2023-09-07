@@ -2,6 +2,8 @@ import { createElement } from 'react';
 import * as icons from '../../../icons';
 
 export const AIcon = ({ name, size, fill }) => {
+  const allIcons = Object.keys(icons);
+
   if (/ /.test(name)) {
     const resoltName = name
       .split(' ')
@@ -11,13 +13,14 @@ export const AIcon = ({ name, size, fill }) => {
           : word.charAt(0).toUpperCase() + word.slice(1);
       })
       .join('');
-    console.log('2', name);
-    return createElement(icons[resoltName], { size, fill });
+
+    return allIcons.includes(resoltName)
+      ? createElement(icons[resoltName], { size, fill })
+      : createElement(icons['unknown'], { size, fill });
   } else if (!/ /.test(name)) {
-    console.log('1', name);
     name = name.toLowerCase();
-    return createElement(icons[name], { size, fill });
-  } else {
-    return createElement(icons['unknown'], { size, fill });
+    return allIcons.includes(name)
+      ? createElement(icons[name], { size, fill })
+      : createElement(icons['unknown'], { size, fill });
   }
 };
