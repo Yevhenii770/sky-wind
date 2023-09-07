@@ -1,3 +1,4 @@
+import moment from 'moment-timezone';
 import { useSelector } from 'react-redux';
 import { selectWeather } from '@/redux/weather/weather-selectors';
 import { currentCity } from '@/redux/weather/weather-selectors';
@@ -6,8 +7,9 @@ import './styles.scss';
 
 export const WeatherLocation = () => {
   const allWeather = useSelector(selectWeather);
-
+  const weatherNow = allWeather.current.weather[0].main;
   const dataLocations = useSelector(currentCity);
+
   const days = [
     'Sunday',
     'Monday',
@@ -19,12 +21,8 @@ export const WeatherLocation = () => {
   ];
 
   const data = new Date();
-  const hour = String(data.getHours());
-  const minutes =
-    String(data.getMinutes()) >= 10
-      ? String(data.getMinutes())
-      : '0' + String(data.getMinutes());
-  const timeNow = hour + ':' + minutes;
+  const currentTime = moment().tz(allWeather.timezone);
+  const timeStr = currentTime.format('HH:mm');
 
   return (
     <div className="weather-location">
@@ -34,8 +32,8 @@ export const WeatherLocation = () => {
           {dataLocations ? dataLocations.country : <ALoader />}
         </div>
         <div className="sub-title">
-          {days[data.getDay()]} {timeNow},{' '}
-          {allWeather ? allWeather.current.weather[0].main : <ALoader />}
+          {days[data.getDay()]} {timeStr},{' '}
+          {weatherNow ? weatherNow : <ALoader />}
         </div>
       </div>
     </div>
