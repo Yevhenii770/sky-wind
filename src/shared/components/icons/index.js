@@ -31,3 +31,5 @@ export * from './questionMark';
 export * from './unknown';
 export * from './humiditi';
 export * from './brokenClouds';
+export * from './clearSkyNight';
+export * from './overcastCloudsNight';

@@ -1,76 +1,72 @@
 import { useSelector } from 'react-redux';
-import { selectAllWeather } from '../../../../redux/weather/weather-selectors';
+import { selectWeather } from '../../../../redux/weather/weather-selectors';
 import { AIcon } from '../../../../shared/components/UI/atoms';
 import { MSliderDay } from '../../../../shared/components/UI/molecules/MSliderDay';
-import { ALoader } from '../../../../shared/components/UI/atoms/ALoader';
-
 import './styles.scss';
 
 export const WeatherDetails = () => {
-  const weatherArray = useSelector(selectAllWeather);
-  const currentWeather = weatherArray.current;
+  const allWeather = useSelector(selectWeather);
+  const weatherNow = allWeather.current;
 
-  let temperatureToday = [];
-
-  // weatherArray.hourly.data.map((el) =>
-  //   temperatureToday.push(Math.round(el.temperature))
-  // );
+  const maxTempToday = String(allWeather.daily[0].temp.max).slice(0, 2);
+  const minTempToday = String(allWeather.daily[0].temp.min).slice(0, 2);
+  const currentTemp = String(weatherNow.temp).slice(0, 2);
+  const clouds = allWeather.current.clouds;
+  const humidity = allWeather.current.humidity;
+  const wind = Math.round(allWeather.current.wind_speed);
+  const uv = allWeather.current.uvi;
 
   return (
     <>
       <div className="weather-day__now">
         <div className="weather-day__container-icon">
-          {/* <AIcon
-            name={currentWeather ? currentWeather.summary : 'unknown'}
-            size="120"
-          /> */}
+          <AIcon name={weatherNow.weather[0].description} size="120" />
         </div>
         <div>
-          <div className="weather-day__big-celsius">{'no data'}&#xb0;</div>
+          <div className="weather-day__big-celsius">{currentTemp}&#xb0;</div>
           <div>
-            {/* {weatherArray ? weatherArray.current.summary : <ALoader />},{' '} */}
-            {Math.max(...temperatureToday)}
-            &#176; / {Math.min(...temperatureToday)}&#176;
+            {weatherNow.weather[0].main}, {maxTempToday}
+            &#176; / {minTempToday}&#176;
           </div>
         </div>
       </div>
       <div className="detail-info">
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
-            {/* <AIcon
-              name="precipitation"
-              size="25"
-              className="detail-info__box-icon"
-            /> */}
-          </div>
-          <div className="detail-info__title">Precipitation</div>
-          <div className="detail-info__options">{'no data'} mm</div>
-        </div>
-        <div className="detail-info__box">
-          <div className="detail-info__icon-box">
-            {/* <AIcon
-              className="detail-info__box-icon"
+            <AIcon
               name="cloud Cover"
               size="25"
-            /> */}
+              className="detail-info__box-icon"
+            />
           </div>
-          <div className="detail-info__title">Cloud cover</div>
-          <div className="detail-info__options">{'no data'} %</div>
+          <div className="detail-info__title">Clouds</div>
+          <div className="detail-info__options">{clouds} %</div>
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
-            {/* <AIcon className="detail-info__box-icon" name="windy" size="25" /> */}
+            <AIcon
+              className="detail-info__box-icon"
+              name="precipitation"
+              size="25"
+            />
+          </div>
+          <div className="detail-info__title">Humidity</div>
+          <div className="detail-info__options">{humidity} %</div>
+        </div>
+        <div className="detail-info__box">
+          <div className="detail-info__icon-box">
+            <AIcon className="detail-info__box-icon" name="windy" size="25" />
           </div>
 
           <div className="detail-info__title">Wind</div>
-          <div className="detail-info__options">{'no data'} km/h</div>
+          <div className="detail-info__options">{wind} km/h</div>
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
-            {/* <AIcon className="detail-info__box-icon" name="uv" size="20" /> */}
+            <AIcon className="detail-info__box-icon" name="uv" size="20" />
           </div>
           <div className="detail-info__title">UV index</div>
-          <div className="detail-info__options">Low</div>
+          <div className="detail-info__options">{uv}</div>
         </div>
       </div>
       <div className="hour-degrees">

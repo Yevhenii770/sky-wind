@@ -12,12 +12,19 @@ export const MSliderDay = () => {
 
   return (
     <div className="slider-weather-day__list">
-      {hourlyWeather.map((el) => (
+      {hourlyWeather?.map((el) => (
         <div key={nanoid()} className="slider-weather-day__element">
           <div className="slider-weather-day__element-title">
             {useConvertTime(el.dt, 'time')}
           </div>
-          <AIcon name={el.weather[0].description} size="40" />
+          <AIcon
+            name={
+              el.weather[0].icon === '01d'
+                ? el.weather[0].description
+                : el.weather[0].description + 'Night'
+            }
+            size="40"
+          />
           <div className="slider-weather-day__element-temp">
             {Math.round(String(el.temp).slice(0, 2))}&#176;
           </div>

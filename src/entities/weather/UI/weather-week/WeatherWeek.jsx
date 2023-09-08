@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AButton, AIcon } from '@/shared/components/UI/atoms';
 import { selectWeather } from '../../../../redux/weather/weather-selectors';
@@ -7,16 +6,17 @@ import { nanoid } from 'nanoid';
 import './styles.scss';
 
 export const WeatherWeek = () => {
-  const [isModalActive, setModalActive] = useState(false);
   const allWeather = useSelector(selectWeather);
   const weatherWeek = allWeather.daily;
 
   return (
     <div className="weather-week">
       <div className="weather-week__list">
-        {weatherWeek.map((el) => (
+        {weatherWeek.map((el, index) => (
           <div key={nanoid()} className="weather-week__item">
-            <div>{useConvertTime(el.dt, 'dayWeek')}</div>
+            <div>
+              {index === 0 ? 'Today' : useConvertTime(el.dt, 'dayWeek')}
+            </div>
 
             <div className="weather-week__icon">
               {/* <AIcon name="Light rain" size="25" /> */}
