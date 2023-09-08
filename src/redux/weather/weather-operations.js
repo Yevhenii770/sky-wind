@@ -27,9 +27,9 @@ export const fetchWeather = createAsyncThunk(
   async (coordArr, thunkAPI) => {
     try {
       const res = await axios.get(
-        `${openweathermap}onecall?lat=${coordArr[0]}&lon=${coordArr[1]}&appid=${
-          import.meta.env.VITE_OPENWEATHERMAP_API_KEY
-        }`
+        `${openweathermap}onecall?lat=${coordArr[0]}&lon=${
+          coordArr[1]
+        }&units=imperial&appid=${import.meta.env.VITE_OPENWEATHERMAP_API_KEY}`
       );
       return res.data;
     } catch (error) {

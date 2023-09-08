@@ -9,6 +9,8 @@ export const WeatherWeek = () => {
   const allWeather = useSelector(selectWeather);
   const weatherWeek = allWeather.daily;
 
+  // ((el.temp.max - 32) * 5) / 9
+
   return (
     <div className="weather-week">
       <div className="weather-week__list">
@@ -28,8 +30,8 @@ export const WeatherWeek = () => {
 
             <div className="weather-week__humidity">{el.humidity} %</div>
             <div>
-              {String(el.temp.max).slice(0, 2)}&#176; /{' '}
-              {String(el.temp.night).slice(0, 2)}&#176;
+              {String(((el.temp.max - 32) * 5) / 9).slice(0, 2)}&#176; /{' '}
+              {String(((el.temp.night - 32) * 5) / 9).slice(0, 2)}&#176;
             </div>
           </div>
         ))}

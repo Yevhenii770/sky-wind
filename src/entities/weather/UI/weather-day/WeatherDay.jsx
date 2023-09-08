@@ -8,7 +8,7 @@ import './styles.scss';
 export const WeatherDay = () => {
   const allWeather = useSelector(selectWeather);
 
-  const tempNow = allWeather?.current?.temp;
+  const tempNow = ((allWeather?.current?.temp - 32) * 5) / 9;
   const cloudsNow = allWeather?.current?.clouds;
   const humidityNow = allWeather?.current?.humidity;
   const windNow = allWeather?.current?.wind_speed;
