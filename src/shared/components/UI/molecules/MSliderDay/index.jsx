@@ -2,7 +2,10 @@ import { useSelector } from 'react-redux';
 import { AIcon } from '../../atoms';
 import { selectWeather } from '@/redux/weather/weather-selectors';
 import { nanoid } from 'nanoid';
-import { useConvertTime } from '../../../../../entities/weather/hooks';
+import {
+  useConvertTime,
+  useConvertDegrees,
+} from '../../../../../entities/weather/hooks';
 
 import './styles.scss';
 
@@ -26,7 +29,7 @@ export const MSliderDay = () => {
             size="40"
           />
           <div className="slider-weather-day__element-temp">
-            {Math.round(String(((el.temp - 32) * 5) / 9).slice(0, 2))}&#176;
+            {Math.round(String(useConvertDegrees(el.temp)).slice(0, 2))}&#176;
           </div>
           <div className="slider-weather-day__icon-container">
             <AIcon name="humiditi" size="15" />

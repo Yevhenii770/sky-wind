@@ -2,15 +2,20 @@ import { useSelector } from 'react-redux';
 import { selectWeather } from '../../../../redux/weather/weather-selectors';
 import { AIcon } from '../../../../shared/components/UI/atoms';
 import { MSliderDay } from '../../../../shared/components/UI/molecules/MSliderDay';
+import { useConvertDegrees } from '../../hooks';
 import './styles.scss';
 
 export const WeatherDetails = () => {
   const allWeather = useSelector(selectWeather);
   const weatherNow = allWeather.current;
 
-  const maxTempToday = String(allWeather.daily[0].temp.max).slice(0, 2);
-  const minTempToday = String(allWeather.daily[0].temp.min).slice(0, 2);
-  const currentTemp = String(weatherNow.temp).slice(0, 2);
+  const maxTempToday = String(
+    useConvertDegrees(allWeather.daily[0].temp.max)
+  ).slice(0, 2);
+  const minTempToday = String(
+    useConvertDegrees(allWeather.daily[0].temp.min)
+  ).slice(0, 2);
+  const currentTemp = String(useConvertDegrees(weatherNow.temp)).slice(0, 2);
   const clouds = allWeather.current.clouds;
   const humidity = allWeather.current.humidity;
   const wind = Math.round(allWeather.current.wind_speed);

@@ -17,3 +17,7 @@ export const useConvertTime = (time, mood) => {
     return `${daysOfWeek[date.getDay()]}`;
   }
 };
+
+export const useConvertDegrees = (fahrenheit) => {
+  return ((fahrenheit - 32) * 5) / 9;
+};

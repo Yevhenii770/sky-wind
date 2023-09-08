@@ -2,13 +2,15 @@ import { useSelector } from 'react-redux';
 import { AButton, AIcon } from '../../../../shared/components/UI/atoms';
 import { selectWeather } from '../../../../redux/weather/weather-selectors.js';
 import { MSliderDay } from '../../../../shared/components/UI/molecules/MSliderDay';
+import { useConvertDegrees } from '../../hooks';
 
 import './styles.scss';
 
 export const WeatherDay = () => {
   const allWeather = useSelector(selectWeather);
 
-  const tempNow = ((allWeather?.current?.temp - 32) * 5) / 9;
+  const tempNow = useConvertDegrees(allWeather?.current?.temp);
+
   const cloudsNow = allWeather?.current?.clouds;
   const humidityNow = allWeather?.current?.humidity;
   const windNow = allWeather?.current?.wind_speed;
@@ -22,6 +24,7 @@ export const WeatherDay = () => {
             size="55"
           />
         </div>
+
         <div className="weather-day__temperature-now">
           {String(tempNow).slice(0, 2)}&#xb0;
         </div>
