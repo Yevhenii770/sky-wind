@@ -9,7 +9,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  &__item:first-child {
+    background-color: #f1f5fa;
+    border-radius: 10px;
   }
 
   &__list {
