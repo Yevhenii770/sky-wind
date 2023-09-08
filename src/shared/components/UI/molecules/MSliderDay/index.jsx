@@ -8,8 +8,8 @@ import './styles.scss';
 
 export const MSliderDay = () => {
   const allWeather = useSelector(selectWeather);
-  const hourlyWeather = allWeather.hourly;
-  console.log(allWeather);
+  const hourlyWeather = allWeather?.hourly;
+
   return (
     <div className="slider-weather-day__list">
       {hourlyWeather.map((el) => (

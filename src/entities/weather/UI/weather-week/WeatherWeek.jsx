@@ -11,11 +11,6 @@ export const WeatherWeek = () => {
   const allWeather = useSelector(selectWeather);
   const weatherWeek = allWeather.daily;
 
-  console.log(weatherWeek[0].humidity);
-  console.log(weatherWeek[0].temp);
-  console.log(useConvertTime(weatherWeek[0].dt, 'dayWeek'));
-  console.log(weatherWeek[0].clouds);
-
   return (
     <div className="weather-week">
       <div className="weather-week__list">

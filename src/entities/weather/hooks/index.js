@@ -14,7 +14,6 @@ export const useConvertTime = (time, mood) => {
     return `${date.getHours()}:${date.getMinutes()}0`;
   }
   if (mood === 'dayWeek') {
-    console.log(daysOfWeek[date.getDay()]);
     return `${daysOfWeek[date.getDay()]}`;
   }
 };
