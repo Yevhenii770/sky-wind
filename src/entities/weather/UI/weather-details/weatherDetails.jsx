@@ -11,9 +11,10 @@ export const WeatherDetails = () => {
   const currentWeather = weatherArray.current;
 
   let temperatureToday = [];
-  weatherArray.hourly.data.map((el) =>
-    temperatureToday.push(Math.round(el.temperature))
-  );
+
+  // weatherArray.hourly.data.map((el) =>
+  //   temperatureToday.push(Math.round(el.temperature))
+  // );
 
   return (
     <>
@@ -25,11 +26,9 @@ export const WeatherDetails = () => {
           /> */}
         </div>
         <div>
-          <div className="weather-day__big-celsius">
-            {Math.round(currentWeather.temperature)}&#xb0;
-          </div>
+          <div className="weather-day__big-celsius">{'no data'}&#xb0;</div>
           <div>
-            {weatherArray ? weatherArray.current.summary : <ALoader />},{' '}
+            {/* {weatherArray ? weatherArray.current.summary : <ALoader />},{' '} */}
             {Math.max(...temperatureToday)}
             &#176; / {Math.min(...temperatureToday)}&#176;
           </div>
@@ -45,9 +44,7 @@ export const WeatherDetails = () => {
             /> */}
           </div>
           <div className="detail-info__title">Precipitation</div>
-          <div className="detail-info__options">
-            {currentWeather.precipitation.total} mm
-          </div>
+          <div className="detail-info__options">{'no data'} mm</div>
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
@@ -58,9 +55,7 @@ export const WeatherDetails = () => {
             /> */}
           </div>
           <div className="detail-info__title">Cloud cover</div>
-          <div className="detail-info__options">
-            {currentWeather.cloud_cover} %
-          </div>
+          <div className="detail-info__options">{'no data'} %</div>
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
@@ -68,9 +63,7 @@ export const WeatherDetails = () => {
           </div>
 
           <div className="detail-info__title">Wind</div>
-          <div className="detail-info__options">
-            {Math.round((currentWeather.wind.speed * 3600) / 1000)} km/h
-          </div>
+          <div className="detail-info__options">{'no data'} km/h</div>
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">

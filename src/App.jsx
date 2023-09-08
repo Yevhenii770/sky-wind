@@ -2,10 +2,9 @@ import { useEffect, lazy, useRef } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  fetchWeather,
   fetchCityByCoordinates,
   fetchWeatherByCity,
-  fetchWeatherNew,
+  fetchWeather,
 } from './redux/weather/weather-operations';
 import {
   selectWeatherLoading,
@@ -55,7 +54,7 @@ function App() {
   // if we dont have any data
   useEffect(() => {
     if (!location.length && !selectedCity) {
-      dispatch(fetchWeatherNew([49.8383, 24.0232]));
+      dispatch(fetchWeather([49.8383, 24.0232]));
       dispatch(fetchCityByCoordinates([49.8383, 24.0232]));
     }
   }, []);
@@ -70,8 +69,7 @@ function App() {
   // if user give a geolocation
   useEffect(() => {
     if (location.length !== 0 && selectedCity === null) {
-      dispatch(fetchWeatherNew([location[0], location[1]]));
-      dispatch(fetchWeatherNew([location[0], location[1]]));
+      dispatch(fetchWeather([location[0], location[1]]));
       dispatch(fetchCityByCoordinates([location[0], location[1]]));
     }
   }, [location]);

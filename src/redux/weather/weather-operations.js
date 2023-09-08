@@ -27,10 +27,8 @@ export const fetchWeather = createAsyncThunk(
   async (coordArr, thunkAPI) => {
     try {
       const res = await axios.get(
-        `${baseUrl}/free/point?lat=${coordArr[0]}&lon=${
-          coordArr[1]
-        }&sections=current%2Chourly&language=en&units=auto&key=${
-          import.meta.env.VITE_WEATHER_API_KEY
+        `${openweathermap}onecall?lat=${coordArr[0]}&lon=${coordArr[1]}&appid=${
+          import.meta.env.VITE_OPENWEATHERMAP_API_KEY
         }`
       );
       return res.data;
@@ -52,24 +50,6 @@ export const fetchWeatherByCity = createAsyncThunk(
       return res.data;
     } catch (error) {
       Notification(error);
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-// new
-
-export const fetchWeatherNew = createAsyncThunk(
-  'wether/fetchWeatherNew',
-  async (coordArr, thunkAPI) => {
-    try {
-      const res = await axios.get(
-        `${openweathermap}onecall?lat=${coordArr[0]}&lon=${coordArr[1]}&appid=${
-          import.meta.env.VITE_OPENWEATHERMAP_API_KEY
-        }`
-      );
-      return res.data;
-    } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }

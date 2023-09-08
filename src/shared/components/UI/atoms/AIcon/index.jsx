@@ -18,7 +18,7 @@ export const AIcon = ({ name, size, fill }) => {
       ? createElement(icons[resoltName], { size, fill })
       : createElement(icons['unknown'], { size, fill });
   } else if (!/ /.test(name)) {
-    name = name.toLowerCase();
+    name = name?.toLowerCase();
     return allIcons.includes(name)
       ? createElement(icons[name], { size, fill })
       : createElement(icons['unknown'], { size, fill });
