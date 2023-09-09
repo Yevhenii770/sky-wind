@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
   fetchCityByCoordinates,
-  fetchWeatherByCity,
+  fetchCity,
   fetchWeather,
 } from './weather-operations';
 
@@ -34,11 +34,6 @@ const weatherSlice = createSlice({
       .addCase(fetchCityByCoordinates.fulfilled, (state, action) => {
         state.city = action.payload;
         state.isLoading = false;
-      })
-      .addCase(fetchWeatherByCity.pending, handlePending)
-      .addCase(fetchWeatherByCity.rejected, handleRejected)
-      .addCase(fetchWeatherByCity.fulfilled, (state, action) => {
-        state.items = action.payload;
       }),
 });
 
@@ -55,7 +50,17 @@ export const userLocation = createSlice({
     addUserCity(state, action) {
       state.selectedCity = action.payload;
     },
+    setCoordinates(state, action) {
+      state.location = action.payload;
+    },
   },
+  extraReducers: (builder) =>
+    builder
+      .addCase(fetchCity.pending, handlePending)
+      .addCase(fetchCity.rejected, handleRejected)
+      .addCase(fetchCity.fulfilled, (state, action) => {
+        state.location = [action.payload[0].lat, action.payload[0].lon];
+      }),
 });
 
 export const weatherReducer = weatherSlice.reducer;

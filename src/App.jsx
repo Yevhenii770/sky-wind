@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   fetchCityByCoordinates,
-  fetchWeatherByCity,
+  fetchCity,
   fetchWeather,
 } from './redux/weather/weather-operations';
 import {
@@ -11,6 +11,7 @@ import {
   userLocation,
   userElectCity,
   selectAllWeather,
+  currentCity,
 } from './redux/weather/weather-selectors';
 import { ALoader } from './shared/components/UI/atoms/ALoader';
 import { useGeolocated } from 'react-geolocated';
@@ -29,6 +30,7 @@ function App() {
   const isLoading = useSelector(selectWeatherLoading);
   const location = useSelector(userLocation);
   const selectedCity = useSelector(userElectCity);
+  const userCity = useSelector(currentCity);
 
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
     useGeolocated({
@@ -42,15 +44,6 @@ function App() {
     dispatch(addCoords([coords.latitude, coords.longitude]));
   }
 
-  // only first render
-  useEffect(() => {
-    if (notInitialRender.current && selectedCity) {
-      dispatch(fetchCityByCoordinates([weatherArray.lat, weatherArray.lon]));
-    } else {
-      notInitialRender.current = true;
-    }
-  }, [weatherArray]);
-
   // if we dont have any data
   useEffect(() => {
     if (!location.length && !selectedCity) {
@@ -62,17 +55,38 @@ function App() {
   // if user selected city
   useEffect(() => {
     if (selectedCity !== null) {
-      dispatch(fetchWeatherByCity(selectedCity));
+      dispatch(fetchCity(selectedCity));
+      console.log(weatherArray.lat, weatherArray.lon);
     }
   }, [selectedCity]);
-
-  // if user give a geolocation
   useEffect(() => {
-    if (location.length !== 0 && selectedCity === null) {
+    if (location[0] && location[1]) {
       dispatch(fetchWeather([location[0], location[1]]));
-      dispatch(fetchCityByCoordinates([location[0], location[1]]));
     }
   }, [location]);
+
+  useEffect(() => {
+    if (weatherArray.lat && weatherArray.lon) {
+      dispatch(fetchCityByCoordinates([weatherArray.lat, weatherArray.lon]));
+    }
+  }, [weatherArray.lat, weatherArray.lon]);
+
+  // only first render
+  // useEffect(() => {
+  // if (notInitialRender.current && selectedCity) {
+  //dispatch(fetchCityByCoordinates([weatherArray.lat, weatherArray.lon]));
+  // } else {
+  //   notInitialRender.current = true;
+  // }
+  // }, [weatherArray]);
+
+  // if user give a geolocation
+  // useEffect(() => {
+  //   if (location.length !== 0 && selectedCity === null) {
+  //     dispatch(fetchWeather([location[0], location[1]]));
+  //     dispatch(fetchCityByCoordinates([location[0], location[1]]));
+  //   }
+  // }, [location]);
 
   return isLoading ? (
     <div className="app-loader-container">

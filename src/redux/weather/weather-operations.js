@@ -2,20 +2,19 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import Notification from '../../entities/weather/notification';
 import axios from 'axios';
 
-const baseUrl = 'https://www.meteosource.com/api/v1';
-const openweathermap = 'https://api.openweathermap.org/data/3.0/';
+const openweathermapUrl = 'https://api.openweathermap.org/data/3.0/';
+const openweathermapGeocodingUrl = 'http://api.openweathermap.org/geo/1.0/';
 
 export const fetchCityByCoordinates = createAsyncThunk(
   'wether/fetchCityByCoordinates',
   async (coordArr, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `${baseUrl}/free/nearest_place?lat=${coordArr[0]}&lon=${
+        `${openweathermapGeocodingUrl}reverse?lat=${coordArr[0]}&lon=${
           coordArr[1]
-        }&key=${import.meta.env.VITE_WEATHER_API_KEY}`
+        }&limit=5&appid=${import.meta.env.VITE_OPENWEATHERMAP_API_KEY}`
       );
-
-      return data;
+      return data[0];
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -27,7 +26,7 @@ export const fetchWeather = createAsyncThunk(
   async (coordArr, thunkAPI) => {
     try {
       const res = await axios.get(
-        `${openweathermap}onecall?lat=${coordArr[0]}&lon=${
+        `${openweathermapUrl}onecall?lat=${coordArr[0]}&lon=${
           coordArr[1]
         }&units=imperial&appid=${import.meta.env.VITE_OPENWEATHERMAP_API_KEY}`
       );
@@ -38,13 +37,13 @@ export const fetchWeather = createAsyncThunk(
   }
 );
 
-export const fetchWeatherByCity = createAsyncThunk(
+export const fetchCity = createAsyncThunk(
   'weather/fetchWeatherByCity',
   async (city, thunkAPI) => {
     try {
       const res = await axios.get(
-        `${baseUrl}/free/point?place_id=${city.trim()}&sections=all&timezone=UTC&language=en&units=metric&key=${
-          import.meta.env.VITE_WEATHER_API_KEY
+        `${openweathermapGeocodingUrl}direct?q=${city.trim()}&limit=1&appid=${
+          import.meta.env.VITE_OPENWEATHERMAP_API_KEY
         }`
       );
       return res.data;
