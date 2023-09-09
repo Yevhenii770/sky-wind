@@ -4,6 +4,7 @@ import { selectWeather } from '@/redux/weather/weather-selectors';
 import { currentCity } from '@/redux/weather/weather-selectors';
 import { ALoader } from '@/shared/components/UI/atoms/ALoader';
 import './styles.scss';
+import { useEffect } from 'react';
 
 export const WeatherLocation = () => {
   const allWeather = useSelector(selectWeather);
@@ -19,6 +20,7 @@ export const WeatherLocation = () => {
     'Friday',
     'Saturday',
   ];
+  useEffect(() => {}, [dataLocations]);
 
   const data = new Date();
   const currentTime = moment().tz(allWeather?.timezone);
