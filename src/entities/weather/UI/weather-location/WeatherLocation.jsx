@@ -9,7 +9,7 @@ export const WeatherLocation = () => {
   const allWeather = useSelector(selectWeather);
   const weatherNow = allWeather?.current?.weather[0]?.main;
   const dataLocations = useSelector(currentCity);
-  console.log(dataLocations);
+
   const days = [
     'Sunday',
     'Monday',

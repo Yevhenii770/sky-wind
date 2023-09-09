@@ -56,7 +56,6 @@ function App() {
   useEffect(() => {
     if (selectedCity !== null) {
       dispatch(fetchCity(selectedCity));
-      console.log(weatherArray.lat, weatherArray.lon);
     }
   }, [selectedCity]);
   useEffect(() => {
@@ -65,11 +64,20 @@ function App() {
     }
   }, [location]);
 
+  // if lat or lon changed
   useEffect(() => {
     if (weatherArray.lat && weatherArray.lon) {
       dispatch(fetchCityByCoordinates([weatherArray.lat, weatherArray.lon]));
     }
   }, [weatherArray.lat, weatherArray.lon]);
+
+  // if user give a geolocation
+  useEffect(() => {
+    if (location.length !== 0 && selectedCity === null) {
+      dispatch(fetchWeather([location[0], location[1]]));
+      dispatch(fetchCityByCoordinates([location[0], location[1]]));
+    }
+  }, [location]);
 
   // only first render
   // useEffect(() => {
@@ -79,14 +87,6 @@ function App() {
   //   notInitialRender.current = true;
   // }
   // }, [weatherArray]);
-
-  // if user give a geolocation
-  // useEffect(() => {
-  //   if (location.length !== 0 && selectedCity === null) {
-  //     dispatch(fetchWeather([location[0], location[1]]));
-  //     dispatch(fetchCityByCoordinates([location[0], location[1]]));
-  //   }
-  // }, [location]);
 
   return isLoading ? (
     <div className="app-loader-container">
