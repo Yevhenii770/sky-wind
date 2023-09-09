@@ -43,12 +43,22 @@ function App() {
   if (coords && location.length === 0 && coords.latitude) {
     dispatch(addCoords([coords.latitude, coords.longitude]));
   }
+  // only first render
+  useEffect(() => {
+    if (notInitialRender.current && selectedCity) {
+      dispatch(fetchCityByCoordinates([weatherArray.lat, weatherArray.lon]));
+      console.log('2');
+    } else {
+      notInitialRender.current = true;
+    }
+  }, [weatherArray]);
 
   // if we dont have any data
   useEffect(() => {
     if (!location.length && !selectedCity) {
       dispatch(fetchWeather([49.8383, 24.0232]));
       dispatch(fetchCityByCoordinates([49.8383, 24.0232]));
+      console.log('1');
     }
   }, []);
 
@@ -78,15 +88,6 @@ function App() {
       dispatch(fetchCityByCoordinates([location[0], location[1]]));
     }
   }, [location]);
-
-  // only first render
-  // useEffect(() => {
-  // if (notInitialRender.current && selectedCity) {
-  //dispatch(fetchCityByCoordinates([weatherArray.lat, weatherArray.lon]));
-  // } else {
-  //   notInitialRender.current = true;
-  // }
-  // }, [weatherArray]);
 
   return isLoading ? (
     <div className="app-loader-container">
