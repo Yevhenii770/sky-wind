@@ -47,7 +47,6 @@ function App() {
   useEffect(() => {
     if (notInitialRender.current && selectedCity) {
       dispatch(fetchCityByCoordinates([weatherArray.lat, weatherArray.lon]));
-      console.log('2');
     } else {
       notInitialRender.current = true;
     }
@@ -58,7 +57,6 @@ function App() {
     if (!location.length && !selectedCity) {
       dispatch(fetchWeather([49.8383, 24.0232]));
       dispatch(fetchCityByCoordinates([49.8383, 24.0232]));
-      console.log('1');
     }
   }, []);
 
