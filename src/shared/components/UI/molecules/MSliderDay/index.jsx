@@ -10,8 +10,6 @@ export const MSliderDay = () => {
   const hourlyWeather = allWeather?.hourly;
   const oneDayHourlyWeather = hourlyWeather.slice(0, 25);
 
-  console.log(oneDayHourlyWeather);
-
   return (
     <div className="slider-weather-day__list">
       {oneDayHourlyWeather?.map((el) => (
