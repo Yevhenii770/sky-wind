@@ -13,12 +13,13 @@ export const AIcon = ({ name, size, fill }) => {
           : word.charAt(0).toUpperCase() + word.slice(1);
       })
       .join('');
-
+    console.log('two', resoltName);
     return allIcons.includes(resoltName)
       ? createElement(icons[resoltName], { size, fill })
       : createElement(icons['unknown'], { size, fill });
   } else if (!/ /.test(name)) {
     name = name?.toLowerCase();
+    console.log('one', name);
     return allIcons.includes(name)
       ? createElement(icons[name], { size, fill })
       : createElement(icons['unknown'], { size, fill });
