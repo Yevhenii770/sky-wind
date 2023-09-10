@@ -2,27 +2,24 @@ import { useSelector } from 'react-redux';
 import { AIcon } from '../../atoms';
 import { selectWeather } from '@/redux/weather/weather-selectors';
 import { nanoid } from 'nanoid';
-import {
-  useConvertTime,
-  useConvertDegrees,
-} from '../../../../../entities/weather/hooks';
-
+import { useConvertTime, useConvertDegrees } from '@/entities/weather/hooks';
 import './styles.scss';
 
 export const MSliderDay = () => {
   const allWeather = useSelector(selectWeather);
   const hourlyWeather = allWeather?.hourly;
+  const oneDayHourlyWeather = hourlyWeather.slice(0, 25);
 
   return (
     <div className="slider-weather-day__list">
-      {hourlyWeather?.map((el) => (
+      {oneDayHourlyWeather?.map((el) => (
         <div key={nanoid()} className="slider-weather-day__element">
           <div className="slider-weather-day__element-title">
             {useConvertTime(el.dt, 'time')}
           </div>
           <AIcon
             name={
-              el.weather[0].icon === '01d'
+              el.weather[0].icon.slice(2, 3) === 'd'
                 ? el.weather[0].description
                 : el.weather[0].description + 'Night'
             }
