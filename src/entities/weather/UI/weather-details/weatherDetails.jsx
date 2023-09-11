@@ -7,7 +7,7 @@ import './styles.scss';
 
 export const WeatherDetails = () => {
   const allWeather = useSelector(selectWeather);
-  const weatherNow = allWeather.current;
+  const weatherNow = allWeather?.current;
 
   const maxTempToday = String(
     useConvertDegrees(allWeather.daily[0].temp.max)
@@ -15,7 +15,7 @@ export const WeatherDetails = () => {
   const minTempToday = String(
     useConvertDegrees(allWeather.daily[0].temp.min)
   ).slice(0, 2);
-  const currentTemp = String(useConvertDegrees(weatherNow.temp)).slice(0, 2);
+  const currentTemp = String(useConvertDegrees(weatherNow.temp))?.slice(0, 2);
   const clouds = allWeather.current.clouds;
   const humidity = allWeather.current.humidity;
   const wind = Math.round(allWeather.current.wind_speed);
