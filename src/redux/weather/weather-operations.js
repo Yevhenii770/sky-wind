@@ -25,12 +25,12 @@ export const fetchWeather = createAsyncThunk(
   'wether/fetchWeather',
   async (coordArr, thunkAPI) => {
     try {
-      const res = await axios.get(
+      const { data } = await axios.get(
         `${openweathermapUrl}onecall?lat=${coordArr[0]}&lon=${
           coordArr[1]
         }&units=imperial&appid=${import.meta.env.VITE_OPENWEATHERMAP_API_KEY}`
       );
-      return res.data;
+      return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -38,15 +38,32 @@ export const fetchWeather = createAsyncThunk(
 );
 
 export const fetchCity = createAsyncThunk(
-  'weather/fetchWeatherByCity',
+  'weather/fetchCity',
   async (city, thunkAPI) => {
     try {
-      const res = await axios.get(
+      const { data } = await axios.get(
         `${openweathermapGeocodingUrl}direct?q=${city.trim()}&limit=1&appid=${
           import.meta.env.VITE_OPENWEATHERMAP_API_KEY
         }`
       );
-      return res.data;
+      return data;
+    } catch (error) {
+      Notification(error);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchWeatherMap = createAsyncThunk(
+  'weather/fetchWeatherMap',
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await axios.get(
+        `https://tile.openweathermap.org/map/precipitation_new/0/1/1.png?appid=${
+          import.meta.env.VITE_OPENWEATHERMAP_API_KEY
+        }`
+      );
+      return data;
     } catch (error) {
       Notification(error);
       return thunkAPI.rejectWithValue(error.message);
