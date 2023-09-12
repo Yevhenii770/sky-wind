@@ -11,7 +11,6 @@ import {
   userLocation,
   userElectCity,
   selectAllWeather,
-  currentCity,
 } from './redux/weather/weather-selectors';
 import { ALoader } from './shared/components/UI/atoms/ALoader';
 import { useGeolocated } from 'react-geolocated';
@@ -30,7 +29,6 @@ function App() {
   const isLoading = useSelector(selectWeatherLoading);
   const location = useSelector(userLocation);
   const selectedCity = useSelector(userElectCity);
-  const userCity = useSelector(currentCity);
 
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
     useGeolocated({

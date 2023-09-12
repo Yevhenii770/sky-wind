@@ -26,7 +26,7 @@ export const WeatherDay = () => {
         </div>
 
         <div className="weather-day__temperature-now">
-          {String(tempNow).slice(0, 2)}&#xb0;
+          {String(tempNow)?.slice(0, 2)}&#xb0;
         </div>
         <div className="weather-day__table">
           <div className="weather-day__info">
