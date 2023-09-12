@@ -1,17 +1,17 @@
 import { useSelector } from 'react-redux';
-import { AButton, AIcon } from '../../../../shared/components/UI/atoms';
-import { selectWeather } from '../../../../redux/weather/weather-selectors.js';
-import { MSliderDay } from '../../../../shared/components/UI/molecules/MSliderDay';
+import { AButton, AIcon } from '@/shared/components/UI/atoms';
+import { selectWeather } from '@/redux/weather/weather-selectors.js';
+import { MSliderDay } from '@/shared/components/UI/molecules/MSliderDay';
 import { useConvertDegrees } from '../../hooks';
 
 import './styles.scss';
 
 export const WeatherDay = () => {
   const allWeather = useSelector(selectWeather);
-
   const tempNow = useConvertDegrees(allWeather?.current?.temp);
 
-  const cloudsNow = allWeather?.current?.clouds;
+  const rainNow = allWeather?.hourly[0].pop;
+
   const humidityNow = allWeather?.current?.humidity;
   const windNow = allWeather?.current?.wind_speed;
 
@@ -30,12 +30,12 @@ export const WeatherDay = () => {
         </div>
         <div className="weather-day__table">
           <div className="weather-day__info">
-            <div className="weather-day__info-title">Clouds</div>
+            <div className="weather-day__info-title">Rain</div>
             <div className="weather-day__info-title">Humidity</div>
             <div className="weather-day__info-title">Wind</div>
           </div>
           <div className="weather-day__info">
-            <div className="weather-day__info-subtitle">{cloudsNow} %</div>
+            <div className="weather-day__info-subtitle">{rainNow * 100} %</div>
             <div className="weather-day__info-subtitle">{humidityNow} %</div>
             <div className="weather-day__info-subtitle">
               {Math.round(windNow)} km/h

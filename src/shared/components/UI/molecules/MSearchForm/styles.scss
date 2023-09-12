@@ -1,8 +1,6 @@
 .form-city {
   padding: 20px;
 
-  &__content {
-  }
   &__title {
     font-size: 22px;
     font-weight: 500;
@@ -12,7 +10,7 @@
     justify-content: center;
   }
   &__input {
-    width: calc(100% - 18px);
+    width: calc(100% - 17px);
     margin-bottom: 10px;
     border: none;
     border-radius: 20px;

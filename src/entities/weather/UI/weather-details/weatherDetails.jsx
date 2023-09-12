@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { selectWeather } from '../../../../redux/weather/weather-selectors';
-import { AIcon } from '../../../../shared/components/UI/atoms';
-import { MSliderDay } from '../../../../shared/components/UI/molecules/MSliderDay';
+import { selectWeather } from '@/redux/weather/weather-selectors';
+import { AIcon } from '@/shared/components/UI/atoms';
+import { MSliderDay } from '@/shared/components/UI/molecules/MSliderDay';
 import { useConvertDegrees } from '../../hooks';
 import './styles.scss';
 
@@ -16,7 +16,7 @@ export const WeatherDetails = () => {
     useConvertDegrees(allWeather.daily[0].temp.min)
   ).slice(0, 2);
   const currentTemp = String(useConvertDegrees(weatherNow.temp))?.slice(0, 2);
-  const clouds = allWeather.current.clouds;
+  const rain = allWeather.hourly[0].pop;
   const humidity = allWeather.current.humidity;
   const wind = Math.round(allWeather.current.wind_speed);
   const uv = allWeather.current.uvi;
@@ -38,14 +38,10 @@ export const WeatherDetails = () => {
       <div className="detail-info">
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
-            <AIcon
-              name="cloud Cover"
-              size="25"
-              className="detail-info__box-icon"
-            />
+            <AIcon name="drops" size="25" className="detail-info__box-icon" />
           </div>
-          <div className="detail-info__title">Clouds</div>
-          <div className="detail-info__options">{clouds} %</div>
+          <div className="detail-info__title">Rain</div>
+          <div className="detail-info__options">{rain * 100} %</div>
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">

@@ -8,11 +8,11 @@ import './styles.scss';
 export const MSliderDay = () => {
   const allWeather = useSelector(selectWeather);
   const hourlyWeather = allWeather?.hourly;
-  const oneDayHourlyWeather = hourlyWeather.slice(0, 25);
+  const oneDayHourlyWeather = hourlyWeather?.slice(0, 25);
 
   return (
     <div className="slider-weather-day__list">
-      {oneDayHourlyWeather?.map((el) => (
+      {oneDayHourlyWeather.map((el) => (
         <div key={nanoid()} className="slider-weather-day__element">
           <div className="slider-weather-day__element-title">
             {useConvertTime(el.dt, 'time')}
