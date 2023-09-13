@@ -8,6 +8,21 @@ import './styled.scss';
 export const WeatherMap = () => {
   const location = useSelector(userLocation);
   const coordinates = useSelector(currentCity);
+  const MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+
+  const configMap = {
+    panControl: true,
+    ZoonControl: true,
+    mapTypeControl: false,
+    scaleControl: false,
+    streetViewControl: false,
+    rotateControl: false,
+    clickableIcons: false,
+    keyboardShortcuts: false,
+    scrollwheel: false,
+    disableDoubleClickZoom: false,
+    fullscreencontrol: false,
+  };
 
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
@@ -22,13 +37,16 @@ export const WeatherMap = () => {
     [location]
   );
 
-  if (!isLoaded) {
-    return <ALoader />;
-  }
-
-  return (
-    <GoogleMap zoom={7} center={center} mapContainerClassName="google-map">
+  return isLoaded ? (
+    <GoogleMap
+      zoom={7}
+      center={center}
+      options={configMap}
+      mapContainerClassName="google-map"
+    >
       <Marker position={position} />
     </GoogleMap>
+  ) : (
+    <ALoader />
   );
 };
