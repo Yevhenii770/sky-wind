@@ -15,10 +15,7 @@ export const WeatherDay = () => {
       <div className="weather-day">
         <div className="weather-day__container">
           <div className="weather-day__icon">
-            <AIcon
-              name={allWeather?.current?.weather[0]?.description}
-              size="55"
-            />
+            <AIcon name={allWeather.current.weather[0].description} size="55" />
           </div>
 
           <div className="weather-day__temperature-now">
