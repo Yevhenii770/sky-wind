@@ -10,7 +10,7 @@ export const WeatherDay = () => {
   const allWeather = useSelector(selectWeather);
   const tempNow = useConvertDegrees(allWeather?.current?.temp);
 
-  const rainNow = allWeather?.hourly[0].pop;
+  const rainNow = allWeather?.hourly[0]?.pop;
 
   const humidityNow = allWeather?.current?.humidity;
   const windNow = allWeather?.current?.wind_speed;
