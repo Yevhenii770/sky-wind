@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { useFormik } from 'formik';
 import { addUserCity } from '@/redux/weather/weather-slice';
 import { useDispatch } from 'react-redux';
@@ -29,6 +29,15 @@ export const SearchForm = () => {
     },
     validationSchema: CitySchema,
   });
+
+  ///
+  // const inputRef = useRef();
+  // const autoComplete = new window.google.maps.places.Autocomplete(
+  //   inputRef.current
+  // );
+  // autoComplete.addListener('place_changed', () => {});
+  ///
+
   return (
     <div className="form-city">
       <div className="form-city__content">
@@ -42,6 +51,7 @@ export const SearchForm = () => {
             className={`form-city__input ${
               errors.city && touched.city ? `form-city__input-error` : ''
             }`}
+            // ref={inputRef}
             id="text"
             name="city"
             type="text"
