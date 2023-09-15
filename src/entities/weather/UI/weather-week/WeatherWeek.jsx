@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
 import { AButton, AIcon } from '@/shared/components/UI/atoms';
-import { selectWeather } from '../../../../redux/weather/weather-selectors';
+import { selectWeather } from '@/redux/weather/weather-selectors';
 import { useConvertTime } from '../../hooks';
 import { useConvertDegrees } from '../../hooks';
 import { nanoid } from 'nanoid';
-import { ALoader } from '../../../../shared/components/UI/atoms/ALoader';
+import { ALoader } from '@/shared/components/UI/atoms/ALoader';
 import './styles.scss';
 
 export const WeatherWeek = () => {
@@ -20,9 +20,7 @@ export const WeatherWeek = () => {
               <div>
                 {index === 0 ? 'Today' : useConvertTime(el.dt, 'dayWeek')}
               </div>
-              <div className="weather-week__icon">
-                {/* <AIcon name="Light rain" size="25" /> */}
-              </div>
+              <div className="weather-week__icon"></div>
               <div className="weather-week__cloud-cover-icon">
                 <AIcon name="humiditi" size={15} />
               </div>
@@ -38,7 +36,7 @@ export const WeatherWeek = () => {
         )}
       </div>
 
-      <AButton>See More</AButton>
+      <AButton to="/week">See More</AButton>
     </div>
   );
 };
