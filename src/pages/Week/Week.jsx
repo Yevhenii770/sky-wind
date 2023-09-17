@@ -14,9 +14,8 @@ import './styles.scss';
 
 const Week = () => {
   const allWeather = useSelector(selectWeather);
-  const dailyWeather = allWeather.daily;
+  const dailyWeather = allWeather?.daily;
   const [isModalActive, setModalActive] = useState(false);
-  console.log(dailyWeather);
 
   const handleModalOpen = () => {
     setModalActive(true);
@@ -25,7 +24,7 @@ const Week = () => {
     setModalActive(false);
   };
 
-  return allWeather ? (
+  return dailyWeather ? (
     <div className="page-week">
       <div className="page-week__content">
         <div className="page-week__container-title">
