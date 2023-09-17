@@ -19,5 +19,6 @@ export const useConvertTime = (time, mood) => {
 };
 
 export const useConvertDegrees = (fahrenheit) => {
-  return ((fahrenheit - 32) * 5) / 9;
+  const resoltDegrees = ((fahrenheit - 32) * 5) / 9;
+  return resoltDegrees;
 };

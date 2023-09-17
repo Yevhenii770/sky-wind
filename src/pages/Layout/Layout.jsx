@@ -1,17 +1,19 @@
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import './styles.scss';
 
 const Layout = () => {
   const { pathname } = useLocation();
-  const daySpecial = pathname === '/day' ? 'day-special' : '';
-  const dayWrapper = pathname === '/day' ? 'day-wrapper' : '';
+  const daySpecial =
+    pathname === '/day' || pathname === '/week' ? 'background-wrapper' : '';
+  const backgroundWrapper =
+    pathname === '/day' || pathname === '/week' ? 'day-wrapper' : '';
 
   return (
     <div className={`${daySpecial}`}>
-      <div className={`container ${dayWrapper}`}>
+      <div className={`container ${backgroundWrapper}`}>
         <Suspense>
           <Outlet />
         </Suspense>

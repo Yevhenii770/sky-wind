@@ -1,12 +1,69 @@
-.week {
-  padding: 0px;
+.page-week {
+  color: $primary-color;
 
-  &__header {
-    padding: 0 20px;
-    margin-bottom: 35px;
-
+  &__container-title {
     display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
     align-items: baseline;
-    justify-content: space-between;
   }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__card {
+    background: rgba(127, 163, 207, 0.5);
+    border-radius: 20px;
+    padding: 25px;
+    backdrop-filter: blur(3px);
+  }
+
+  &__card-title {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+  }
+
+  &__main-info-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+  }
+
+  &____temp-container {
+    display: flex;
+  }
+
+  &__temp {
+    font-size: 36px;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+  &__feels-like {
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  &__details-container {
+    display: flex;
+    justify-content: space-around;
+    gap: 24px;
+  }
+  &__weather-title {
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__element {
+    margin-bottom: 5px;
+  }
+}
+.page-week * .sub-title {
+  color: $primary-color;
 }
