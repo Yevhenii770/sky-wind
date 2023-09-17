@@ -10,7 +10,7 @@ import './styles.scss';
 export const WeatherWeek = () => {
   const allWeather = useSelector(selectWeather);
   const weatherWeek = allWeather.daily;
-
+  console.log(weatherWeek[0].weather[0].description);
   return (
     <div className="weather-week">
       <div className="weather-week__list">
@@ -20,7 +20,9 @@ export const WeatherWeek = () => {
               <div>
                 {index === 0 ? 'Today' : useConvertTime(el.dt, 'dayWeek')}
               </div>
-              <div className="weather-week__icon"></div>
+              <div className="weather-week__icon">
+                <AIcon name={el.weather[0].description} size={20} />
+              </div>
               <div className="weather-week__cloud-cover-icon">
                 <AIcon name="humiditi" size={15} />
               </div>
