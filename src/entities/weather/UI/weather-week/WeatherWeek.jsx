@@ -9,8 +9,8 @@ import './styles.scss';
 
 export const WeatherWeek = () => {
   const allWeather = useSelector(selectWeather);
-  const weatherWeek = allWeather.daily;
-  console.log(weatherWeek[0].weather[0].description);
+  const weatherWeek = allWeather?.daily;
+
   return (
     <div className="weather-week">
       <div className="weather-week__list">
