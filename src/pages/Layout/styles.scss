@@ -1,11 +1,77 @@
 .container {
-  padding-top: 60px;
+  @media screen and (min-width: 370px) {
+    padding-top: 60px;
+    padding-bottom: 10px;
+  }
+
+  @media screen and (min-width: 768px) {
+  }
+
+  @media screen and (min-width: 1200px) {
+    max-width: 960px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
 }
 
-.background-wrapper {
-  background-image: url('@/shared/components/photos/the-duomo-in-florence-800x800.png');
+.background-image {
+  @media screen and (min-width: 370px) and (max-width: 1199px) {
+    background-image: url('@/shared/components/photos/the-duomo-in-florence-800x800.png');
+  }
 }
 
-.day-wrapper {
+.color-fill {
   background-color: rgba(21, 105, 207, 0.5);
+}
+
+.header {
+  @media screen and (min-width: 370px) and (max-width: 1199px) {
+    display: none;
+  }
+
+  background-color: $background-secondary;
+  border-radius: 0px 0px 25px 25px;
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  &__container {
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
+  &__navbar {
+    padding-left: 21px;
+    padding-right: 21px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo-container {
+    margin-right: 10px;
+  }
+
+  &__logo-link {
+    text-decoration: none;
+    color: $primary-color;
+    font-size: 24px;
+
+    display: flex;
+    align-items: flex-end;
+  }
+}
+
+.footer {
+  @media screen and (min-width: 370px) and (max-width: 1199px) {
+    display: none;
+  }
+
+  background-color: $background-secondary;
+  border-radius: 25px 25px 0px 0px;
+  padding-top: 21px;
+  padding-bottom: 21px;
+
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
 }

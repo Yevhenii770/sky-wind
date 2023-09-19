@@ -27,7 +27,7 @@ const Week = () => {
   return dailyWeather ? (
     <div className="page-week">
       <div className="page-week__content">
-        <div className="page-week__container-title">
+        <div className="page-week__header">
           <NavLink className="page-day__btn-back" to="/">
             <AIcon name="left" fill="#fff" />
           </NavLink>
@@ -89,7 +89,9 @@ const Week = () => {
       </div>
     </div>
   ) : (
-    <allWeather />
+    <div className="page-week__loader">
+      <ALoader />
+    </div>
   );
 };
 export default Week;
