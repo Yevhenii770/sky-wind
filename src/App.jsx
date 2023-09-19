@@ -1,4 +1,4 @@
-import { useEffect, lazy, useRef } from 'react';
+import { useEffect, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -24,7 +24,6 @@ const WeekPage = lazy(() => import('./pages/Week/Week'));
 
 function App() {
   const dispatch = useDispatch();
-  const notInitialRender = useRef(false);
 
   const weatherArray = useSelector(selectAllWeather);
   const isLoading = useSelector(selectWeatherLoading);
@@ -42,14 +41,6 @@ function App() {
   if (coords && location.length === 0 && coords.latitude) {
     dispatch(addCoords([coords.latitude, coords.longitude]));
   }
-  // only first render
-  useEffect(() => {
-    if (notInitialRender.current && selectedCity) {
-      dispatch(fetchCityByCoordinates([weatherArray.lat, weatherArray.lon]));
-    } else {
-      notInitialRender.current = true;
-    }
-  }, [weatherArray]);
 
   // if we dont have any data
   useEffect(() => {

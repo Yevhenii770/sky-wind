@@ -2,8 +2,24 @@
   &__list {
     display: flex;
     margin-bottom: 25px;
-    overflow-y: scroll;
+    overflow-y: hidden;
+    overflow-x: scroll;
     gap: 5px;
+  }
+
+  &__list::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &__list::-webkit-scrollbar-track {
+    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+    background-color: #f9f9fd;
+    border-radius: 10px;
+  }
+
+  &__list::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: $background-secondary;
   }
 
   &__element-title {
