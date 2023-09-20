@@ -9,6 +9,18 @@
     align-items: baseline;
     justify-content: space-between;
   }
+
+  &__mobile-search-btn {
+    @media screen and (min-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__desctop-search-btn {
+    @media screen and (min-width: 330px) and (max-width: 767px) {
+      display: none;
+    }
+  }
 }
 
 .search-bar {
@@ -44,4 +56,5 @@
   width: 240px;
   top: 0px;
   left: -220px;
+  cursor: pointer;
 }

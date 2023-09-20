@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { WeatherDay, WeatherWeek, WeatherLocation } from '@/entities/weather';
-import { AIcon } from '@/shared/components/UI/atoms';
-import { AButton } from '@/shared/components/UI/atoms';
+import { SearchCityForm } from '../../shared/components/UI/molecules/SearchCityForm';
 import { SearchForm } from '@/shared/components/UI/molecules';
+import { AButton, AIcon } from '../../shared/components/UI/atoms';
 import Modal from '@/shared/components/UI/molecules/MModal';
 
 import './styles.scss';
@@ -22,23 +22,16 @@ const Home = () => {
       <>
         <div className="home__header">
           <WeatherLocation />
-
-          <div className="search-bar">
-            <input
-              className="search-bar__input"
-              id="text"
-              name="city"
-              type="text"
-              // onChange={}
-              // value={}
-            />
-            <div className="search-bar__btn">
-              <AButton svg="true" onClick={handleModalOpen}>
-                <AIcon name="serach" size="35" />
-              </AButton>
-            </div>
+          <div className="home__desctop-search-btn">
+            <SearchCityForm />
+          </div>
+          <div className="home__mobile-search-btn">
+            <AButton svg="true" onClick={handleModalOpen}>
+              <AIcon name="serach" size="35" />
+            </AButton>
           </div>
         </div>
+
         <div className="home__main">
           <WeatherDay />
           <WeatherWeek />
