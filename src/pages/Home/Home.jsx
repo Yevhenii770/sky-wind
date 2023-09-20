@@ -24,11 +24,13 @@ const Home = () => {
           <WeatherLocation />
 
           <AButton svg="true" onClick={handleModalOpen}>
-            <AIcon name="dots" size="35" />
+            <AIcon name="serach" size="35" />
           </AButton>
         </div>
-        <WeatherDay />
-        <WeatherWeek />
+        <div className="home__main">
+          <WeatherDay />
+          <WeatherWeek />
+        </div>
       </>
 
       <div>

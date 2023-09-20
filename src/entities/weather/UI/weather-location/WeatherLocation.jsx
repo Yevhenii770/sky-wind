@@ -24,7 +24,7 @@ export const WeatherLocation = () => {
     <div className="weather-location">
       <div>
         <div className="title">
-          {dataLocations ? dataLocations.name : <ALoader />},
+          {dataLocations ? dataLocations.name : <ALoader />},{' '}
           {dataLocations ? dataLocations.country : <ALoader />}
         </div>
         <div className="sub-title">

@@ -38,3 +38,4 @@ export * from './moderateRain';
 export * from './lightRainNight';
 export * from './brokenCloudsNight';
 export * from './drops';
+export * from './search';

@@ -29,7 +29,15 @@ const Layout = () => {
                   </NavLink>
                 </div>
 
-                <div className="header__navigations">Navigation</div>
+                <div className="navigations">
+                  <NavLink className="navigations__link" to="/day">
+                    Day
+                  </NavLink>
+                  <div className="navigations__slash">/</div>
+                  <NavLink className="navigations__link" to="/week">
+                    Week
+                  </NavLink>
+                </div>
               </div>
             </div>
           </div>

@@ -29,9 +29,12 @@
     display: none;
   }
 
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 35px;
+  }
+
   background-color: $background-secondary;
   border-radius: 0px 0px 25px 25px;
-
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
 
@@ -48,10 +51,6 @@
     align-items: center;
   }
 
-  &__logo-container {
-    margin-right: 10px;
-  }
-
   &__logo-link {
     text-decoration: none;
     color: $primary-color;
@@ -59,6 +58,15 @@
 
     display: flex;
     align-items: flex-end;
+
+    position: relative;
+  }
+
+  &__logo-title {
+    display: contents;
+    position: absolute;
+    left: 60px;
+    top: 15px;
   }
 }
 
@@ -74,4 +82,22 @@
 
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.navigations {
+  display: flex;
+  gap: 10px;
+
+  &__link {
+    font-size: 24px;
+    font-weight: 400;
+    text-decoration: none;
+    color: $primary-color;
+  }
+
+  &__slash {
+    font-size: 24px;
+    font-weight: 400;
+    color: $primary-color;
+  }
 }
