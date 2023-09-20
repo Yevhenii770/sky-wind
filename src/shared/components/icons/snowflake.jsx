@@ -4,7 +4,7 @@ export const snowflake = ({ size = 25, fill }) => (
     viewBox="0 0 512.003 512.003"
     width={size}
     fill={fill}
-    style="enable-background:new 0 0 512.003 512.003"
+    style="enableBackground:new 0 0 512.003 512.003"
     xmlSpace="preserve"
   >
     <path

@@ -38,7 +38,11 @@ export const WeatherWeek = () => {
         )}
       </div>
 
-      <AButton to="/week">See More</AButton>
+      <div className="weather-week__container-btn">
+        <div className="weather-week__more-btn">
+          <AButton to="/week">See More</AButton>
+        </div>
+      </div>
     </div>
   );
 };

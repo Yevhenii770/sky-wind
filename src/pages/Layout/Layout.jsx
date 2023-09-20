@@ -45,7 +45,16 @@ const Layout = () => {
             <Outlet />
           </Suspense>
           <ToastContainer />
-          <div className="footer"></div>
+          <div className="footer">
+            <NavLink to="https://github.com/Yevhenii770" target="_blank">
+              <AIcon name="github" />
+              GitHub
+            </NavLink>
+            <NavLink to="https://github.com/Yevhenii770" target="_blank">
+              <AIcon name="linkedin" />
+              LinkedIn
+            </NavLink>
+          </div>
         </div>
       </div>
     </div>

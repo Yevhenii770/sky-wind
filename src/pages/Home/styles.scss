@@ -43,7 +43,7 @@
     position: absolute;
     z-index: 1;
 
-    transition: width 0.3s ease, left 0.3s ease;
+    transition: width 0.3s ease, left 0.3s ease, width 0.3s ease;
     width: 25px;
     border-radius: 25px;
     top: -3px;
@@ -55,6 +55,7 @@
 .search-bar:focus .search-bar__input {
   width: 240px;
   top: 0px;
+  border-radius: 25px;
   left: -220px;
   cursor: pointer;
 }

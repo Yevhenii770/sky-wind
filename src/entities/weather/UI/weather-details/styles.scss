@@ -51,7 +51,10 @@
   border-radius: 20px;
   padding: 25px;
   backdrop-filter: blur(3px);
-  height: 120px;
+
+  & > .slider-weather-day__list {
+    margin-bottom: 0px;
+  }
 
   & * .slider-weather-day__element-title {
     color: $primary-color;

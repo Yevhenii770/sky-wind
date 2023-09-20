@@ -5,6 +5,12 @@
     overflow-y: hidden;
     overflow-x: scroll;
     gap: 5px;
+
+    @media screen and (min-width: 1200px) {
+      overflow-x: hidden;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
   }
 
   &__list::-webkit-scrollbar {
@@ -24,6 +30,8 @@
 
   &__element-title {
     color: $light-text-color;
+    font-size: 16px;
+    font-weight: 400;
   }
 
   &__element {
@@ -40,7 +48,7 @@
 
   &__element-temp {
     font-family: inherit;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
   }
 

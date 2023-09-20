@@ -39,3 +39,5 @@ export * from './lightRainNight';
 export * from './brokenCloudsNight';
 export * from './drops';
 export * from './search';
+export * from './github';
+export * from './linkedin';
