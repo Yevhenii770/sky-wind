@@ -23,9 +23,21 @@ const Home = () => {
         <div className="home__header">
           <WeatherLocation />
 
-          <AButton svg="true" onClick={handleModalOpen}>
-            <AIcon name="serach" size="35" />
-          </AButton>
+          <div className="search-bar">
+            <input
+              className="search-bar__input"
+              id="text"
+              name="city"
+              type="text"
+              // onChange={}
+              // value={}
+            />
+            <div className="search-bar__btn">
+              <AButton svg="true" onClick={handleModalOpen}>
+                <AIcon name="serach" size="35" />
+              </AButton>
+            </div>
+          </div>
         </div>
         <div className="home__main">
           <WeatherDay />
