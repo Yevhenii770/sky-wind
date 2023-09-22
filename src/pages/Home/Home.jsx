@@ -1,13 +1,16 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectWeather } from '@/redux/weather/weather-selectors';
 import { WeatherDay, WeatherWeek, WeatherLocation } from '@/entities/weather';
 import { SearchCityForm } from '../../shared/components/UI/molecules/SearchCityForm';
 import { SearchForm } from '@/shared/components/UI/molecules';
-import { AButton, AIcon } from '../../shared/components/UI/atoms';
+import { AButton, AIcon, ALoader } from '../../shared/components/UI/atoms';
 import Modal from '@/shared/components/UI/molecules/MModal';
 
 import './styles.scss';
 
 const Home = () => {
+  const allWeather = useSelector(selectWeather);
   const [isModalActive, setModalActive] = useState(false);
 
   const handleModalOpen = () => {
@@ -17,7 +20,7 @@ const Home = () => {
     setModalActive(false);
   };
 
-  return (
+  return allWeather ? (
     <div className="home">
       <>
         <div className="home__header">
@@ -46,6 +49,8 @@ const Home = () => {
         )}
       </div>
     </div>
+  ) : (
+    <ALoader />
   );
 };
 

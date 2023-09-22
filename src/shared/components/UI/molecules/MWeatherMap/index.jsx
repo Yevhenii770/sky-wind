@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { GoogleMap, Marker, useLoadScript } from '@react-google-maps/api';
 import { userLocation, currentCity } from '@/redux/weather/weather-selectors';
 import { ALoader } from '../../atoms/ALoader';
@@ -6,8 +6,9 @@ import { useSelector } from 'react-redux';
 import './styled.scss';
 
 export const WeatherMap = () => {
-  const location = useSelector(userLocation);
+  // const location = useSelector(userLocation);
   const coordinates = useSelector(currentCity);
+  const mapRef = React.useRef(undefined);
 
   const configMap = {
     panControl: true,
@@ -31,19 +32,31 @@ export const WeatherMap = () => {
     ? { lat: Number(coordinates.lat), lng: Number(coordinates.lon) }
     : { lat: 49.8383, lng: 24.0232 };
 
-  const center = useMemo(
-    () => ({ lat: location[0], lng: location[1] }),
-    [location]
-  );
+  console.log(position);
+  // const center = useMemo(
+  //   () => ({ lat: location[0], lng: location[1] }),
+  //   [location]
+  // );
+
+  const onLoad = React.useCallback(function callback(map) {
+    mapRef.current = map;
+  }, []);
+
+  const onUnmount = React.useCallback(function callback(map) {
+    mapRef.current = undefined;
+  }, []);
 
   return isLoaded ? (
     <GoogleMap
-      zoom={7}
-      center={center}
-      options={configMap}
       mapContainerClassName="google-map"
+      center={position}
+      options={configMap}
+      onLoad={onLoad}
+      onUnmount={onUnmount}
+      zoom={8}
     >
-      <Marker position={position} />
+      {/* Child components, such as markers, info windows, etc. */}
+      <></>
     </GoogleMap>
   ) : (
     <ALoader />

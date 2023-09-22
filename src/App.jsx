@@ -30,19 +30,18 @@ function App() {
   const location = useSelector(userLocation);
   const selectedCity = useSelector(userElectCity);
 
-  useDispatch(() => {
-    const { coords, isGeolocationAvailable, isGeolocationEnabled } =
-      useGeolocated({
-        positionOptions: {
-          enableHighAccuracy: false,
-        },
-        userDecisionTimeout: 3000,
-      });
+  useDispatch(() => {}, []);
+  const { coords, isGeolocationAvailable, isGeolocationEnabled } =
+    useGeolocated({
+      positionOptions: {
+        enableHighAccuracy: false,
+      },
+      userDecisionTimeout: 3000,
+    });
 
-    if (coords && location.length === 0 && coords.latitude) {
-      dispatch(addCoords([coords.latitude, coords.longitude]));
-    }
-  }, []);
+  if (coords && location.length === 0 && coords.latitude) {
+    dispatch(addCoords([coords.latitude, coords.longitude]));
+  }
 
   // if we dont have any data
   useEffect(() => {
