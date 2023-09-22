@@ -21,6 +21,12 @@
       display: none;
     }
   }
+
+  &__content {
+    @media screen and (min-width: 1200px) {
+      margin-bottom: 35px;
+    }
+  }
 }
 
 .search-bar {

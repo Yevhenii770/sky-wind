@@ -46,14 +46,22 @@ const Layout = () => {
           </Suspense>
           <ToastContainer />
           <div className="footer">
-            <div className="footer__navbar">
-              <NavLink to="https://github.com/Yevhenii770" target="_blank">
+            <div className="contactbar">
+              <NavLink
+                className="contactbar__link"
+                to="https://github.com/Yevhenii770"
+                target="_blank"
+              >
                 <AIcon name="github" />
-                GitHub
+                <div>GitHub</div>
               </NavLink>
-              <NavLink to="https://github.com/Yevhenii770" target="_blank">
+              <NavLink
+                className="contactbar__link"
+                to="https://github.com/Yevhenii770"
+                target="_blank"
+              >
                 <AIcon name="linkedin" />
-                LinkedIn
+                <div>LinkedIn</div>
               </NavLink>
             </div>
           </div>

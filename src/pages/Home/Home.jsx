@@ -36,8 +36,10 @@ const Home = () => {
         </div>
 
         <div className="home__main">
-          <WeatherDay />
-          <WeatherWeek />
+          <div className="home__content">
+            <WeatherDay />
+            <WeatherWeek />
+          </div>
         </div>
       </>
 
