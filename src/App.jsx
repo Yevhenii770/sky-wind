@@ -30,7 +30,7 @@ function App() {
   const location = useSelector(userLocation);
   const selectedCity = useSelector(userElectCity);
 
-  useDispatch(() => {}, []);
+  useEffect(() => {}, []);
   const { coords, isGeolocationAvailable, isGeolocationEnabled } =
     useGeolocated({
       positionOptions: {
