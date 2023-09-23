@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import { addUserCity } from '@/redux/weather/weather-slice';
 import { useDispatch } from 'react-redux';
@@ -8,6 +8,7 @@ import './styles.scss';
 
 export const SearchCityForm = () => {
   const dispatch = useDispatch();
+  const [isInputVisible, SetIsInputVisible] = useState(false);
 
   const {
     handleChange,
@@ -25,6 +26,7 @@ export const SearchCityForm = () => {
     onSubmit: (values, actions) => {
       dispatch(addUserCity(values.city));
       actions.resetForm();
+      SetIsInputVisible(false);
     },
     validationSchema: CitySchema,
   });
@@ -33,10 +35,13 @@ export const SearchCityForm = () => {
     <div className="search-bar">
       <form autoComplete="off" onSubmit={handleSubmit}>
         <input
-          className="search-bar__input"
+          className={`search-bar__input ${
+            isInputVisible ? `search-bar--active` : ''
+          }`}
           id="text"
           name="city"
           type="text"
+          onClick={() => SetIsInputVisible(true)}
           onChange={handleChange}
           value={values.city}
         />
