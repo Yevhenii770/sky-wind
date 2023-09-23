@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { isBrowser } from 'react-device-detect';
 import { selectWeather } from '../../redux/weather/weather-selectors';
 import { WeatherLocation } from '@/entities/weather/UI/weather-location';
 import { NavLink } from 'react-router-dom';
@@ -29,13 +30,17 @@ const Week = () => {
       <div className="page-week__content">
         <div className="page-week__header">
           <NavLink className="page-day__btn-back" to="/">
-            <AIcon name="left" fill="#fff" />
+            <AIcon name="left" fill={isBrowser ? '#505565' : '#f7f9fc'} />
           </NavLink>
 
           <WeatherLocation />
 
           <AButton svg="true" onClick={handleModalOpen}>
-            <AIcon name="dots" fill="#fff" size="35" />
+            <AIcon
+              name="dots"
+              fill={isBrowser ? '#505565' : '#f7f9fc'}
+              size="35"
+            />
           </AButton>
         </div>
 

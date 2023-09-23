@@ -12,6 +12,9 @@
     display: flex;
     flex-direction: column;
     gap: 25px;
+    @media screen and (min-width: 1200px) {
+      margin-bottom: 30px;
+    }
   }
 
   &__card {
@@ -19,6 +22,10 @@
     border-radius: 20px;
     padding: 25px;
     backdrop-filter: blur(3px);
+
+    @media screen and (min-width: 1200px) {
+      background: $background-secondary;
+    }
   }
 
   &__card-title {
@@ -71,5 +78,7 @@
   }
 }
 .page-week * .sub-title {
-  color: $primary-color;
+  @media screen and (min-width: 320px) and (max-width: 1199px) {
+    color: $primary-color;
+  }
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { isBrowser } from 'react-device-detect';
 import { WeatherLocation } from '@/entities/weather/UI/weather-location';
 import { WeatherDetails } from '@/entities/weather/UI/weather-details/weatherDetails';
 import { AIcon, AButton } from '@/shared/components/UI/atoms';
@@ -10,7 +11,6 @@ import './styles.scss';
 
 export default function Day() {
   const [isModalActive, setModalActive] = useState(false);
-
   const handleModalOpen = () => {
     setModalActive(true);
   };
@@ -23,13 +23,17 @@ export default function Day() {
       <div className="page-day__content">
         <div className="page-day__container-title">
           <NavLink className="page-day__btn-back" to="/">
-            <AIcon className="page-day__icon" name="left" fill="#fff" />
+            <AIcon name="left" fill={isBrowser ? '#505565' : '#f7f9fc'} />
           </NavLink>
 
           <WeatherLocation />
 
           <AButton svg="true" onClick={handleModalOpen}>
-            <AIcon name="dots" fill="#fff" size="35" />
+            <AIcon
+              name="dots"
+              fill={isBrowser ? '#505565' : '#f7f9fc'}
+              size="35"
+            />
           </AButton>
         </div>
         <WeatherDetails />
