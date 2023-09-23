@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { isBrowser } from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
 import { WeatherLocation } from '@/entities/weather/UI/weather-location';
 import { WeatherDetails } from '@/entities/weather/UI/weather-details/weatherDetails';
 import { AIcon, AButton } from '@/shared/components/UI/atoms';
@@ -23,7 +23,7 @@ export default function Day() {
       <div className="page-day__content">
         <div className="page-day__container-title">
           <NavLink className="page-day__btn-back" to="/">
-            <AIcon name="left" fill={isBrowser ? '#505565' : '#f7f9fc'} />
+            <AIcon name="left" fill={isMobile ? '#f7f9fc' : '#505565'} />
           </NavLink>
 
           <WeatherLocation />
@@ -31,7 +31,7 @@ export default function Day() {
           <AButton svg="true" onClick={handleModalOpen}>
             <AIcon
               name="dots"
-              fill={isBrowser ? '#505565' : '#f7f9fc'}
+              fill={isMobile ? '#f7f9fc' : '#505565'}
               size="35"
             />
           </AButton>
