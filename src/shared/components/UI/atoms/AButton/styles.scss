@@ -10,10 +10,13 @@
   border: none;
   cursor: pointer;
 
-  &:hover,
-  &:focus {
-    ///
-  }
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  // &:hover,
+  // &:focus {
+  //   color: $primary-color;
+  //   background-color: $background-secondary;
+  // }
 }
 
 .a-button--primary {

@@ -31,6 +31,11 @@
       margin-bottom: 35px;
     }
   }
+
+  &__container:hover,
+  &__container:focus {
+    width: 300px;
+  }
 }
 
 .search-bar {
@@ -47,13 +52,14 @@
     }
 
     border: 0.5px solid gray;
+    outline: none;
     height: 38px;
     padding-left: 40px;
     padding-right: 5px;
     position: absolute;
     z-index: 1;
 
-    transition: width 0.3s ease, left 0.3s ease, width 0.3s ease;
+    transition: width 0.3s ease;
     width: 25px;
     border-radius: 25px;
     top: -3px;
@@ -66,6 +72,6 @@
   width: 240px;
   top: -3px;
   border-radius: 25px;
-  left: -4px;
+  left: -3px;
   cursor: pointer;
 }

@@ -1,4 +1,4 @@
-export const github = ({ size = 20, fill }) => {
+export const github = ({ size = 20, fill = '#fafafa' }) => {
   return (
     <svg
       id="fi_2111432"

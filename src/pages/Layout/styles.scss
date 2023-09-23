@@ -21,7 +21,9 @@
 }
 
 .color-fill {
-  background-color: rgba(21, 105, 207, 0.5);
+  @media screen and (min-width: 370px) and (max-width: 1199px) {
+    background-color: rgba(21, 105, 207, 0.5);
+  }
 }
 
 .header {
@@ -71,17 +73,21 @@
 }
 
 .footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 21px;
+  background-color: $background-secondary;
+  border-radius: 25px 25px 0px 0px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+
+  &__copyright {
+    color: $primary-color;
+  }
+
   @media screen and (min-width: 370px) and (max-width: 1199px) {
     display: none;
   }
-
-  background-color: $background-secondary;
-  border-radius: 25px 25px 0px 0px;
-  padding-top: 21px;
-  padding-bottom: 21px;
-
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 .navigations {
@@ -102,15 +108,13 @@
   }
 }
 .contactbar {
-  padding-left: 21px;
-  padding-right: 21px;
   display: flex;
-
   justify-content: flex-end;
   gap: 15px;
 
   &__link {
     display: flex;
+    align-items: center;
     gap: 5px;
     color: $primary-color;
     text-decoration: none;

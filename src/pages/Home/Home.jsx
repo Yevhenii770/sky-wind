@@ -25,6 +25,7 @@ const Home = () => {
       <>
         <div className="home__header">
           <WeatherLocation />
+
           <div className="home__desctop-search-btn">
             <SearchCityForm />
           </div>

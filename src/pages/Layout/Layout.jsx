@@ -46,6 +46,7 @@ const Layout = () => {
           </Suspense>
           <ToastContainer />
           <div className="footer">
+            <div className="footer__copyright">&#169; 2023</div>
             <div className="contactbar">
               <NavLink
                 className="contactbar__link"

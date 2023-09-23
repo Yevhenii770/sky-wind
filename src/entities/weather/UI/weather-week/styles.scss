@@ -57,6 +57,11 @@
       width: 250px;
     }
   }
+  * .a-button:hover,
+  .a-button:focus {
+    color: $primary-color;
+    background-color: $background-secondary;
+  }
 
   &__container-btn {
     display: flex;
