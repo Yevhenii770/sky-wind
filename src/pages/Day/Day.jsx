@@ -23,7 +23,7 @@ export default function Day() {
       <div className="page-day__content">
         <div className="page-day__container-title">
           <NavLink className="page-day__btn-back" to="/">
-            <AIcon name="left" fill="#fff" />
+            <AIcon className="page-day__icon" name="left" fill="#fff" />
           </NavLink>
 
           <WeatherLocation />

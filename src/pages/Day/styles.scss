@@ -7,6 +7,10 @@
     margin-bottom: 30px;
     align-items: baseline;
   }
+
+  @media screen and (min-width: 1200px) {
+    margin-bottom: 35px;
+  }
 }
 
 .weather-day__btn-back {
@@ -17,5 +21,7 @@
 }
 
 .page-day * .sub-title {
-  color: $primary-color;
+  @media screen and (min-width: 320px) and (max-width: 1199px) {
+    color: $primary-color;
+  }
 }

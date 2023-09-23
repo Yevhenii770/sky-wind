@@ -4,6 +4,10 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 80px;
+
+    @media screen and (min-width: 1200px) {
+      color: $text-color;
+    }
   }
 
   &__big-celsius {
@@ -29,6 +33,13 @@
     border-radius: 20px;
     padding: 25px;
     backdrop-filter: blur(3px);
+
+    @media screen and (min-width: 1200px) {
+      width: calc(100% / 2 - 55px);
+      background-color: $background-secondary;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12),
+        0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    }
   }
 
   &__title {
@@ -62,5 +73,9 @@
 
   & * .slider-weather-day__element:first-child {
     background: rgba(127, 163, 207, 0.5);
+  }
+
+  @media screen and (min-width: 1200px) {
+    background-color: $background-secondary;
   }
 }
