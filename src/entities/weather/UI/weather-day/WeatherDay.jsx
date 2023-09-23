@@ -9,6 +9,7 @@ import './styles.scss';
 export const WeatherDay = () => {
   const allWeather = useSelector(selectWeather);
   const tempNow = useConvertDegrees(allWeather?.current?.temp);
+  console.log(allWeather.current);
 
   if (allWeather && tempNow) {
     return (
@@ -29,7 +30,7 @@ export const WeatherDay = () => {
             </div>
             <div className="weather-day__info">
               <div className="weather-day__info-subtitle">
-                {allWeather.hourly[0].pop * 100} %
+                {Math.round(allWeather.hourly[0].pop * 100)} %
               </div>
               <div className="weather-day__info-subtitle">
                 {allWeather.current.humidity} %

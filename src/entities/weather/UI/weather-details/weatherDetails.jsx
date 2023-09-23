@@ -41,7 +41,7 @@ export const WeatherDetails = () => {
             <AIcon name="drops" size="25" className="detail-info__box-icon" />
           </div>
           <div className="detail-info__title">Rain</div>
-          <div className="detail-info__options">{rain * 100} %</div>
+          <div className="detail-info__options">{Math.round(rain * 100)} %</div>
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
