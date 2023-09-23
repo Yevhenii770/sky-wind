@@ -8,6 +8,10 @@
     display: flex;
     align-items: stretch;
     justify-content: space-between;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row-reverse;
+    }
   }
 
   &__mobile-search-btn {
@@ -44,7 +48,7 @@
 
     border: 0.5px solid gray;
     height: 38px;
-    padding-left: 10px;
+    padding-left: 40px;
     padding-right: 5px;
     position: absolute;
     z-index: 1;
@@ -60,8 +64,8 @@
 .search-bar:hover .search-bar__input,
 .search-bar:focus .search-bar__input {
   width: 240px;
-  top: 0px;
+  top: -3px;
   border-radius: 25px;
-  left: -220px;
+  left: -4px;
   cursor: pointer;
 }
