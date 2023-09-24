@@ -32,7 +32,6 @@ export const WeatherDetails = () => {
   const windGust = allWeather?.current?.wind_gust;
   const feelsLike = useConvertDegrees(allWeather.current.feels_like);
 
-  console.log(feelsLike);
   return allWeather ? (
     <>
       <div className="weather-day__now">

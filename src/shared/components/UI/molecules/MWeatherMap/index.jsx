@@ -32,7 +32,6 @@ export const WeatherMap = () => {
     ? { lat: Number(coordinates.lat), lng: Number(coordinates.lon) }
     : { lat: 49.8383, lng: 24.0232 };
 
-  console.log(position);
   // const center = useMemo(
   //   () => ({ lat: location[0], lng: location[1] }),
   //   [location]
