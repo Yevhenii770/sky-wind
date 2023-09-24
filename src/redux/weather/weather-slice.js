@@ -3,6 +3,7 @@ import {
   fetchCityByCoordinates,
   fetchCity,
   fetchWeather,
+  fetchWeatherMap,
 } from './weather-operations';
 
 const handlePending = (state) => {
@@ -20,6 +21,7 @@ const weatherSlice = createSlice({
     isLoading: false,
     error: null,
     city: null,
+    layer: null,
   },
   extraReducers: (builder) =>
     builder
@@ -33,6 +35,12 @@ const weatherSlice = createSlice({
       .addCase(fetchCityByCoordinates.rejected, handleRejected)
       .addCase(fetchCityByCoordinates.fulfilled, (state, action) => {
         state.city = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(fetchWeatherMap.pending, handlePending)
+      .addCase(fetchWeatherMap.rejected, handleRejected)
+      .addCase(fetchWeatherMap.fulfilled, (state, action) => {
+        state.layer = action.payload;
         state.isLoading = false;
       }),
 });

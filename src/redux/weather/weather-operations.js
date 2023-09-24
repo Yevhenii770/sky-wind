@@ -59,7 +59,7 @@ export const fetchWeatherMap = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `https://tile.openweathermap.org/map/precipitation_new/0/1/1.png?appid=${
+        `https://tile.openweathermap.org/map/precipitation_new/1/1/1.png?appid=${
           import.meta.env.VITE_OPENWEATHERMAP_API_KEY
         }`
       );

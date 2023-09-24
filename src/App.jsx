@@ -5,12 +5,13 @@ import {
   fetchCityByCoordinates,
   fetchCity,
   fetchWeather,
+  fetchWeatherMap,
 } from './redux/weather/weather-operations';
 import {
   selectWeatherLoading,
   userLocation,
   userElectCity,
-  selectAllWeather,
+  selectWeather,
 } from './redux/weather/weather-selectors';
 import { ALoader } from './shared/components/UI/atoms/ALoader';
 import { useGeolocated } from 'react-geolocated';
@@ -25,7 +26,7 @@ const WeekPage = lazy(() => import('./pages/Week/Week'));
 function App() {
   const dispatch = useDispatch();
 
-  const weatherArray = useSelector(selectAllWeather);
+  const weatherArray = useSelector(selectWeather);
   const isLoading = useSelector(selectWeatherLoading);
   const location = useSelector(userLocation);
   const selectedCity = useSelector(userElectCity);
@@ -57,6 +58,7 @@ function App() {
       dispatch(fetchCity(selectedCity));
     }
   }, [selectedCity]);
+
   useEffect(() => {
     if (location[0] && location[1]) {
       dispatch(fetchWeather([location[0], location[1]]));
