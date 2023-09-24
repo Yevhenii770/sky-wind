@@ -4,8 +4,7 @@
   margin-bottom: 8px;
   padding: 25px;
   backdrop-filter: blur(3px);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
-    0px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
   &__container {
     display: flex;
@@ -14,8 +13,8 @@
   }
 
   &__temperature-now {
-    font-weight: 400;
-    font-size: 45px;
+    font-weight: 500;
+    font-size: 35px;
     margin-right: 10px;
   }
 
@@ -23,16 +22,28 @@
     display: flex;
     gap: 4px;
     flex-direction: column;
+
+    @media screen and (min-width: 1200px) {
+      gap: 10px;
+    }
+  }
+
+  &__sun-time {
+    display: none;
+    @media screen and (min-width: 768px) {
+      display: flex;
+      gap: 10px;
+    }
   }
 
   &__info-subtitle {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     color: $light-text-color;
   }
 
   &__info-title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     display: flex;
     justify-content: space-between;
@@ -83,4 +94,75 @@
   @media screen and (min-width: 1200px) {
     margin-bottom: 35px;
   }
+}
+
+.extra-info {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+
+    &__element {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 120px;
+      width: 200px;
+      gap: 15px;
+      padding: 10px;
+      border-radius: 20px;
+
+      cursor: pointer;
+    }
+
+    &__element:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    &__title {
+      font-size: 18px;
+      font-weight: 500;
+    }
+    &__value {
+      font-size: 18px;
+      font-weight: 500;
+      color: $light-text-color;
+
+      gap: 10px;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.9s;
+}
+.extra-info__element:hover .card-inner {
+  transform: rotateY(180deg);
+}
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $primary-color;
+  border-radius: 10px;
+}
+
+.card-back {
+  transform: rotateY(180deg);
 }

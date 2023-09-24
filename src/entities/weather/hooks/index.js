@@ -10,8 +10,11 @@ var daysOfWeek = [
 
 export const useConvertTime = (time, mood) => {
   const date = new Date(time * 1000);
+  const hours = date.getHours().toString().padStart(2, '0');
+  const minutes = date.getMinutes().toString().padStart(2, '0');
+
   if (mood === 'time') {
-    return `${date.getHours()}:${date.getMinutes()}0`;
+    return `${hours}:${minutes}`;
   }
   if (mood === 'dayWeek') {
     return `${daysOfWeek[date.getDay()]}`;

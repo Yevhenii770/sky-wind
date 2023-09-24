@@ -68,6 +68,10 @@
   }
 
   &__element {
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+      font-weight: 500;
+    }
     margin-bottom: 5px;
   }
 

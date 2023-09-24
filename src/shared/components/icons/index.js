@@ -47,3 +47,6 @@ export * from './sunrise';
 export * from './visibility';
 export * from './windGust';
 export * from './feelsLike';
+export * from './sunset';
+export * from './compas';
+export * from './drop';
