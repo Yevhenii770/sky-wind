@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AButton, AIcon, ALoader } from '@/shared/components/UI/atoms';
 import { selectWeather } from '@/redux/weather/weather-selectors.js';
@@ -8,24 +8,32 @@ import { useConvertDegrees, useConvertTime } from '../../hooks';
 import './styles.scss';
 
 export const WeatherDay = () => {
-  const allWeather = useSelector(selectWeather);
+  const [precipitation, setPrecipitation] = useState(null);
+  let sunrise, sunset, feelsLike, windDeg, temp;
 
-  const { sunrise, sunset, feels_like, wind_deg, temp } = allWeather.current;
-  let precipitation = null;
-  console.log(allWeather.daily[0].summary);
+  const allWeather = useSelector(selectWeather);
+  const currentWeather = allWeather.current;
+
+  if (currentWeather) {
+    sunrise = currentWeather.sunrise;
+    sunset = currentWeather.sunset;
+    feelsLike = currentWeather.feels_like;
+    windDeg = currentWeather.wind_deg;
+    temp = currentWeather.temp;
+  }
 
   useEffect(() => {
-    if (allWeather.current.rain !== undefined) {
-      precipitation = allWeather.current.rain;
+    if (currentWeather && currentWeather.rain !== undefined) {
+      setPrecipitation(currentWeather.rain);
     }
   }, []);
 
-  if (allWeather) {
+  if (allWeather && currentWeather) {
     return (
       <div className="weather-day">
         <div className="weather-day__container">
           <div className="weather-day__icon">
-            <AIcon name={allWeather.current.weather[0].description} size="55" />
+            <AIcon name={currentWeather.weather[0].description} size="55" />
           </div>
 
           <div className="weather-day__temperature-now">
@@ -40,13 +48,13 @@ export const WeatherDay = () => {
 
             <div className="weather-day__info">
               <div className="weather-day__info-subtitle">
-                {Math.round(allWeather.hourly[0].pop * 100)} %
+                {Math.round(allWeather?.hourly[0]?.pop * 100)} %
               </div>
               <div className="weather-day__info-subtitle">
-                {allWeather.current.humidity} %
+                {currentWeather.humidity} %
               </div>
               <div className="weather-day__info-subtitle">
-                {Math.round(allWeather.current.wind_speed)} km/h
+                {Math.round(currentWeather.wind_speed)} km/h
               </div>
             </div>
           </div>
@@ -68,7 +76,7 @@ export const WeatherDay = () => {
                 <div className="extra-info__title">Feels like</div>
                 <div className="extra-info__value">
                   <AIcon name="feels like" size="25" fill="#505565" />
-                  {String(useConvertDegrees(feels_like)).slice(0, 2)}&#xb0;
+                  {String(useConvertDegrees(feelsLike)).slice(0, 2)}&#xb0;
                 </div>
               </div>
               <div className="card-back">
@@ -84,7 +92,7 @@ export const WeatherDay = () => {
                 <div className="extra-info__title">Wind direction</div>
                 <div className="extra-info__value">
                   <AIcon name="compas" size="25" />
-                  {wind_deg}
+                  {windDeg}
                 </div>
               </div>
               <div className="card-back">
