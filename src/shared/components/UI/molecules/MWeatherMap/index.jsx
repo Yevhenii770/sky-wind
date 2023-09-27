@@ -1,18 +1,17 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, { useCallback } from 'react';
 import { GoogleMap, useLoadScript, OverlayView } from '@react-google-maps/api';
-import { currentCity } from '@/redux/weather/weather-selectors';
+import { currentCity, currentLayer } from '@/redux/weather/weather-selectors';
 import { ALoader } from '../../atoms/ALoader';
 import { useSelector } from 'react-redux';
-import { currentLayer } from '@/redux/weather/weather-selectors';
 import './styled.scss';
 
 export const WeatherMap = () => {
   const coordinates = useSelector(currentCity);
+  const layer = useSelector(currentLayer);
   const mapRef = React.useRef(undefined);
-  console.log(currentLayer);
   const configMap = {
     panControl: true,
-    ZoonControl: true,
+    zoonControl: true,
     mapTypeControl: false,
     scaleControl: false,
     streetViewControl: false,
@@ -40,8 +39,6 @@ export const WeatherMap = () => {
     mapRef.current = undefined;
   }, []);
 
-  ////
-  // Функция для отображения вашего PNG слоя на карте
   const renderOverlay = useCallback((canvas, projection) => {
     const div = document.createElement('div');
     div.style.position = 'absolute';
@@ -49,20 +46,21 @@ export const WeatherMap = () => {
     div.style.height = '100%';
 
     // Добавьте ваш PNG слой в div
-    const img = document.createElement(currentLayer);
-    img.src = '/path/to/your/image.png'; // Замените на путь к вашему изображению
-    img.style.width = '100%';
-    img.style.height = '100%';
+    const img = document.createElement('img');
+    img.src = layer; // Замените на путь к вашему изображению
+
+    img.style.width = '100px';
+    img.style.height = '100px';
     div.appendChild(img);
 
     // Разместите div на карте
-    const position = projection.fromLatLngToDivPixel(position);
+    const position = projection.fromLatLngToDivPixel(userPosition);
+
     div.style.left = `${position.x}px`;
     div.style.top = `${position.y}px`;
 
     canvas.appendChild(div);
   }, []);
-  ////
 
   return isLoaded ? (
     <GoogleMap
@@ -71,20 +69,19 @@ export const WeatherMap = () => {
       options={configMap}
       onLoad={onLoad}
       onUnmount={onUnmount}
-      zoom={8}
+      zoom={12}
     >
-      {/* Child components, such as markers, info windows, etc. */}
-      {/* <OverlayView
-        position={position}
+      <OverlayView
+        position={userPosition}
         mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
         getPixelPositionOffset={(width, height) => ({
-          x: -width / 2,
-          y: -height,
+          x: -(width / 2),
+          y: -(height / 2),
         })}
         bounds={false}
       >
         {renderOverlay}
-      </OverlayView> */}
+      </OverlayView>
     </GoogleMap>
   ) : (
     <ALoader />

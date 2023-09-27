@@ -80,6 +80,11 @@ function App() {
     }
   }, [location]);
 
+  // fech weather map
+  useEffect(() => {
+    dispatch(fetchWeatherMap());
+  }, [location]);
+
   return isLoading ? (
     <div className="app-loader-container">
       <ALoader />
