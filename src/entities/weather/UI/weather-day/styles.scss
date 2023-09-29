@@ -110,7 +110,7 @@
       justify-content: center;
       align-items: center;
       height: 120px;
-      width: calc(100% / 3 - 30px);
+      width: calc(100% / 3 - 40px);
       gap: 15px;
       border-radius: 20px;
       cursor: pointer;
@@ -155,7 +155,7 @@
   justify-content: center;
   align-items: center;
   background-color: $primary-color;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .card-back {
