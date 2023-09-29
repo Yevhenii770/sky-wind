@@ -110,7 +110,7 @@
       justify-content: center;
       align-items: center;
       height: 120px;
-      width: 200px;
+      width: calc(100% / 3 - 30px);
       gap: 15px;
       border-radius: 20px;
       cursor: pointer;
