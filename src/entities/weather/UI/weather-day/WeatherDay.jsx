@@ -24,7 +24,7 @@ export const WeatherDay = () => {
 
   useEffect(() => {
     if (currentWeather && currentWeather.rain !== undefined) {
-      setPrecipitation(currentWeather.rain);
+      setPrecipitation(Object.values(currentWeather.rain));
     }
   }, []);
 

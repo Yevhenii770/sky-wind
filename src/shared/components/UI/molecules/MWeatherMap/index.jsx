@@ -8,7 +8,6 @@ import './styled.scss';
 export const WeatherMap = () => {
   const coordinates = useSelector(currentCity);
   const layer = useSelector(currentLayer);
-  const mapRef = React.useRef(undefined);
   const configMap = {
     panControl: true,
     zoonControl: true,

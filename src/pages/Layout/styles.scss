@@ -1,5 +1,5 @@
 .container {
-  @media screen and (min-width: 370px) {
+  @media screen and (min-width: 0px) {
     padding-top: 60px;
     padding-bottom: 10px;
   }
@@ -27,7 +27,7 @@
 }
 
 .header {
-  @media screen and (min-width: 370px) and (max-width: 1199px) {
+  @media screen and (min-width: 0px) and (max-width: 1199px) {
     display: none;
   }
 
@@ -83,7 +83,7 @@
     color: $primary-color;
   }
 
-  @media screen and (min-width: 370px) and (max-width: 1199px) {
+  @media screen and (min-width: 0px) and (max-width: 1199px) {
     display: none;
   }
 

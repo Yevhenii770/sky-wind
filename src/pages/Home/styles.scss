@@ -21,7 +21,7 @@
   }
 
   &__desctop-search-btn {
-    @media screen and (min-width: 330px) and (max-width: 767px) {
+    @media screen and (min-width: 0px) and (max-width: 767px) {
       display: none;
     }
   }
