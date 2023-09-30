@@ -5,6 +5,7 @@ import {
   ImageOverlay,
   TileLayer,
   LayerGroup,
+  Marker,
 } from 'react-leaflet';
 
 import { currentCity, currentLayer } from '@/redux/weather/weather-selectors';
@@ -38,18 +39,19 @@ export const WeatherMap = () => {
   // const imageUrl = 'path/to/your/image.png';
   const imageUrl = layer;
 
-  // Установите координаты и границы изображения
-  const imageBounds = [
-    [51.38494, -0.351468], // Нижний левый угол
-    [51.672343, 0.148271], // Верхний правый угол
-  ];
+  // Calculate the bottom-left and top-right corners of the image overlay
+  const bottomLeftCorner = [lat - 0.3, lng - 0.3]; // Adjust the values as needed
+  const topRightCorner = [lat + 0.3, lng + 0.3]; // Adjust the values as needed
+
+  // Create the imageBounds array
+  const imageBounds = [bottomLeftCorner, topRightCorner];
   const imageOpacity = 0.7;
 
   return (
     <MapContainer
       mapContainerClassName="google-map"
       center={userPosition}
-      zoom={8}
+      zoom={10}
       placeholder={<MapPlaceholder />}
     >
       <TileLayer
@@ -59,9 +61,10 @@ export const WeatherMap = () => {
 
       <LayerGroup>
         <ImageOverlay
-          url="../../../photos/fox.png"
+          url={response}
           bounds={imageBounds}
           opacity={imageOpacity}
+          zIndex={10}
         />
       </LayerGroup>
     </MapContainer>
