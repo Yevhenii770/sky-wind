@@ -1,88 +1,69 @@
-import React, { useCallback } from 'react';
-import { GoogleMap, useLoadScript, OverlayView } from '@react-google-maps/api';
+import React, { useRef } from 'react';
+
+import {
+  MapContainer,
+  ImageOverlay,
+  TileLayer,
+  LayerGroup,
+} from 'react-leaflet';
+
 import { currentCity, currentLayer } from '@/redux/weather/weather-selectors';
 import { ALoader } from '../../atoms/ALoader';
 import { useSelector } from 'react-redux';
+import 'leaflet/dist/leaflet.css';
+
 import './styled.scss';
 
 export const WeatherMap = () => {
   const coordinates = useSelector(currentCity);
   const layer = useSelector(currentLayer);
-  const configMap = {
-    panControl: true,
-    zoonControl: true,
-    mapTypeControl: false,
-    scaleControl: false,
-    streetViewControl: false,
-    rotateControl: false,
-    clickableIcons: false,
-    keyboardShortcuts: false,
-    scrollwheel: false,
-    disableDoubleClickZoom: false,
-    fullscreencontrol: false,
-  };
+  const mapRef = useRef(null);
 
-  const { isLoaded } = useLoadScript({
-    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
-  });
+  const lat = coordinates.lat;
+  const lng = coordinates.lon;
 
   const userPosition = coordinates
-    ? { lat: Number(coordinates.lat), lng: Number(coordinates.lon) }
+    ? { lat: lat, lng: lng }
     : { lat: 49.8383, lng: 24.0232 };
 
-  const onLoad = React.useCallback(function callback(map) {
-    mapRef.current = map;
-  }, []);
+  function MapPlaceholder() {
+    return (
+      <p>
+        Map of London.{' '}
+        <noscript>You need to enable JavaScript to see this map.</noscript>
+      </p>
+    );
+  }
 
-  const onUnmount = React.useCallback(function callback(map) {
-    mapRef.current = undefined;
-  }, []);
+  // const imageUrl = 'path/to/your/image.png';
+  const imageUrl = layer;
 
-  const renderOverlay = useCallback((canvas, projection) => {
-    const div = document.createElement('div');
-    div.style.position = 'absolute';
-    div.style.width = '100%';
-    div.style.height = '100%';
+  // Установите координаты и границы изображения
+  const imageBounds = [
+    [51.38494, -0.351468], // Нижний левый угол
+    [51.672343, 0.148271], // Верхний правый угол
+  ];
+  const imageOpacity = 0.7;
 
-    // Добавьте ваш PNG слой в div
-    const img = document.createElement('img');
-    img.src = layer; // Замените на путь к вашему изображению
-
-    img.style.width = '100px';
-    img.style.height = '100px';
-    div.appendChild(img);
-
-    // Разместите div на карте
-    const position = projection.fromLatLngToDivPixel(userPosition);
-
-    div.style.left = `${position.x}px`;
-    div.style.top = `${position.y}px`;
-
-    canvas.appendChild(div);
-  }, []);
-
-  return isLoaded ? (
-    <GoogleMap
+  return (
+    <MapContainer
       mapContainerClassName="google-map"
       center={userPosition}
-      options={configMap}
-      onLoad={onLoad}
-      onUnmount={onUnmount}
-      zoom={12}
+      zoom={8}
+      placeholder={<MapPlaceholder />}
     >
-      <OverlayView
-        position={userPosition}
-        mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
-        getPixelPositionOffset={(width, height) => ({
-          x: -(width / 2),
-          y: -(height / 2),
-        })}
-        bounds={false}
-      >
-        {renderOverlay}
-      </OverlayView>
-    </GoogleMap>
-  ) : (
-    <ALoader />
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      />
+
+      <LayerGroup>
+        <ImageOverlay
+          url="../../../photos/fox.png"
+          bounds={imageBounds}
+          opacity={imageOpacity}
+        />
+      </LayerGroup>
+    </MapContainer>
   );
 };
