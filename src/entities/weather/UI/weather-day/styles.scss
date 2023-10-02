@@ -23,8 +23,11 @@
 
   &__temperature-now {
     font-weight: 400;
-    font-size: 86px;
+    font-size: 45px;
     margin-right: 10px;
+    @media screen and (min-width: 768px) {
+      font-size: 86px;
+    }
   }
 
   &__info {
