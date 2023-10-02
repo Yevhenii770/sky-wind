@@ -81,11 +81,11 @@ function App() {
   }, [location]);
 
   // fech weather map
-  useEffect(() => {
-    if (location.length !== 0) {
-      dispatch(fetchWeatherMap());
-    }
-  }, [location]);
+  // useEffect(() => {
+  //   if (location.length !== 0) {
+  //     dispatch(fetchWeatherMap());
+  //   }
+  // }, [location]);
 
   return isLoading ? (
     <div className="app-loader-container">
