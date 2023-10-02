@@ -20,20 +20,14 @@
     }
   }
 
-  &__desctop-search-btn {
-    @media screen and (min-width: 0px) and (max-width: 767px) {
-      display: none;
-    }
-  }
-
-  &__content {
-    @media screen and (min-width: 1200px) {
-      margin-bottom: 35px;
-    }
-  }
-
   &__container:hover,
   &__container:focus {
     width: 300px;
+  }
+
+  &__main {
+    @media screen and (min-width: 768px) {
+      margin-bottom: 35px;
+    }
   }
 }

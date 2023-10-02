@@ -59,14 +59,14 @@ export const WeatherMap = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
 
-      <LayerGroup>
+      {/* <LayerGroup>
         <ImageOverlay
           url={response}
           bounds={imageBounds}
           opacity={imageOpacity}
           zIndex={10}
         />
-      </LayerGroup>
+      </LayerGroup> */}
     </MapContainer>
   );
 };

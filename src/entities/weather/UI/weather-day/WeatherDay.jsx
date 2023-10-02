@@ -32,12 +32,14 @@ export const WeatherDay = () => {
     return (
       <div className="weather-day">
         <div className="weather-day__container">
-          <div className="weather-day__icon">
-            <AIcon name={currentWeather.weather[0].description} size="55" />
-          </div>
+          <div className="weather-day__icon-temp-container">
+            <div className="weather-day__icon">
+              <AIcon name={currentWeather.weather[0].description} size="55" />
+            </div>
 
-          <div className="weather-day__temperature-now">
-            {String(useConvertDegrees(temp)).slice(0, 2)}&#xb0;
+            <div className="weather-day__temperature-now">
+              {String(useConvertDegrees(temp)).slice(0, 2)}&#xb0;
+            </div>
           </div>
           <div className="weather-day__table">
             <div className="weather-day__info">
@@ -75,7 +77,6 @@ export const WeatherDay = () => {
               <div className="card-front">
                 <div className="extra-info__title">Feels like</div>
                 <div className="extra-info__value">
-                  <AIcon name="feels like" size="25" fill="#505565" />
                   {String(useConvertDegrees(feelsLike)).slice(0, 2)}&#xb0;
                 </div>
               </div>
@@ -89,10 +90,39 @@ export const WeatherDay = () => {
           <div className="extra-info__element">
             <div className="card-inner">
               <div className="card-front">
-                <div className="extra-info__title">Wind direction</div>
+                <div className="extra-info__title">Rain</div>
                 <div className="extra-info__value">
-                  <AIcon name="compas" size="25" />
-                  {windDeg}
+                  {Math.round(allWeather?.hourly[0]?.pop * 100)}%
+                </div>
+              </div>
+              <div className="card-back">
+                <div className="card-back__title">
+                  {allWeather.daily[0].summary}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="extra-info__element">
+            <div className="card-inner">
+              <div className="card-front">
+                <div className="extra-info__title">Humidity</div>
+                <div className="extra-info__value">
+                  {currentWeather.humidity}%
+                </div>
+              </div>
+              <div className="card-back">
+                <div className="card-back__title">
+                  {allWeather.daily[0].summary}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="extra-info__element">
+            <div className="card-inner">
+              <div className="card-front">
+                <div className="extra-info__title">Wind</div>
+                <div className="extra-info__value">
+                  {Math.round(currentWeather.wind_speed)} km/h
                 </div>
               </div>
               <div className="card-back">
@@ -105,7 +135,6 @@ export const WeatherDay = () => {
               <div className="card-front">
                 <div className="extra-info__title">Precipitation</div>
                 <div className="extra-info__value">
-                  <AIcon name="drop" size="25" />
                   {precipitation ? precipitation : '0'} mm
                 </div>
               </div>

@@ -10,11 +10,20 @@
     display: flex;
     align-items: center;
     margin-bottom: 25px;
+
+    @media screen and (min-width: 1200px) {
+      justify-content: space-between;
+    }
+  }
+
+  &__icon-temp-container {
+    display: flex;
+    align-items: center;
   }
 
   &__temperature-now {
-    font-weight: 500;
-    font-size: 35px;
+    font-weight: 400;
+    font-size: 86px;
     margin-right: 10px;
   }
 
@@ -53,6 +62,9 @@
     width: 100%;
     display: flex;
     gap: 10px;
+    @media screen and (min-width: 1200px) {
+      display: none;
+    }
   }
 
   &__link-day {
@@ -99,7 +111,7 @@
 .extra-info {
   display: none;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1200px) {
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
@@ -110,7 +122,7 @@
       justify-content: center;
       align-items: center;
       height: 120px;
-      width: calc(100% / 3 - 40px);
+      width: calc(100% / 4 - 60px);
       gap: 15px;
       border-radius: 20px;
       cursor: pointer;
@@ -121,13 +133,13 @@
     }
 
     &__title {
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 24px;
+      font-weight: 400;
+      color: $light-text-color;
     }
     &__value {
-      font-size: 18px;
-      font-weight: 500;
-      color: $light-text-color;
+      font-size: 40px;
+      font-weight: 400;
 
       gap: 10px;
       display: flex;

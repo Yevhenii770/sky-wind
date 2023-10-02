@@ -5,6 +5,8 @@
   }
 
   @media screen and (min-width: 768px) {
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
 
   @media screen and (min-width: 1200px) {
@@ -27,11 +29,11 @@
 }
 
 .header {
-  @media screen and (min-width: 0px) and (max-width: 1199px) {
+  @media screen and (min-width: 0px) and (max-width: 767px) {
     display: none;
   }
 
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 35px;
   }
 
@@ -39,10 +41,6 @@
   border-radius: 0px 0px 25px 25px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 
-  &__container {
-    padding-top: 21px;
-    padding-bottom: 21px;
-  }
   &__navbar {
     padding-left: 21px;
     padding-right: 21px;
@@ -52,22 +50,10 @@
     align-items: center;
   }
 
-  &__logo-link {
-    text-decoration: none;
-    color: $primary-color;
-    font-size: 24px;
-
+  &__search-logo-container {
     display: flex;
-    align-items: flex-end;
-
-    position: relative;
-  }
-
-  &__logo-title {
-    display: contents;
-    position: absolute;
-    left: 60px;
-    top: 15px;
+    align-items: center;
+    gap: 45px;
   }
 }
 
@@ -83,27 +69,34 @@
     color: $primary-color;
   }
 
-  @media screen and (min-width: 0px) and (max-width: 1199px) {
-    display: none;
-  }
-
   &__container {
     display: flex;
     justify-content: space-between;
     padding-left: 21px;
     padding-right: 21px;
   }
+
+  @media screen and (min-width: 0px) and (max-width: 767px) {
+    display: none;
+  }
 }
 
 .navigations {
   display: flex;
-  gap: 10px;
+  gap: 24px;
 
   &__link {
-    font-size: 24px;
-    font-weight: 400;
+    padding: 6px 45px 6px 45px;
+    border: 1px solid $primary-color;
+    border-radius: 18px;
+    font-size: 18px;
+    font-weight: 500;
     text-decoration: none;
     color: $primary-color;
+
+    @media screen and (min-width: 1200px) {
+      padding: 6px 70px 6px 70px;
+    }
   }
 
   &__slash {

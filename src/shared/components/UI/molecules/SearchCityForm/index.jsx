@@ -47,7 +47,7 @@ export const SearchCityForm = () => {
         />
         <div className="search-bar__btn">
           <AButton svg="true" type="submit">
-            <AIcon name="serach" size="35" />
+            <AIcon name="serach" size="24" />
           </AButton>
         </div>
       </form>

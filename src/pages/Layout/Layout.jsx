@@ -4,6 +4,9 @@ import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { AIcon } from '@/shared/components/UI/atoms';
+import { Logo } from '../../widgets/header/UI';
+import { SearchCityForm } from '../../shared/components/UI/molecules';
+
 import './styles.scss';
 
 const Layout = () => {
@@ -20,20 +23,17 @@ const Layout = () => {
           <div className="header">
             <div className="header__container">
               <div className="header__navbar">
-                <div className="header__logo">
-                  <NavLink className="header__logo-link" to="/">
-                    <div className="header__logo-container">
-                      <AIcon name="clear sky" size={60} />
-                    </div>
-                    <div className="header__logo-title">Sky Wind</div>
-                  </NavLink>
+                <div className="header__search-logo-container">
+                  <Logo />
+                  <div className="search-form">
+                    <SearchCityForm />
+                  </div>
                 </div>
-
                 <div className="navigations">
                   <NavLink className="navigations__link" to="/day">
                     Day
                   </NavLink>
-                  <div className="navigations__slash">/</div>
+
                   <NavLink className="navigations__link" to="/week">
                     Week
                   </NavLink>

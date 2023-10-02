@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectWeather } from '@/redux/weather/weather-selectors';
 import { WeatherDay, WeatherWeek, WeatherLocation } from '@/entities/weather';
-import { SearchCityForm } from '../../shared/components/UI/molecules/SearchCityForm';
 import { SearchForm } from '@/shared/components/UI/molecules';
 import { AButton, AIcon, ALoader } from '../../shared/components/UI/atoms';
 import Modal from '@/shared/components/UI/molecules/MModal';
@@ -25,10 +24,6 @@ const Home = () => {
       <>
         <div className="home__header">
           <WeatherLocation />
-
-          <div className="home__desctop-search-btn">
-            <SearchCityForm />
-          </div>
           <div className="home__mobile-search-btn">
             <AButton svg="true" onClick={handleModalOpen}>
               <AIcon name="serach" size="35" />
