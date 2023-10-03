@@ -5,9 +5,12 @@
 
 .title {
   @media screen and (min-width: 1200px) {
-    font-size: 36px;
-    font-weight: 500;
+    font-size: 40px;
+    font-weight: 400;
     margin-bottom: 5px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 24px;
   }
   @media screen and (min-width: 1200px) {
     color: $text-color;
@@ -16,8 +19,8 @@
 
 .sub-title {
   @media screen and (min-width: 1200px) {
-    color: $light-text-color;
-    font-size: 24px;
+    color: $text-color;
+    font-size: 36px;
     font-weight: 400;
     margin-bottom: 5px;
   }

@@ -13,6 +13,7 @@
 
     @media screen and (min-width: 1200px) {
       justify-content: space-between;
+      margin-bottom: 25px;
     }
   }
 
@@ -91,14 +92,22 @@
 
   &__more-btn {
     width: 100%;
+
     @media screen and (min-width: 1200px) {
-      width: 250px;
+      width: 173px;
+      color: $background-secondary;
     }
   }
   * .a-button:hover,
   .a-button:focus {
     color: $primary-color;
     background-color: $background-secondary;
+    border: 1px solid $primary-color;
+  }
+  * .a-button {
+    transition: color 0.3s, background-color 0.3s, border 0.3s;
+    border: 1px solid $background-secondary;
+    border-radius: 16px;
   }
 
   &__container-btn {
@@ -117,7 +126,7 @@
   @media screen and (min-width: 1200px) {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 25px;
+    margin-bottom: 40px;
 
     &__element {
       display: flex;
@@ -125,7 +134,7 @@
       justify-content: center;
       align-items: center;
       height: 120px;
-      width: calc(100% / 4 - 60px);
+      width: calc(100% / 4 - 90px);
       gap: 15px;
       border-radius: 20px;
       cursor: pointer;

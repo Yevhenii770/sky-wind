@@ -14,6 +14,21 @@
     padding-right: 15px;
     padding-top: 10px;
     padding-bottom: 10px;
+
+    @media screen and (min-width: 1200px) {
+      height: 100px;
+      padding-left: 24px;
+      padding-right: 24px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+  }
+
+  &__title {
+    @media screen and (min-width: 1200px) {
+      font-size: 28px;
+      font-weight: 400;
+    }
   }
 
   &__item:first-child {
@@ -23,26 +38,47 @@
 
   &__list {
     margin-bottom: 15px;
+
+    @media screen and (min-width: 1200px) {
+      margin-bottom: 25px;
+    }
   }
 
   &__humidity {
     font-size: 14px;
-    position: absolute;
-    left: 162px;
-    color: $light-text-color;
+    font-weight: 400;
+
+    @media screen and (min-width: 320px) and (max-width: 1199px) {
+      position: absolute;
+      left: 162px;
+      color: $light-text-color;
+    }
   }
 
   &__cloud-cover-icon {
-    position: absolute;
-    left: 144px;
-    height: 15px;
-    top: 11px;
+    @media screen and (min-width: 320px) and (max-width: 1199px) {
+      position: absolute;
+      left: 144px;
+      height: 15px;
+      top: 11px;
+    }
   }
 
   &__icon {
-    position: absolute;
-    left: 115px;
-    top: 9px;
+    @media screen and (min-width: 320px) and (max-width: 1199px) {
+      position: absolute;
+      left: 115px;
+      top: 9px;
+    }
+  }
+
+  &__midle-group {
+    @media screen and (min-width: 1200px) {
+      position: absolute;
+      left: 300px;
+      display: flex;
+      gap: 8px;
+    }
   }
 
   &__question-mark {
@@ -52,19 +88,34 @@
 
   &__more-btn {
     width: 100%;
+
     @media screen and (min-width: 1200px) {
-      width: 250px;
+      width: 173px;
+      color: $background-secondary;
     }
   }
   * .a-button:hover,
   .a-button:focus {
     color: $primary-color;
     background-color: $background-secondary;
+    border: 1px solid $primary-color;
+  }
+  * .a-button {
+    transition: color 0.3s, background-color 0.3s, border 0.3s;
+    border: 1px solid $background-secondary;
+    border-radius: 16px;
   }
 
   &__container-btn {
     display: flex;
     justify-content: center;
+  }
+
+  &__range {
+    @media screen and (min-width: 1200px) {
+      font-size: 28px;
+      font-weight: 400;
+    }
   }
 }
 
