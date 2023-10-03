@@ -93,7 +93,7 @@
   &__more-btn {
     width: 100%;
 
-    @media screen and (min-width: 1200px) {
+    @media screen and (min-width: 768px) {
       width: 173px;
       color: $background-secondary;
     }
