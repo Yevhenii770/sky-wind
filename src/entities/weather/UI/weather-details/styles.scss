@@ -1,9 +1,17 @@
+.day-container {
+  @media screen and (min-width: 768px) {
+    background-color: $background-color;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 40px;
+  }
+}
+
 .weather-day {
   &__now {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 80px;
 
     @media screen and (min-width: 1200px) {
       color: $text-color;
@@ -24,7 +32,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+
+  @media screen and (min-width: 768px) {
+    gap: 25px;
+  }
 
   &__box {
     width: calc(100vw / 2 - 65px);
@@ -34,20 +46,32 @@
     padding: 25px;
     backdrop-filter: blur(3px);
 
+    @media screen and (min-width: 768px) {
+      width: calc(50vw - 98px);
+    }
     @media screen and (min-width: 1200px) {
-      width: calc(100% / 2 - 55px);
-      background-color: $background-secondary;
+      width: calc(50% - 65px);
+      background-color: $background-color;
       box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      border: 1px solid $background-secondary;
     }
   }
 
   &__title {
     font-family: inherit;
     margin-bottom: 5px;
+
+    @media screen and (min-width: 768px) {
+      color: $text-color;
+    }
   }
 
   &__options {
     font-family: inherit;
+
+    @media screen and (min-width: 768px) {
+      color: $text-color;
+    }
   }
 
   &__icon-box {
@@ -57,10 +81,15 @@
 
 .hour-degrees {
   color: $primary-color;
+
   background: rgba(127, 163, 207, 0.5);
   border-radius: 20px;
   padding: 25px;
   backdrop-filter: blur(3px);
+
+  @media screen and (min-width: 768px) {
+    color: $text-color;
+  }
 
   & > .slider-weather-day__list {
     margin-bottom: 0px;
@@ -68,6 +97,10 @@
 
   & * .slider-weather-day__element-title {
     color: $primary-color;
+
+    @media screen and (min-width: 768px) {
+      color: $text-color;
+    }
   }
 
   & * .slider-weather-day__element:first-child {
@@ -75,6 +108,7 @@
   }
 
   @media screen and (min-width: 1200px) {
-    background-color: $background-secondary;
+    background-color: $background-color;
+    border: 1px solid $background-secondary;
   }
 }

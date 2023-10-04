@@ -2,21 +2,14 @@ import { useSelector } from 'react-redux';
 import { selectWeather } from '@/redux/weather/weather-selectors';
 import { AIcon, ALoader } from '@/shared/components/UI/atoms';
 import { MSliderDay } from '@/shared/components/UI/molecules/MSliderDay';
+import { isMobile } from 'react-device-detect';
 import { useConvertDegrees, useConvertTime } from '../../hooks';
 
 import './styles.scss';
 
 export const WeatherDetails = () => {
   const allWeather = useSelector(selectWeather);
-  const weatherNow = allWeather?.current;
 
-  const maxTempToday = String(
-    useConvertDegrees(allWeather?.daily[0]?.temp?.max)
-  ).slice(0, 2);
-  const minTempToday = String(
-    useConvertDegrees(allWeather?.daily[0]?.temp?.min)
-  ).slice(0, 2);
-  const currentTemp = String(useConvertDegrees(weatherNow.temp))?.slice(0, 2);
   const rain = allWeather.hourly[0].pop;
   const humidity = allWeather.current.humidity;
   const wind = Math.round(allWeather.current.wind_speed);
@@ -33,23 +26,16 @@ export const WeatherDetails = () => {
   const feelsLike = useConvertDegrees(allWeather.current.feels_like);
 
   return allWeather ? (
-    <>
-      <div className="weather-day__now">
-        <div className="weather-day__container-icon">
-          <AIcon name={weatherNow.weather[0].description} size="120" />
-        </div>
-        <div>
-          <div className="weather-day__big-celsius">{currentTemp}&#xb0;</div>
-          <div>
-            {weatherNow.weather[0].main}, {maxTempToday}
-            &#176; / {minTempToday}&#176;
-          </div>
-        </div>
-      </div>
+    <div className="day-container">
       <div className="detail-info">
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
-            <AIcon name="drops" size="25" className="detail-info__box-icon" />
+            <AIcon
+              name="drops"
+              size="25"
+              fill={isMobile ? '#f7f9fc' : '#505565'}
+              className="detail-info__box-icon"
+            />
           </div>
           <div className="detail-info__title">Rain</div>
           <div className="detail-info__options">{Math.round(rain * 100)} %</div>
@@ -60,6 +46,7 @@ export const WeatherDetails = () => {
             <AIcon
               className="detail-info__box-icon"
               name="precipitation"
+              fill={isMobile ? '#f7f9fc' : '#505565'}
               size="25"
             />
           </div>
@@ -68,7 +55,12 @@ export const WeatherDetails = () => {
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
-            <AIcon className="detail-info__box-icon" name="windy" size="25" />
+            <AIcon
+              className="detail-info__box-icon"
+              name="windy"
+              size="25"
+              fill={isMobile ? '#f7f9fc' : '#505565'}
+            />
           </div>
 
           <div className="detail-info__title">Wind</div>
@@ -76,7 +68,12 @@ export const WeatherDetails = () => {
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
-            <AIcon className="detail-info__box-icon" name="uv" size="20" />
+            <AIcon
+              className="detail-info__box-icon"
+              name="uv"
+              size="20"
+              fill={isMobile ? '#f7f9fc' : '#505565'}
+            />
           </div>
           <div className="detail-info__title">UV index</div>
           <div className="detail-info__options">{uv}</div>
@@ -86,6 +83,7 @@ export const WeatherDetails = () => {
             <AIcon
               name="clouds cover"
               size="25"
+              fill={isMobile ? '#f7f9fc' : '#505565'}
               className="detail-info__box-icon"
             />
           </div>
@@ -97,6 +95,7 @@ export const WeatherDetails = () => {
             <AIcon
               name="pressure"
               size="25"
+              fill={isMobile ? '#f7f9fc' : '#505565'}
               className="detail-info__box-icon"
             />
           </div>
@@ -105,7 +104,12 @@ export const WeatherDetails = () => {
         </div>
         <div className="detail-info__box">
           <div className="detail-info__icon-box">
-            <AIcon name="sunrise" size="25" className="detail-info__box-icon" />
+            <AIcon
+              name="sunrise"
+              size="25"
+              fill={isMobile ? '#f7f9fc' : '#505565'}
+              className="detail-info__box-icon"
+            />
           </div>
           <div className="detail-info__title">Sunrise / Sunset</div>
           <div className="detail-info__options">
@@ -117,6 +121,7 @@ export const WeatherDetails = () => {
             <AIcon
               name="visibility"
               size="25"
+              fill={isMobile ? '#f7f9fc' : '#505565'}
               className="detail-info__box-icon"
             />
           </div>
@@ -128,6 +133,7 @@ export const WeatherDetails = () => {
             <AIcon
               name="wind gust"
               size="25"
+              fill={isMobile ? '#f7f9fc' : '#505565'}
               className="detail-info__box-icon"
             />
           </div>
@@ -141,6 +147,7 @@ export const WeatherDetails = () => {
             <AIcon
               name="feels like"
               size="25"
+              fill={isMobile ? '#f7f9fc' : '#505565'}
               className="detail-info__box-icon"
             />
           </div>
@@ -153,7 +160,7 @@ export const WeatherDetails = () => {
       <div className="hour-degrees">
         <MSliderDay />
       </div>
-    </>
+    </div>
   ) : (
     <ALoader />
   );

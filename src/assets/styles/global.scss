@@ -8,6 +8,9 @@ body {
   background-color: $background-color;
   color: $text-color;
 
+  @media screen and (min-width: 768px) {
+    background-color: $primary-color;
+  }
   > * {
     // min-height: 100dvh;
   }

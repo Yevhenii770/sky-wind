@@ -27,7 +27,7 @@
     font-size: 45px;
     margin-right: 10px;
     @media screen and (min-width: 768px) {
-      font-size: 86px;
+      font-size: 66px;
     }
   }
 
@@ -152,7 +152,7 @@
       color: $light-text-color;
     }
     &__value {
-      font-size: 40px;
+      font-size: 36px;
       font-weight: 400;
 
       gap: 10px;

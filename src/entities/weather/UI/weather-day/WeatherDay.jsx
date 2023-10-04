@@ -147,7 +147,9 @@ export const WeatherDay = () => {
         <MSliderDay />
         <div className="weather-day__container-btn">
           <div className="weather-day__more-btn">
-            <AButton to="/day">See More</AButton>
+            <AButton type="button" to="/day">
+              See More
+            </AButton>
           </div>
         </div>
       </div>
