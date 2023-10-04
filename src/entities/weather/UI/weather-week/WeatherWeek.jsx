@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { AButton, AIcon } from '@/shared/components/UI/atoms';
 import { selectWeather } from '@/redux/weather/weather-selectors';
-import { useConvertTime } from '../../hooks';
-import { useConvertDegrees } from '../../hooks';
+import { useConvertTime, useConvertDegrees } from '../../hooks';
+import { isMobile } from 'react-device-detect';
 import { nanoid } from 'nanoid';
 import { ALoader } from '@/shared/components/UI/atoms/ALoader';
 import './styles.scss';
@@ -22,10 +22,13 @@ export const WeatherWeek = () => {
               </div>
               <div className="weather-week__midle-group">
                 <div className="weather-week__icon">
-                  <AIcon name={el.weather[0].description} size={20} />
+                  <AIcon
+                    name={el.weather[0].description}
+                    size={isMobile ? 20 : 50}
+                  />
                 </div>
                 <div className="weather-week__cloud-cover-icon">
-                  <AIcon name="humiditi" size={15} />
+                  <AIcon name="humiditi" size={isMobile ? 15 : 25} />
                 </div>
                 <div className="weather-week__humidity">{el.humidity} %</div>
               </div>
