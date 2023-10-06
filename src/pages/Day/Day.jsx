@@ -33,7 +33,7 @@ export default function Day() {
               <WeatherLocation />
 
               {isMobile && (
-                <AButton svg="true" onClick={handleModalOpen}>
+                <AButton svg="true" type="svg" onClick={handleModalOpen}>
                   <AIcon name="dots" fill={'#f7f9fc'} size="35" />
                 </AButton>
               )}
@@ -42,7 +42,9 @@ export default function Day() {
         </div>
         <WeatherDetails />
         <div className="page-day__back-btn">
-          <AButton to="/"> Go back</AButton>
+          <AButton to="/" type="button">
+            Go back
+          </AButton>
         </div>
       </div>
       <div>

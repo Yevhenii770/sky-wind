@@ -24,7 +24,7 @@ export const WeatherWeek = () => {
                 <div className="weather-week__icon">
                   <AIcon
                     name={el.weather[0].description}
-                    size={isMobile ? 20 : 50}
+                    size={isMobile ? 20 : 40}
                   />
                 </div>
                 <div className="weather-week__cloud-cover-icon">
@@ -45,7 +45,9 @@ export const WeatherWeek = () => {
 
       <div className="weather-week__container-btn">
         <div className="weather-week__more-btn">
-          <AButton to="/week">See More</AButton>
+          <AButton to="/week" type="button">
+            See more
+          </AButton>
         </div>
       </div>
     </div>

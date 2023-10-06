@@ -31,31 +31,20 @@
   &__current-weather-navigation {
     display: flex;
     justify-content: space-between;
+    padding-left: 21px;
+    padding-right: 21px;
 
     @media screen and (min-width: 768px) {
       display: block;
+      padding-left: 0px;
+      padding-right: 0px;
     }
   }
 
   &__back-btn {
-    width: 100%;
-
-    @media screen and (min-width: 768px) {
-      width: 173px;
-      color: $background-secondary;
-    }
-  }
-  * .a-button:hover,
-  .a-button:focus {
-    color: $primary-color;
-    background-color: $background-secondary;
-    border: 1px solid $primary-color;
-  }
-  * .a-button {
-    @media screen and (min-width: 768px) {
-      transition: color 0.3s, background-color 0.3s, border 0.3s;
-      border: 1px solid $background-secondary;
-      border-radius: 16px;
+    display: none;
+    @media screen and (min-width: 1200px) {
+      display: block;
     }
   }
 }

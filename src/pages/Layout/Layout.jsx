@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { AIcon } from '@/shared/components/UI/atoms';
+import { AIcon, AButton } from '@/shared/components/UI/atoms';
 import { Logo } from '../../widgets/header/UI';
 import { SearchCityForm } from '../../shared/components/UI/molecules';
 
@@ -30,13 +30,21 @@ const Layout = () => {
                   </div>
                 </div>
                 <div className="navigations">
-                  <NavLink className="navigations__link" to="/day">
+                  <AButton
+                    className="navigations__link"
+                    type="navigation"
+                    to="/day"
+                  >
                     Day
-                  </NavLink>
+                  </AButton>
 
-                  <NavLink className="navigations__link" to="/week">
+                  <AButton
+                    className="navigations__link"
+                    type="navigation"
+                    to="/week"
+                  >
                     Week
-                  </NavLink>
+                  </AButton>
                 </div>
               </div>
             </div>

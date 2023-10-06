@@ -29,19 +29,11 @@ const Week = () => {
     <div className="page-week">
       <div className="page-week__content">
         <div className="page-week__header">
-          <NavLink className="page-day__btn-back" to="/">
+          <NavLink className="page-week__btn-back" to="/">
             <AIcon name="left" fill={isBrowser ? '#505565' : '#f7f9fc'} />
           </NavLink>
 
           <WeatherLocation />
-
-          <AButton svg="true" onClick={handleModalOpen}>
-            <AIcon
-              name="dots"
-              fill={isBrowser ? '#505565' : '#f7f9fc'}
-              size="35"
-            />
-          </AButton>
         </div>
 
         <div className="page-week__container">
@@ -63,33 +55,49 @@ const Week = () => {
                     {String(useConvertDegrees(el.temp.max)).slice(0, 2)}&#176; /{' '}
                     {String(useConvertDegrees(el.temp.min)).slice(0, 2)}&#176;
                   </div>{' '}
-                  <div className="page-week__feels-like">
-                    {'Feels like'}{' '}
+                </div>
+              </div>
+              <div className="page-week__details-container">
+                <div className="page-week__weather-title">
+                  <div className="page-week__element-title">Wind</div>
+                  <div className="page-week__element-value">
+                    {Math.round(el.wind_speed)} Km/h
+                  </div>
+                </div>
+                <div className="page-week__weather-title">
+                  <div className="page-week__element-title">Rain</div>
+                  <div className="page-week__element-value">
+                    {el.pop * 100} %
+                  </div>
+                </div>
+                <div className="page-week__weather-title">
+                  <div className="page-week__element-title">Humidity</div>
+                  <div className="page-week__element-value">
+                    {el.humidity} %
+                  </div>
+                </div>
+                <div className="page-week__weather-title">
+                  <div className="page-week__element-title">UI Index</div>
+                  <div className="page-week__element-value">
+                    {Math.round(el.uvi)}
+                  </div>
+                </div>
+                <div className="page-week__weather-title">
+                  <div className="page-week__element-title">Feels Like</div>
+                  <div className="page-week__element-value">
                     {String(useConvertDegrees(el.feels_like.day)).slice(0, 2)}
                     &#176;
                   </div>
                 </div>
               </div>
-              <div className="page-week__details-container">
-                <div className="page-week__weather-title">
-                  <div className="page-week__element">Wind</div>{' '}
-                  <div>{Math.round(el.wind_speed)} Km/h</div>
-                </div>
-                <div className="page-week__weather-title">
-                  <div className="page-week__element">Rain</div>
-                  <div>{el.pop * 100} %</div>
-                </div>
-                <div className="page-week__weather-title">
-                  <div className="page-week__element">Humidity</div>
-                  <div className="">{el.humidity} %</div>
-                </div>
-                <div className="page-week__weather-title">
-                  <div className="page-week__element">UI Index</div>
-                  <div>{Math.round(el.uvi)}</div>
-                </div>
-              </div>
             </div>
           ))}
+        </div>
+
+        <div className="page-week__back-btn">
+          <AButton to="/" type="button">
+            Go back
+          </AButton>
         </div>
       </div>
     </div>
