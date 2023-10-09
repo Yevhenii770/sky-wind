@@ -94,7 +94,7 @@ const Week = () => {
           ))}
         </div>
 
-        <div className="page-week__back-btn">
+        <div className="">
           <AButton to="/" type="button">
             Go back
           </AButton>

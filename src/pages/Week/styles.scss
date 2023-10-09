@@ -8,6 +8,14 @@
     margin-bottom: 100px;
   }
 
+  &__btn-back {
+    display: block;
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+
   &__header {
     display: flex;
     justify-content: space-around;
@@ -125,22 +133,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  &__back-btn {
-    display: none;
-    @media screen and (min-width: 1200px) {
-      display: block;
-    }
-  }
-
-  &__back-btn {
-    width: 100%;
-
-    @media screen and (min-width: 768px) {
-      width: 173px;
-      color: $background-secondary;
-    }
   }
 }
 .page-week * .sub-title {

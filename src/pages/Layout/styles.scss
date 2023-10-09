@@ -17,13 +17,13 @@
 }
 
 .background-image {
-  @media screen and (min-width: 370px) and (max-width: 1199px) {
+  @media screen and (min-width: 370px) and (max-width: 767px) {
     background-image: url('@/shared/components/photos/the-duomo-in-florence-800x800.png');
   }
 }
 
 .color-fill {
-  @media screen and (min-width: 370px) and (max-width: 1199px) {
+  @media screen and (min-width: 370px) and (max-width: 767px) {
     background-color: rgba(21, 105, 207, 0.5);
   }
 }

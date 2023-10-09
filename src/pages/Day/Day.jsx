@@ -41,7 +41,7 @@ export default function Day() {
           </div>
         </div>
         <WeatherDetails />
-        <div className="page-day__back-btn">
+        <div className="">
           <AButton to="/" type="button">
             Go back
           </AButton>
