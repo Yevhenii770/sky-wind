@@ -29,7 +29,7 @@ const Week = () => {
     <div className="page-week">
       <div className="page-week__content">
         <div className="page-week__header">
-          <NavLink className="page-week__btn-back" to="/">
+          <NavLink className="page-week__btn-left-back" to="/">
             <AIcon name="left" fill={isBrowser ? '#505565' : '#f7f9fc'} />
           </NavLink>
 
@@ -94,7 +94,7 @@ const Week = () => {
           ))}
         </div>
 
-        <div className="">
+        <div className="page-week__btn-back">
           <AButton to="/" type="button">
             Go back
           </AButton>

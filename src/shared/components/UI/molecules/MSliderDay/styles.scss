@@ -8,22 +8,24 @@
     gap: 5px;
   }
 
-  &__list::-webkit-scrollbar {
-    height: 40px;
-  }
+  @media screen and (min-width: 768px) {
+    &__list::-webkit-scrollbar {
+      height: 40px;
+    }
 
-  &__list::-webkit-scrollbar-track {
-    -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
-    background-color: #f9f9fd;
-    border-radius: 16px;
+    &__list::-webkit-scrollbar-track {
+      -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+      background-color: #f9f9fd;
+      border-radius: 16px;
 
-    border: 1px solid $background-secondary;
-  }
+      border: 1px solid $background-secondary;
+    }
 
-  &__list::-webkit-scrollbar-thumb {
-    border-radius: 16px;
-    border: 1px solid $background-secondary;
-    background: $background-color;
+    &__list::-webkit-scrollbar-thumb {
+      border-radius: 16px;
+      border: 1px solid $background-secondary;
+      background: $background-color;
+    }
   }
 
   &__element-title {

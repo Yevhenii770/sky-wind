@@ -47,6 +47,14 @@
       display: block;
     }
   }
+
+  &__btn-back {
+    display: none;
+
+    @media screen and (min-width: 1200px) {
+      display: block;
+    }
+  }
 }
 
 .weather-day__btn-back {

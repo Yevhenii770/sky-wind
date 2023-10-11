@@ -26,7 +26,7 @@ export default function Day() {
             <Temp />
             <div className="page-day__current-weather-navigation">
               {isMobile && (
-                <NavLink className="page-day__btn-back" to="/">
+                <NavLink className="page-day__btn-left-back" to="/">
                   <AIcon name="left" fill={'#f7f9fc'} />
                 </NavLink>
               )}
@@ -41,7 +41,7 @@ export default function Day() {
           </div>
         </div>
         <WeatherDetails />
-        <div className="">
+        <div className="page-day__btn-back">
           <AButton to="/" type="button">
             Go back
           </AButton>
