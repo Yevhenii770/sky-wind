@@ -1,4 +1,4 @@
-$size: 80px;
+$size: 100px;
 
 .a-loader {
   display: inline-block;
@@ -13,7 +13,7 @@ $size: 80px;
     margin: 8px;
     border-radius: 50%;
     border: 6px solid $primary-color;
-    border-color: $primary-color transparent $primary-color transparent;
+    border-color: $text-color transparent $primary-color transparent;
     animation: a-loader 1.2s linear infinite;
 
     @keyframes a-loader {

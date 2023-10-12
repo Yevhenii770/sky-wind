@@ -20,8 +20,8 @@ const Home = () => {
   };
 
   return allWeather ? (
-    <div className="home">
-      <>
+    <>
+      <div className="home">
         <div className="home__header">
           <WeatherLocation />
           <div className="home__mobile-search-btn">
@@ -37,7 +37,7 @@ const Home = () => {
             <WeatherWeek />
           </div>
         </div>
-      </>
+      </div>
 
       <div>
         {isModalActive && (
@@ -46,9 +46,11 @@ const Home = () => {
           </Modal>
         )}
       </div>
-    </div>
+    </>
   ) : (
-    <ALoader />
+    <div className="loader">
+      <ALoader />
+    </div>
   );
 };
 

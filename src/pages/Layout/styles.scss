@@ -1,4 +1,16 @@
+.main {
+  padding: 0px;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   @media screen and (min-width: 0px) {
     padding-top: 60px;
     padding-bottom: 10px;
@@ -60,6 +72,8 @@
 .footer {
   padding-top: 21px;
   padding-bottom: 21px;
+
+  margin-top: auto;
 
   background-color: $background-secondary;
   border-radius: 25px 25px 0px 0px;

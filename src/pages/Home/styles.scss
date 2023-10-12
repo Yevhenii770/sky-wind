@@ -1,6 +1,4 @@
 .home {
-  padding: 0px;
-
   &__header {
     padding: 0 20px;
     margin-bottom: 35px;
@@ -30,4 +28,12 @@
       margin-bottom: 35px;
     }
   }
+}
+
+.loader {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

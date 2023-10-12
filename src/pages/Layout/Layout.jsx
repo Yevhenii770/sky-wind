@@ -19,7 +19,7 @@ const Layout = () => {
   return (
     <div className={`${backgroundImage}`}>
       <div className={`${colorFill}`}>
-        <div className={`container`}>
+        <div className="container">
           <div className="header">
             <div className="header__container">
               <div className="header__navbar">
@@ -50,7 +50,9 @@ const Layout = () => {
             </div>
           </div>
           <Suspense>
-            <Outlet />
+            <main className="main">
+              <Outlet />
+            </main>
           </Suspense>
           <ToastContainer />
           <div className="footer">
