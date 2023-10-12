@@ -19,10 +19,10 @@ import { addCoords } from './redux/weather/weather-slice';
 import './styles.scss';
 
 import Layout from './pages/Layout/Layout';
+import NotFound from './pages/NotFound/NotFound';
 const HomePage = lazy(() => import('./pages/Home/Home'));
 const DayPage = lazy(() => import('./pages/Day/Day'));
 const WeekPage = lazy(() => import('./pages/Week/Week'));
-const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 
 function App() {
   const dispatch = useDispatch();

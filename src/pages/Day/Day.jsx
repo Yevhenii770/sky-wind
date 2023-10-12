@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { isMobile, isTablet } from 'react-device-detect';
 import { WeatherLocation } from '@/entities/weather/UI/weather-location';
@@ -17,6 +17,10 @@ export default function Day() {
   const handleModalClose = () => {
     setModalActive(false);
   };
+
+  useEffect(() => {
+    console.log('123');
+  }, []);
 
   return (
     <div className="page-day">
