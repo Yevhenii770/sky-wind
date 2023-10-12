@@ -22,6 +22,7 @@ import Layout from './pages/Layout/Layout';
 const HomePage = lazy(() => import('./pages/Home/Home'));
 const DayPage = lazy(() => import('./pages/Day/Day'));
 const WeekPage = lazy(() => import('./pages/Week/Week'));
+const NotFound = lazy(() => import('./pages/NotFound/NotFound'));
 
 function App() {
   const dispatch = useDispatch();
@@ -98,6 +99,7 @@ function App() {
         <Route path="day" element={<DayPage />} />
         <Route path="week" element={<WeekPage />} />
       </Route>
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
