@@ -18,10 +18,6 @@ export default function Day() {
     setModalActive(false);
   };
 
-  useEffect(() => {
-    console.log('123');
-  }, []);
-
   return (
     <div className="page-day">
       <div className="page-day__container">
