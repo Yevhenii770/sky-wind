@@ -15,7 +15,7 @@ export const AMonth = () => {
   ];
 
   const myDate = new Date();
-  const month = myDate.getMonth() + 1;
+  const month = myDate.getMonth();
 
   return <>{months[month]}</>;
 };

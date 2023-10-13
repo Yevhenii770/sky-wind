@@ -1,23 +1,23 @@
 import { Link } from 'react-router-dom';
+import errorPhoto from '../../../public/partly-cloudy-night.png';
+import { isMobile } from 'react-device-detect';
+
 import './styles.scss';
 
 const NotFound = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      <h1>Page not found...</h1>
-      <p>
-        Maybe you want to go: <Link to="/">Home</Link>
-      </p>
+    <div className="page-not-found">
+      <div className="page-not-found__container">
+        <img src={errorPhoto} alt="404" width={isMobile ? 150 : 335} />
+        <div className="error">
+          <h1 className="error__title">404</h1>
+          <h2 className="error__sub-title">Oops!</h2>
+          <p className="error__text">
+            Something went wrong. Looks like this page doesn’t exist anymore.{' '}
+          </p>
+          <Link to="/">Home</Link>
+        </div>
+      </div>
     </div>
   );
 };

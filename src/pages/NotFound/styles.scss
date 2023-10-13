@@ -1,0 +1,39 @@
+.page-not-found {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 768px) {
+}
+.error {
+  &__title {
+    color: $background-secondary;
+    margin: 0px;
+
+    @media screen and (min-width: 768px) {
+      font-size: 240px;
+      font-weight: 600;
+    }
+  }
+
+  &__sub-title {
+    @media screen and (min-width: 768px) {
+      font-size: 48px;
+      font-weight: 600;
+    }
+  }
+
+  &__text {
+    @media screen and (min-width: 768px) {
+      width: 529px;
+      font-size: 24px;
+      font-weight: 400;
+    }
+  }
+}
