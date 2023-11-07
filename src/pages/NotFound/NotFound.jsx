@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import errorPhoto from '../../../public/partly-cloudy-night.png';
 import { isMobile } from 'react-device-detect';
-
 import './styles.scss';
 
 export const NotFound = () => {
