@@ -26,7 +26,8 @@ export const MSliderDay = () => {
             size="40"
           />
           <div className="slider-weather-day__element-temp">
-            {Math.round(String(useConvertDegrees(el.temp))?.slice(0, 2))}&#176;
+            {Math.round(String(useConvertDegrees(el.temp))?.split('.')[0])}
+            &#176;
           </div>
           <div className="slider-weather-day__icon-container">
             <AIcon name="humiditi" size="15" />

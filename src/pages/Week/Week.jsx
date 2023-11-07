@@ -52,8 +52,9 @@ const Week = () => {
                 </div>
                 <div className="page-week__temp-container">
                   <div className="page-week__temp">
-                    {String(useConvertDegrees(el.temp.max)).slice(0, 2)}&#176; /{' '}
-                    {String(useConvertDegrees(el.temp.min)).slice(0, 2)}&#176;
+                    {String(useConvertDegrees(el.temp.max)).split('.')[0]}&#176;
+                    / {String(useConvertDegrees(el.temp.min)).split('.')[0]}
+                    &#176;
                   </div>{' '}
                 </div>
               </div>
@@ -85,7 +86,7 @@ const Week = () => {
                 <div className="page-week__weather-title">
                   <div className="page-week__element-title">Feels Like</div>
                   <div className="page-week__element-value">
-                    {String(useConvertDegrees(el.feels_like.day)).slice(0, 2)}
+                    {String(useConvertDegrees(el.feels_like.day)).split('.')[0]}
                     &#176;
                   </div>
                 </div>

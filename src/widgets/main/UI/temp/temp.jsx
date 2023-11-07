@@ -11,11 +11,12 @@ export const Temp = () => {
 
   const maxTempToday = String(
     useConvertDegrees(allWeather?.daily[0]?.temp?.max)
-  ).slice(0, 2);
+  ).split('.')[0];
+
   const minTempToday = String(
     useConvertDegrees(allWeather?.daily[0]?.temp?.min)
-  ).slice(0, 2);
-  const currentTemp = String(useConvertDegrees(weatherNow.temp))?.slice(0, 2);
+  ).split('.')[0];
+  const currentTemp = String(useConvertDegrees(weatherNow.temp))?.split('.')[0];
 
   return allWeather ? (
     <div className="weather-day__now">

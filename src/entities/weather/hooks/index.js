@@ -1,4 +1,4 @@
-var daysOfWeek = [
+const daysOfWeek = [
   'Sunday',
   'Monday',
   'Tuesday',

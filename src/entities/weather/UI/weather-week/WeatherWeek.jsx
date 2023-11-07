@@ -33,8 +33,8 @@ export const WeatherWeek = () => {
                 <div className="weather-week__humidity">{el.humidity} %</div>
               </div>
               <div className="weather-week__range">
-                {String(useConvertDegrees(el.temp.max)).slice(0, 2)}&#176; /{' '}
-                {String(useConvertDegrees(el.temp.min)).slice(0, 2)}&#176;
+                {String(useConvertDegrees(el.temp.max)).split('.')[0]}&#176; /{' '}
+                {String(useConvertDegrees(el.temp.min)).split('.')[0]}&#176;
               </div>
             </div>
           ))

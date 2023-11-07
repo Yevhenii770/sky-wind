@@ -18,8 +18,8 @@ import { useGeolocated } from 'react-geolocated';
 import { addCoords } from './redux/weather/weather-slice';
 import './styles.scss';
 
-import Layout from './pages/Layout/Layout';
-import NotFound from './pages/NotFound/NotFound';
+import { Layout } from './pages/Layout';
+import { NotFound } from './pages/NotFound';
 const HomePage = lazy(() => import('./pages/Home/Home'));
 const DayPage = lazy(() => import('./pages/Day/Day'));
 const WeekPage = lazy(() => import('./pages/Week/Week'));

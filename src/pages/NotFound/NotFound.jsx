@@ -4,7 +4,7 @@ import { isMobile } from 'react-device-detect';
 
 import './styles.scss';
 
-const NotFound = () => {
+export const NotFound = () => {
   return (
     <div className="page-not-found">
       <div className="page-not-found__container">
@@ -21,4 +21,3 @@ const NotFound = () => {
     </div>
   );
 };
-export default NotFound;

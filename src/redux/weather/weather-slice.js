@@ -49,6 +49,7 @@ export const userLocation = createSlice({
   name: 'location',
   initialState: {
     location: [],
+    isLoading: false,
     selectedCity: null,
   },
   reducers: {
@@ -68,6 +69,7 @@ export const userLocation = createSlice({
       .addCase(fetchCity.rejected, handleRejected)
       .addCase(fetchCity.fulfilled, (state, action) => {
         state.location = [action.payload[0].lat, action.payload[0].lon];
+        state.isLoading = false;
       }),
 });
 

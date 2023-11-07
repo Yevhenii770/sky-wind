@@ -9,7 +9,7 @@ import { SearchCityForm } from '../../shared/components/UI/molecules';
 
 import './styles.scss';
 
-const Layout = () => {
+export const Layout = () => {
   const { pathname } = useLocation();
   const backgroundImage =
     pathname === '/day' || pathname === '/week' ? 'background-image' : '';
@@ -83,4 +83,3 @@ const Layout = () => {
     </div>
   );
 };
-export default Layout;
