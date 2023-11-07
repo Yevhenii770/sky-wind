@@ -13,7 +13,6 @@ import {
   userElectCity,
   selectWeather,
 } from './redux/weather/weather-selectors';
-import { ALoader } from './shared/components/UI/atoms/ALoader';
 import { useGeolocated } from 'react-geolocated';
 import { addCoords } from './redux/weather/weather-slice';
 import './styles.scss';
@@ -28,7 +27,6 @@ function App() {
   const dispatch = useDispatch();
 
   const weatherArray = useSelector(selectWeather);
-  const isLoading = useSelector(selectWeatherLoading);
   const location = useSelector(userLocation);
   const selectedCity = useSelector(userElectCity);
 
@@ -81,18 +79,7 @@ function App() {
     }
   }, [location]);
 
-  // fech weather map
-  // useEffect(() => {
-  //   if (location.length !== 0) {
-  //     dispatch(fetchWeatherMap());
-  //   }
-  // }, [location]);
-
-  return isLoading ? (
-    <div className="app-loader-container">
-      <ALoader />
-    </div>
-  ) : (
+  return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />

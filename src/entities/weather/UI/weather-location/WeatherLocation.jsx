@@ -20,7 +20,7 @@ export const WeatherLocation = () => {
 
   useEffect(() => {}, [dataLocations.name, dataLocations.country, weatherNow]);
 
-  return (
+  return allWeather ? (
     <div className="weather-location">
       <div>
         <div className="title">
@@ -40,5 +40,7 @@ export const WeatherLocation = () => {
         </div>
       </div>
     </div>
+  ) : (
+    <ALoader />
   );
 };

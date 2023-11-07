@@ -4,13 +4,14 @@ import { selectWeather } from '@/redux/weather/weather-selectors';
 import { useConvertTime, useConvertDegrees } from '../../hooks';
 import { isMobile } from 'react-device-detect';
 import { nanoid } from 'nanoid';
+import { ALoader } from '../../../../shared/components/UI/atoms';
 import './styles.scss';
 
 export const WeatherWeek = () => {
   const allWeather = useSelector(selectWeather);
   const weatherWeek = allWeather?.daily;
 
-  return (
+  return allWeather ? (
     <div className="weather-week">
       <div className="weather-week__list">
         {weatherWeek.map((el, index) => (
@@ -46,5 +47,7 @@ export const WeatherWeek = () => {
         </div>
       </div>
     </div>
+  ) : (
+    <ALoader />
   );
 };
