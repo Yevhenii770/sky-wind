@@ -7,6 +7,7 @@ import './styles.scss';
 
 export const Temp = () => {
   const allWeather = useSelector(selectWeather);
+
   const weatherNow = allWeather?.current;
 
   const maxTempToday = String(
