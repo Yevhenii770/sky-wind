@@ -25,7 +25,7 @@ export const WeatherDetails = () => {
   const windGust = allWeather?.current?.wind_gust;
   const feelsLike = useConvertDegrees(allWeather.current.feels_like);
 
-  return allWeather ? (
+  return (
     <div className="day-container">
       <div className="detail-info">
         <div className="detail-info__box">
@@ -161,7 +161,5 @@ export const WeatherDetails = () => {
         <MSliderDay />
       </div>
     </div>
-  ) : (
-    <ALoader />
   );
 };

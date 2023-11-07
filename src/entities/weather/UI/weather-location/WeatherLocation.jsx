@@ -24,13 +24,13 @@ export const WeatherLocation = () => {
     <div className="weather-location">
       <div>
         <div className="title">
-          {dataLocations ? dataLocations.name : <ALoader />},{' '}
-          {dataLocations ? dataLocations.country : <ALoader />}
+          {dataLocations ? dataLocations.name : ''},{' '}
+          {dataLocations ? dataLocations.country : ''}
         </div>
         <div className="sub-title">
           {location.pathname !== '/week' ? (
             <>
-              <ADate /> <ATime />, {weatherNow ? weatherNow : <ALoader />}
+              <ADate /> <ATime />, {weatherNow ? weatherNow : ''}
             </>
           ) : (
             <>
