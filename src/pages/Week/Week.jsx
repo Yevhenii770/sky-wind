@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { isBrowser } from 'react-device-detect';
 import { selectWeather } from '../../redux/weather/weather-selectors';
@@ -16,14 +15,6 @@ import './styles.scss';
 const Week = () => {
   const allWeather = useSelector(selectWeather);
   const dailyWeather = allWeather?.daily;
-  const [isModalActive, setModalActive] = useState(false);
-
-  const handleModalOpen = () => {
-    setModalActive(true);
-  };
-  const handleModalClose = () => {
-    setModalActive(false);
-  };
 
   return dailyWeather ? (
     <div className="page-week">
@@ -68,7 +59,7 @@ const Week = () => {
                 <div className="page-week__weather-title">
                   <div className="page-week__element-title">Rain</div>
                   <div className="page-week__element-value">
-                    {el.pop * 100} %
+                    {Math.round(el.pop * 100)} %
                   </div>
                 </div>
                 <div className="page-week__weather-title">

@@ -18,12 +18,14 @@ export const Temp = () => {
     useConvertDegrees(allWeather?.daily[0]?.temp?.min)
   ).split('.')[0];
 
-  const currentTemp = String(useConvertDegrees(weatherNow.temp))?.split('.')[0];
+  const currentTemp = String(useConvertDegrees(weatherNow?.temp))?.split(
+    '.'
+  )[0];
 
-  return allWeather && allWeather.current ? (
+  return minTempToday && maxTempToday && weatherNow && allWeather ? (
     <div className="weather-day__now">
       <div className="weather-day__container-icon">
-        <AIcon name={weatherNow.weather[0].description} size="120" />
+        <AIcon name={weatherNow?.weather[0]?.description} size="120" />
       </div>
       <div>
         <div className="weather-day__big-celsius">{currentTemp}&#xb0;</div>

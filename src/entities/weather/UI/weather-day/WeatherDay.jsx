@@ -38,7 +38,7 @@ export const WeatherDay = () => {
             </div>
 
             <div className="weather-day__temperature-now">
-              {String(useConvertDegrees(temp)).slice(0, 2)}&#xb0;
+              {String(useConvertDegrees(temp)).split('.')[0]}&#xb0;
             </div>
           </div>
           <div className="weather-day__table">
@@ -77,7 +77,7 @@ export const WeatherDay = () => {
               <div className="card-front">
                 <div className="extra-info__title">Feels like</div>
                 <div className="extra-info__value">
-                  {String(useConvertDegrees(feelsLike)).slice(0, 2)}&#xb0;
+                  {String(useConvertDegrees(feelsLike)).split('.')[0]}&#xb0;
                 </div>
               </div>
               <div className="card-back">

@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { selectWeather } from '@/redux/weather/weather-selectors';
-import { currentCity } from '@/redux/weather/weather-selectors';
+import { selectWeather, currentCity } from '@/redux/weather/weather-selectors';
 import {
   ALoader,
   ATime,
@@ -18,14 +17,18 @@ export const WeatherLocation = () => {
   const dataLocations = useSelector(currentCity);
   const location = useLocation();
 
-  useEffect(() => {}, [dataLocations.name, dataLocations.country, weatherNow]);
+  useEffect(() => {}, [
+    dataLocations?.name,
+    dataLocations?.country,
+    weatherNow,
+  ]);
 
-  return allWeather ? (
+  return allWeather && dataLocations ? (
     <div className="weather-location">
       <div>
         <div className="title">
-          {dataLocations ? dataLocations.name : ''},{' '}
-          {dataLocations ? dataLocations.country : ''}
+          {dataLocations ? dataLocations?.name : ''},{' '}
+          {dataLocations ? dataLocations?.country : ''}
         </div>
         <div className="sub-title">
           {location.pathname !== '/week' ? (
