@@ -1,4 +1,3 @@
-import React from 'react';
 import { useFormik } from 'formik';
 import { addUserCity } from '@/redux/weather/weather-slice';
 import { useDispatch } from 'react-redux';
@@ -7,7 +6,7 @@ import { CitySchema } from '@/entities/weather/schemas';
 
 import './styles.scss';
 
-export const SearchForm = () => {
+export const SearchForm = ({ onClose }) => {
   const dispatch = useDispatch();
 
   const {
@@ -26,6 +25,7 @@ export const SearchForm = () => {
     onSubmit: (values, actions) => {
       dispatch(addUserCity(values.city));
       actions.resetForm();
+      onClose();
     },
     validationSchema: CitySchema,
   });

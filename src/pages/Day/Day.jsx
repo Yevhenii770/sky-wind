@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { isMobile, isTablet } from 'react-device-detect';
+import { isMobile } from 'react-device-detect';
 import { WeatherLocation } from '@/entities/weather/UI/weather-location';
 import { WeatherDetails } from '@/entities/weather/UI/weather-details/weatherDetails';
 import { AIcon, AButton } from '@/shared/components/UI/atoms';

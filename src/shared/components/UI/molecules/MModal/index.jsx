@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Portal, { createContainer } from '@/entities/weather/portal';
 import { AIcon } from '../../atoms';
 

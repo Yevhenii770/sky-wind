@@ -26,7 +26,7 @@ const Home = () => {
           <WeatherLocation />
           <div className="home__mobile-search-btn">
             <AButton svg="true" onClick={handleModalOpen}>
-              <AIcon name="serach" size="35" />
+              <AIcon name="search" size="35" />
             </AButton>
           </div>
         </div>
@@ -42,7 +42,7 @@ const Home = () => {
       <div>
         {isModalActive && (
           <Modal onClose={handleModalClose}>
-            <SearchForm />
+            <SearchForm onClose={handleModalClose} />
           </Modal>
         )}
       </div>

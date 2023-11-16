@@ -1,4 +1,4 @@
-export const serach = ({ size = 25, fill }) => (
+export const search = ({ size = 25, fill }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
