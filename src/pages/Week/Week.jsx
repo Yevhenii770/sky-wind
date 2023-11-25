@@ -43,8 +43,9 @@ const Week = () => {
                 </div>
                 <div className="page-week__temp-container">
                   <div className="page-week__temp">
-                    {String(useConvertDegrees(el.temp.max)).split('.')[0]}&#176;
-                    / {String(useConvertDegrees(el.temp.min)).split('.')[0]}
+                    {String(useConvertDegrees(el.temp.max)).split('.')[0]}
+                    &#176; /{' '}
+                    {String(useConvertDegrees(el.temp.min)).split('.')[0]}
                     &#176;
                   </div>{' '}
                 </div>

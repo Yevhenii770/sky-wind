@@ -27,10 +27,3 @@ body {
   font-weight: 400;
   color: $light-text-color;
 }
-
-// sizing of map container
-.leaflet-container {
-  height: 100%;
-  border-radius: 20px;
-  z-index: 1;
-}
