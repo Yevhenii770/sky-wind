@@ -9,7 +9,7 @@ import './styles.scss';
 
 export const WeatherDay = () => {
   const [precipitation, setPrecipitation] = useState(null);
-  let sunrise, sunset, feelsLike, windDeg, temp;
+  let sunrise, sunset, feelsLike, temp;
 
   const allWeather = useSelector(selectWeather);
   const currentWeather = allWeather.current;
@@ -18,7 +18,6 @@ export const WeatherDay = () => {
     sunrise = currentWeather.sunrise;
     sunset = currentWeather.sunset;
     feelsLike = currentWeather.feels_like;
-    windDeg = currentWeather.wind_deg;
     temp = currentWeather.temp;
   }
 
