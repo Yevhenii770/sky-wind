@@ -50,3 +50,4 @@ export * from './feelsLike';
 export * from './sunset';
 export * from './compas';
 export * from './drop';
+export * from './snow';
