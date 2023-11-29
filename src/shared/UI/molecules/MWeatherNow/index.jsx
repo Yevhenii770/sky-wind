@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import { selectWeather } from '@/redux/weather/weather-selectors';
-import { AIcon } from '@/shared/components/UI/atoms';
+import { AIcon } from '@/shared/UI/atoms';
 import { useConvertDegrees } from '@/entities/weather/hooks';
-import { ALoader } from '@/shared/components/UI/atoms';
+import { ALoader } from '@/shared/UI/atoms';
 import './styles.scss';
 
-export const Temp = () => {
+export const WeatherNow = () => {
   const allWeather = useSelector(selectWeather);
 
   const weatherNow = allWeather?.current;

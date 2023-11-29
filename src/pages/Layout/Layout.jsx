@@ -3,9 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { AIcon, AButton } from '@/shared/components/UI/atoms';
+import { AIcon, AButton } from '@/shared/UI/atoms';
 import { Logo } from '../../widgets/header/UI';
-import { SearchCityForm } from '../../shared/components/UI/molecules';
+import { SearchCityForm } from '../../shared/UI/molecules';
 
 import './styles.scss';
 

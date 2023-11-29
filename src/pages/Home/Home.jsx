@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectWeather } from '@/redux/weather/weather-selectors';
 import { WeatherDay, WeatherWeek, WeatherLocation } from '@/entities/weather';
-import { SearchForm } from '@/shared/components/UI/molecules';
-import { AButton, AIcon, ALoader } from '../../shared/components/UI/atoms';
-import Modal from '@/shared/components/UI/molecules/MModal';
+import { SearchForm } from '@/shared/UI/molecules';
+import { AButton, AIcon, ALoader } from '../../shared/UI/atoms';
+import Modal from '@/shared/UI/molecules/MModal';
 
 import './styles.scss';
 

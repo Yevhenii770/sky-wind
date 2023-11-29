@@ -1,13 +1,7 @@
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { selectWeather, currentCity } from '@/redux/weather/weather-selectors';
-import {
-  ALoader,
-  ATime,
-  ADate,
-  AMonth,
-  AYear,
-} from '@/shared/components/UI/atoms';
+import { ALoader, ATime, ADate, AMonth, AYear } from '@/shared/UI/atoms';
 import './styles.scss';
 import { useEffect } from 'react';
 

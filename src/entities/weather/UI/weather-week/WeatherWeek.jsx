@@ -1,10 +1,10 @@
 import { useSelector } from 'react-redux';
-import { AButton, AIcon } from '@/shared/components/UI/atoms';
+import { AButton, AIcon } from '@/shared/UI/atoms';
 import { selectWeather } from '@/redux/weather/weather-selectors';
 import { useConvertTime, useConvertDegrees } from '../../hooks';
 import { isMobile } from 'react-device-detect';
 import { nanoid } from 'nanoid';
-import { ALoader } from '@/shared/components/UI/atoms';
+import { ALoader } from '@/shared/UI/atoms';
 import './styles.scss';
 
 export const WeatherWeek = () => {

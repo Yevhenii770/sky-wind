@@ -3,10 +3,10 @@ import { NavLink } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 import { WeatherLocation } from '@/entities/weather/UI/weather-location';
 import { WeatherDetails } from '@/entities/weather/UI/weather-details/weatherDetails';
-import { AIcon, AButton } from '@/shared/components/UI/atoms';
-import Modal from '@/shared/components/UI/molecules/MModal';
-import { WeatherMap } from '../../shared/components/UI/molecules';
-import { Temp } from '../../widgets/main/UI';
+import { AIcon, AButton } from '@/shared/UI/atoms';
+import Modal from '@/shared/UI/molecules/MModal';
+import { WeatherMap, WeatherNow } from '@/shared/UI/molecules';
+
 import './styles.scss';
 
 export default function Day() {
@@ -23,7 +23,7 @@ export default function Day() {
       <div className="page-day__container">
         <div className="page-day__content">
           <div className="page-day__deg-location">
-            <Temp />
+            <WeatherNow />
             <div className="page-day__current-weather-navigation">
               {isMobile && (
                 <NavLink className="page-day__btn-left-back" to="/">

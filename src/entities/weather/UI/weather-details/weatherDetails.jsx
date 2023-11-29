@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { selectWeather } from '@/redux/weather/weather-selectors';
-import { AIcon, ALoader } from '@/shared/components/UI/atoms';
-import { MSliderDay } from '@/shared/components/UI/molecules/MSliderDay';
+import { AIcon, ALoader } from '@/shared/UI/atoms';
+import { MSliderDay } from '@/shared/UI/molecules/MSliderDay';
 import { isMobile } from 'react-device-detect';
 import { useConvertDegrees, useConvertTime } from '../../hooks';
 

@@ -3,13 +3,13 @@ import { isBrowser } from 'react-device-detect';
 import { selectWeather } from '../../redux/weather/weather-selectors';
 import { WeatherLocation } from '@/entities/weather/UI/weather-location';
 import { NavLink } from 'react-router-dom';
-import { AIcon, AButton } from '../../shared/components/UI/atoms';
+import { AIcon, AButton } from '../../shared/UI/atoms';
 import { nanoid } from 'nanoid';
 import {
   useConvertTime,
   useConvertDegrees,
 } from '../../entities/weather/hooks';
-import { ALoader } from '../../shared/components/UI/atoms';
+import { ALoader } from '../../shared/UI/atoms';
 import './styles.scss';
 
 const Week = () => {

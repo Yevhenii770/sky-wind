@@ -1,5 +1,5 @@
 import { createElement } from 'react';
-import * as icons from '../../../icons';
+import * as icons from '../../../components/icons';
 
 export const AIcon = ({ name, size, fill }) => {
   const allIcons = Object.keys(icons);

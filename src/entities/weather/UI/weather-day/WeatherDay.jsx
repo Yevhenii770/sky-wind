@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { AButton, AIcon, ALoader } from '@/shared/components/UI/atoms';
+import { AButton, AIcon, ALoader } from '@/shared/UI/atoms';
 import { selectWeather } from '@/redux/weather/weather-selectors.js';
-import { MSliderDay } from '@/shared/components/UI/molecules/MSliderDay';
+import { MSliderDay } from '@/shared/UI/molecules/MSliderDay';
 import { useConvertDegrees, useConvertTime } from '../../hooks';
 
 import './styles.scss';
