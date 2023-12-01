@@ -10,17 +10,15 @@ export const WeatherNow = () => {
 
   const weatherNow = allWeather?.current;
 
-  const maxTempToday = String(
+  const maxTempToday = Math.round(
     useConvertDegrees(allWeather?.daily[0]?.temp?.max)
-  ).split('.')[0];
+  );
 
-  const minTempToday = String(
+  const minTempToday = Math.round(
     useConvertDegrees(allWeather?.daily[0]?.temp?.min)
-  ).split('.')[0];
+  );
 
-  const currentTemp = String(useConvertDegrees(weatherNow?.temp))?.split(
-    '.'
-  )[0];
+  const currentTemp = Math.round(useConvertDegrees(weatherNow?.temp));
 
   return minTempToday && maxTempToday && weatherNow && allWeather ? (
     <div className="weather-day__now">

@@ -25,7 +25,7 @@ export const MSliderDay = () => {
             size="40"
           />
           <div className="slider-weather-day__element-temp">
-            {Math.round(String(useConvertDegrees(el.temp))?.split('.')[0])}
+            {Math.round(useConvertDegrees(el.temp))}
             &#176;
           </div>
           <div className="slider-weather-day__icon-container">
