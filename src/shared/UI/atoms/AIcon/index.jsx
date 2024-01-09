@@ -3,7 +3,6 @@ import * as icons from '../../../components/icons';
 
 export const AIcon = ({ name, size, fill }) => {
   const allIcons = Object.keys(icons);
-  console.log(name);
   if (/ /.test(name)) {
     const resoltName = name
       .split(' ')
